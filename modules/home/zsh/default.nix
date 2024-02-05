@@ -19,7 +19,40 @@ in {
       enable = true;
       enableCompletion = true;
       enableAutosuggestions = true;
-      syntaxHighlighting.enable = true;
+      syntaxHighlighting = {
+        enable = true;
+        highlighters = [
+          "main"
+          "brackets"
+          "pattern"
+          "cursor"
+          "line"
+        ];
+        styles = {
+          cursor = "fg=yellow,bold";
+          default = "none";
+          unknown-token = "fg=green,bold";
+          reserved-word = "fg=green,bold";
+          alias = "fg=cyan,bold";
+          builtin = "fg=cyan,bold";
+          function = "fg=cyan,bold";
+          command = "fg=cyan,bold";
+          precommand = "fg=cyan,underline";
+          commandseparator = "none";
+          hashed-command = "fg=green,bold";
+          path = "fg=214,underline";
+          globbing = "fg=063";
+          history-expansion = "fg=white,underline";
+          single-hyphen-option = "fg=070";
+          double-hyphen-option = "fg=070";
+          back-quoted-argument = "none";
+          single-quoted-argument = "fg=063";
+          double-quoted-argument = "fg=063";
+          dollar-quoted-argument = "fg=009";
+          dollar-double-quoted-argument = "fg=009";
+          assign = "none";
+        };
+      };
       autocd = true;
 
       initExtra = ''
@@ -32,36 +65,6 @@ bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
 bindkey "^[[1;5A" history-substring-search-up
 bindkey "^[[1;5B" history-substring-search-down
-
-# "zsh-users/zsh-syntax-highlighting"
-typeset -gA ZSH_HIGHLIGHT_STYLES ZSH_HIGHLIGHT_PATTERNS
-
-ZSH_HIGHLIGHT_STYLES[cursor]=fg=yellow,bold
-ZSH_HIGHLIGHT_STYLES[default]=none
-ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=green,bold
-ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=green,bold
-ZSH_HIGHLIGHT_STYLES[alias]=fg=cyan,bold
-ZSH_HIGHLIGHT_STYLES[builtin]=fg=cyan,bold
-ZSH_HIGHLIGHT_STYLES[function]=fg=cyan,bold
-ZSH_HIGHLIGHT_STYLES[command]=fg=white,bold
-ZSH_HIGHLIGHT_STYLES[precommand]=fg=white,underline
-ZSH_HIGHLIGHT_STYLES[commandseparator]=none
-ZSH_HIGHLIGHT_STYLES[hashed-command]=fg=green,bold
-ZSH_HIGHLIGHT_STYLES[path]=fg=214,underline
-ZSH_HIGHLIGHT_STYLES[globbing]=fg=063
-ZSH_HIGHLIGHT_STYLES[history-expansion]=fg=white,underline
-ZSH_HIGHLIGHT_STYLES[single-hyphen-option]=fg=070
-ZSH_HIGHLIGHT_STYLES[double-hyphen-option]=fg=070
-ZSH_HIGHLIGHT_STYLES[back-quoted-argument]=none
-ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=063
-ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=063
-ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=009
-ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=009
-ZSH_HIGHLIGHT_STYLES[assign]=none
-
-ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red')
-
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor line)
 
 # "zsh-users/zsh-autosuggestions"
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=075'
