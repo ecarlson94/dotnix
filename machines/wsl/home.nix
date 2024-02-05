@@ -1,14 +1,10 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports = [ ../../modules/home/default.nix ];
+  imports = [ ../../modules/home ];
 
   home.username = "nixos";
   home.homeDirectory = "/home/nixos";
 
-  modules = {
-    zsh.enable = true;
-    git.enable = true;
-    nvim.enable = true;
-  };
+  modules.headless-ide.enable = true;
 }

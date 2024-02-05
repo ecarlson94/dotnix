@@ -4,24 +4,18 @@
   home.stateVersion = "23.11";
 
   imports = [
-    # cli
+    # CLI
     ./zsh
     ./git
     ./nvim
+    ./search
+
+    # Profiles
+    ./headless-ide
   ];
 
   home.packages = [
     pkgs.curl
-    pkgs.fd
-    pkgs.vim
     pkgs.wget
   ];
-
-  programs.ripgrep.enable = true;
-  programs.fzf = {
-    enable = true;
-    enableBashIntegration = true;
-    defaultCommand = "fd --type f --color=always";
-    defaultOptions = [ "-m" "--height 50%" "--border" ];
-  };
 }
