@@ -13,6 +13,7 @@ in {
 
     programs.dircolors.enable = true;
     programs.dircolors.enableZshIntegration = true;
+    programs.fzf.enableZshIntegration = true;
 
     programs.zsh = {
       enable = true;
