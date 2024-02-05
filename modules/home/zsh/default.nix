@@ -68,45 +68,6 @@ in {
         };
       };
 
-      initExtra = ''
-# =============================================================================
-#                               Plugin Overrides
-# =============================================================================
-
-ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red')
-ZSH_HIGHLIGHT_PATTERNS+=('rmf *' 'fg=white,bold,bg=red')
-
-# "zsh-users/zsh-autosuggestions"
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=075'
-
-# "djui/alias-tips"
-ZSH_PLUGINS_ALIAS_TIPS_EXCLUDES="(_ ll vi)"
-ZSH_PLUGINS_ALIAS_TIPS_FORCE=1
-
-# ZSH_PLUGINS_ALIAS_TIPS_REVEAL=1
-ZSH_PLUGINS_ALIAS_TIPS_REVEAL_EXCLUDES="(_ ll vi)"
-
-# =============================================================================
-#                                   Options
-# =============================================================================
-setopt append_history           # Dont overwrite history
-setopt auto_list
-setopt auto_menu
-setopt auto_pushd
-setopt inc_append_history
-setopt interactive_comments
-setopt no_beep
-setopt no_hist_beep
-setopt no_list_beep
-setopt magic_equal_subst
-setopt notify
-setopt print_eight_bit
-setopt print_exit_value
-setopt prompt_subst
-setopt pushd_ignore_dups
-setopt transient_rprompt
-      '';
-
       zplug = {
         enable = true;
         plugins = [
@@ -184,6 +145,45 @@ setopt transient_rprompt
         rmf = "rm -rf";
         gcsmg = "git commit -m";
       };
+
+      initExtra = ''
+# =============================================================================
+#                               Plugin Overrides
+# =============================================================================
+
+ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red')
+ZSH_HIGHLIGHT_PATTERNS+=('rmf *' 'fg=white,bold,bg=red')
+
+# "zsh-users/zsh-autosuggestions"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=075'
+
+# "djui/alias-tips"
+ZSH_PLUGINS_ALIAS_TIPS_EXCLUDES="(_ ll vi)"
+ZSH_PLUGINS_ALIAS_TIPS_FORCE=1
+
+# ZSH_PLUGINS_ALIAS_TIPS_REVEAL=1
+ZSH_PLUGINS_ALIAS_TIPS_REVEAL_EXCLUDES="(_ ll vi)"
+
+# =============================================================================
+#                                   Options
+# =============================================================================
+setopt append_history           # Dont overwrite history
+setopt auto_list
+setopt auto_menu
+setopt auto_pushd
+setopt inc_append_history
+setopt interactive_comments
+setopt no_beep
+setopt no_hist_beep
+setopt no_list_beep
+setopt magic_equal_subst
+setopt notify
+setopt print_eight_bit
+setopt print_exit_value
+setopt prompt_subst
+setopt pushd_ignore_dups
+setopt transient_rprompt
+      '';
     };
   };
 }
