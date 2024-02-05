@@ -7,6 +7,7 @@ in {
     ../git
     ../zsh
     ../nvim
+    ../tmux
   ];
 
   options.modules.headless-ide = { enable = mkEnableOption "headless-ide"; };
@@ -16,6 +17,7 @@ in {
       git.enable = true;
       zsh.enable = true;
       nvim.enable = true;
+      tmux.enable = true;
     };
   };
 }

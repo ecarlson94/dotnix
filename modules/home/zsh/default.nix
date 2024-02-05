@@ -3,6 +3,8 @@ with lib;
 let
   cfg = config.modules.zsh;
 in {
+  imports = [ ../dircolors ];
+
   options.modules.zsh = { enable = mkEnableOption "zsh"; };
 
   config = mkIf cfg.enable {
@@ -11,7 +13,7 @@ in {
       pkgs.scc
     ];
 
-    programs.dircolors.enable = true;
+    modules.dircolors.enable = true;
     programs.dircolors.enableZshIntegration = true;
     programs.fzf.enableZshIntegration = true;
 

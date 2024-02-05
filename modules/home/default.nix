@@ -9,6 +9,7 @@
     ./git
     ./nvim
     ./search
+    ./dircolors
 
     # Profiles
     ./headless-ide
