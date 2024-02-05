@@ -7,6 +7,7 @@
     # cli
     ./zsh
     ./git
+    ./nvim
   ];
 
   home.packages = [
@@ -19,6 +20,7 @@
   programs.ripgrep.enable = true;
   programs.fzf = {
     enable = true;
+    enableBashIntegration = true;
     enableZshIntegration = true;
     defaultCommand = "fd --type f --color=always";
     defaultOptions = [ "-m" "--height 50%" "--border" ];

@@ -9,5 +9,6 @@
   modules = {
     zsh.enable = true;
     git.enable = true;
+    nvim.enable = true;
   };
 }
