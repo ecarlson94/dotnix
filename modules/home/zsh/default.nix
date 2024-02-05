@@ -7,7 +7,6 @@ in {
 
   config = mkIf cfg.enable {
     home.packages = [
-      pkgs.python3Minimal # djui/alias-tips needs this
       pkgs.zsh
       pkgs.scc
     ];
@@ -72,8 +71,7 @@ in {
         enable = true;
         plugins = [
           { name = "jeffreytse/zsh-vi-mode"; }
-          { name = "djui/alias-tips"; }
-          { name = "hlissner/zsh-autopair"; tags = [ defer:2 ]; }
+          { name = "MichaelAquilina/zsh-you-should-use"; }
           { name = "bric3/nice-exit-code"; }
           { name = "chrissicool/zsh-256color"; }
           { name = "plugins/git"; tags = [ from:oh-my-zsh ]; }
@@ -150,19 +148,7 @@ in {
 # =============================================================================
 #                               Plugin Overrides
 # =============================================================================
-
-ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red')
-ZSH_HIGHLIGHT_PATTERNS+=('rmf *' 'fg=white,bold,bg=red')
-
-# "zsh-users/zsh-autosuggestions"
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=075'
-
-# "djui/alias-tips"
-ZSH_PLUGINS_ALIAS_TIPS_EXCLUDES="(_ ll vi)"
-ZSH_PLUGINS_ALIAS_TIPS_FORCE=1
-
-# ZSH_PLUGINS_ALIAS_TIPS_REVEAL=1
-ZSH_PLUGINS_ALIAS_TIPS_REVEAL_EXCLUDES="(_ ll vi)"
+YSU_HARDCORE=1
 
 # =============================================================================
 #                                   Options
