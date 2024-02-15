@@ -5,7 +5,7 @@
 # NixOS-WSL specific options are documented on the NixOS-WSL repository:
 # https://github.com/nix-community/NixOS-WSL
 
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
   imports = [
@@ -30,7 +30,7 @@
   environment.systemPackages = with pkgs; [
     # Flakes use Git to pull dependencies from data sources 
     git
-    vim
+    inputs.nixvim.packages."x86_64-linux".default
     (import ./bin/rebuild.nix { inherit pkgs; })
   ];
 
