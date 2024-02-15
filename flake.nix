@@ -7,7 +7,7 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    nixvim.url = "github:ecarlson94/nixvim/main";
+    nixvim.url = "github:ecarlson94/nixvim/569efbbe645317a08708234cb059f57ac1712ea5";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
   };
 
