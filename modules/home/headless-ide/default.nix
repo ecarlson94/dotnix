@@ -6,7 +6,6 @@ in {
   imports = [
     ../git
     ../zsh
-    ../nvim
     ../tmux
   ];
 
@@ -16,7 +15,6 @@ in {
     modules = {
       git.enable = true;
       zsh.enable = true;
-      nvim.enable = true;
       tmux.enable = true;
     };
   };

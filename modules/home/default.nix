@@ -7,8 +7,6 @@
     # CLI
     ./zsh
     ./git
-    ./nvim
-    ./search
     ./dircolors
 
     # Profiles

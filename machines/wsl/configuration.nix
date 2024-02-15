@@ -30,6 +30,7 @@
   environment.systemPackages = with pkgs; [
     # Flakes use Git to pull dependencies from data sources 
     git
+    vim
     (import ./bin/rebuild.nix { inherit pkgs; })
   ];
 
