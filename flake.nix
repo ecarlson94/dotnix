@@ -12,19 +12,19 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    nixvim.url = "github:ecarlson94/nixvim/569efbbe645317a08708234cb059f57ac1712ea5";
+    nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
+    nixvim.inputs.home-manager.follows = "home-manager";
   };
 
   outputs =
     { flake-parts
     , nixpkgs
     , home-manager
+    , nixvim
+    , self
     , ...
     } @ inputs:
-    let
-      # config = import ./config; # import the nixvim module directly
-    in
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [
         "x86_64-linux"
@@ -59,26 +59,19 @@
         , system
         , ...
         }:
-        let
-          # nixvimLib = nixvim.lib.${system};
-          # nixvim' = nixvim.legacyPackages.${system};
-          # nvim = nixvim'.makeNixvimWithModule {
-          #   inherit pkgs;
-          #   module = config;
-          #   # You can use `extraSpecialArgs` to pass additional arguments to your module files
-          #   extraSpecialArgs = {
-          #     # inherit (inputs) foo;
-          #   };
-          # };
-        in
         {
           checks =
             let
-              args = { inherit inputs; };
+              nvim = self.packages.${system}.nvim;
             in
             {
-              nixpkgs-fmt = pkgs.callPackage ./checks/nixpkgs-fmt.nix args;
+              nixpkgs-fmt = pkgs.callPackage ./checks/nixpkgs-fmt.nix { inherit inputs; };
+              nvim = pkgs.callPackage ./checks/nvim.nix { inherit nixvim nvim system; };
             };
+
+          packages = {
+            nvim = pkgs.callPackage ./modules/nvim/makeNvim.nix { inherit inputs system nixvim; };
+          };
         };
     };
 }

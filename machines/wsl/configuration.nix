@@ -30,7 +30,6 @@
   environment.systemPackages = with pkgs; [
     # Flakes use Git to pull dependencies from data sources
     git
-    inputs.nixvim.packages."x86_64-linux".default
     (import ./bin/rebuild.nix { inherit pkgs; })
   ];
 
