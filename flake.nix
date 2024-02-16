@@ -6,15 +6,21 @@
 
     flake-parts.url = "github:hercules-ci/flake-parts";
 
-    nixos-wsl.url = "github:nix-community/NixOS-WSL";
-    nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    nixvim.url = "github:nix-community/nixvim";
-    nixvim.inputs.nixpkgs.follows = "nixpkgs";
-    nixvim.inputs.home-manager.follows = "home-manager";
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
   };
 
   outputs =
@@ -41,9 +47,11 @@
               ./machines/wsl/configuration.nix
               home-manager.nixosModules.home-manager
               {
-                home-manager.useGlobalPkgs = true;
-                home-manager.useUserPackages = true;
-                home-manager.users.nixos = import ./machines/wsl/home.nix;
+                home-manager = {
+                  useGlobalPkgs = true;
+                  useUserPackages = true;
+                  users.nixos = import ./machines/wsl/home.nix;
+                };
 
                 # Optionally, use home-manager.extraSpecialArgs to pass
                 # arguments to home.nix
@@ -60,14 +68,24 @@
         , ...
         }:
         {
-          checks =
-            let
-              nvim = self.packages.${system}.nvim;
-            in
-            {
-              nixpkgs-fmt = pkgs.callPackage ./checks/nixpkgs-fmt.nix { inherit inputs; };
-              nvim = pkgs.callPackage ./checks/nvim.nix { inherit nixvim nvim system; };
+          _module.args.pkgs = import nixpkgs {
+            inherit system;
+            overlays = [
+              (final: prev: {
+                neovim = self.packages.${system}.nvim;
+              })
+            ];
+            config.allowUnfree = true;
+          };
+
+          checks = {
+            nixpkgs-fmt = pkgs.callPackage ./checks/nixpkgs-fmt.nix { inherit inputs; };
+            statix = pkgs.callPackage ./checks/statix.nix { inherit inputs; };
+            nvim = pkgs.callPackage ./checks/nvim.nix {
+              inherit nixvim system;
+              inherit (self.packages.${system}) nvim;
             };
+          };
 
           packages = {
             nvim = pkgs.callPackage ./modules/nvim/makeNvim.nix { inherit inputs system nixvim; };
