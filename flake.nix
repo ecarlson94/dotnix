@@ -41,7 +41,7 @@
 
       flake = {
         nixosConfigurations = {
-          wsl = nixpkgs.lib.nixosSystem {
+          wsl = nixpkgs.lib.nixosSystem rec {
             system = "x86_64-linux";
             modules = [
               ./machines/wsl/configuration.nix
@@ -51,10 +51,13 @@
                   useGlobalPkgs = true;
                   useUserPackages = true;
                   users.nixos = import ./machines/wsl/home.nix;
-                };
 
-                # Optionally, use home-manager.extraSpecialArgs to pass
-                # arguments to home.nix
+                  # Optionally, use home-manager.extraSpecialArgs to pass
+                  # arguments to home.nix
+                  extraSpecialArgs = {
+                    inherit (self.packages.${system}) nvim;
+                  };
+                };
               }
             ];
             specialArgs = { inherit inputs; };
@@ -68,15 +71,7 @@
         , ...
         }:
         {
-          _module.args.pkgs = import nixpkgs {
-            inherit system;
-            overlays = [
-              (final: prev: {
-                neovim = self.packages.${system}.nvim;
-              })
-            ];
-            config.allowUnfree = true;
-          };
+          formatter = pkgs.alejandra;
 
           checks = {
             nixpkgs-fmt = pkgs.callPackage ./checks/nixpkgs-fmt.nix { inherit inputs; };

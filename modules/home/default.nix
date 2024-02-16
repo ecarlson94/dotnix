@@ -8,6 +8,7 @@
     ./zsh
     ./git
     ./dircolors
+    ./nvim
 
     # Profiles
     ./headless-ide
