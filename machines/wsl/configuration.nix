@@ -10,12 +10,12 @@
 {
   imports = [
     # include NixOS-WSL modules
-    <nixos-wsl/modules>
+    inputs.nixos-wsl.nixosModules.wsl
   ];
 
   wsl.enable = true;
   wsl.defaultUser = "nixos";
-  
+
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -28,7 +28,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   environment.systemPackages = with pkgs; [
-    # Flakes use Git to pull dependencies from data sources 
+    # Flakes use Git to pull dependencies from data sources
     git
     inputs.nixvim.packages."x86_64-linux".default
     (import ./bin/rebuild.nix { inherit pkgs; })
