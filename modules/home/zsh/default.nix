@@ -120,6 +120,20 @@ in {
         tft = "terraform taint";
         tfv = "terraform version";
 
+        # OpenTofu
+        otfa = "tofu apply";
+        otfaa = "tofu apply -auto-approve";
+        otfd = "tofu destroy";
+        otfda = "tofu destroy -auto-approve";
+        otfi = "tofu init";
+        otfp = "tofu plan";
+        otfr = "tofu refresh";
+        otfs = "tofu show";
+        otfsl = "tofu state list";
+        otfsr = "tofu state remove";
+        otft = "tofu taint";
+        otfv = "tofu version";
+
         # Terragrunt
         tga = "terragrunt apply";
         tgaa = "terragrunt apply -auto-approve";
