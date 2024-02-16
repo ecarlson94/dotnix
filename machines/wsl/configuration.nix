@@ -35,9 +35,20 @@
 
   environment.pathsToLink = [ "/share/zsh" ];
 
+  # Docker
+  virtualisation.docker.enable = true;
+
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
+
   programs.zsh.enable = true;
 
   users.users = {
-    nixos.shell = pkgs.zsh;
+    nixos = {
+      shell = pkgs.zsh;
+      extraGroups = [ "docker" ];
+    };
   };
 }
