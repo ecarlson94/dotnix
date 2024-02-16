@@ -8,40 +8,13 @@ on:
   workflow_dispatch:
 
 jobs:
-  prepare:
-    name: Find Checks 🔍
-    runs-on: ubuntu-latest
-    outputs:
-      checks: ${{ steps.checks.outputs.checks }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Install Nix ❄️
-        uses: DeterminateSystems/nix-installer-action@main
-      - uses: DeterminateSystems/flake-checker-action@main
-
-      - name: Find Checks 🔍
-        id: checks
-        run: |
-          nix-instantiate --json --eval --strict -E 'with builtins; attrNames (getFlake (toString ./.)).checks.${currentSystem}' | perl -pe 's|(.*)|checks=\1|' >>$GITHUB_OUTPUT
-
-  checks:
+  nix-flake-check:
     name: Check 📋
-    needs:
-      - prepare
-    strategy:
-      fail-fast: false
-      matrix:
-        check: ${{ fromJSON(needs.prepare.outputs.checks) }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: DeterminateSystems/nix-installer-action@main
       - uses: DeterminateSystems/magic-nix-cache-action@main
-      - name: Run Check 📋
-        run: |
-          nix build -L --impure --expr "with builtins; (getFlake (toString ./.)).checks.\${currentSystem}.${{ matrix.check }}"
+      - uses: DeterminateSystems/flake-checker-action@main
+      - run: nix flake check --show-trace
 
