@@ -2,7 +2,8 @@
 with lib;
 let
   cfg = config.modules.zsh;
-in {
+in
+{
   imports = [ ../dircolors ];
 
   options.modules.zsh = { enable = mkEnableOption "zsh"; };
@@ -162,30 +163,30 @@ in {
       };
 
       initExtra = ''
-# =============================================================================
-#                               Plugin Overrides
-# =============================================================================
-YSU_HARDCORE=1
+        # =============================================================================
+        #                               Plugin Overrides
+        # =============================================================================
+        YSU_HARDCORE=1
 
-# =============================================================================
-#                                   Options
-# =============================================================================
-setopt append_history           # Dont overwrite history
-setopt auto_list
-setopt auto_menu
-setopt auto_pushd
-setopt inc_append_history
-setopt interactive_comments
-setopt no_beep
-setopt no_hist_beep
-setopt no_list_beep
-setopt magic_equal_subst
-setopt notify
-setopt print_eight_bit
-setopt print_exit_value
-setopt prompt_subst
-setopt pushd_ignore_dups
-setopt transient_rprompt
+        # =============================================================================
+        #                                   Options
+        # =============================================================================
+        setopt append_history           # Dont overwrite history
+        setopt auto_list
+        setopt auto_menu
+        setopt auto_pushd
+        setopt inc_append_history
+        setopt interactive_comments
+        setopt no_beep
+        setopt no_hist_beep
+        setopt no_list_beep
+        setopt magic_equal_subst
+        setopt notify
+        setopt print_eight_bit
+        setopt print_exit_value
+        setopt prompt_subst
+        setopt pushd_ignore_dups
+        setopt transient_rprompt
       '';
     };
   };

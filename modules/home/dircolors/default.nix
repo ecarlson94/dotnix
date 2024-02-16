@@ -2,7 +2,8 @@
 with lib;
 let
   cfg = config.modules.dircolors;
-in {
+in
+{
   options.modules.dircolors = { enable = mkEnableOption "dircolors"; };
 
   config = mkIf cfg.enable {

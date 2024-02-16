@@ -2,7 +2,8 @@
 with lib;
 let
   cfg = config.modules.headless-ide;
-in {
+in
+{
   imports = [
     ../git
     ../zsh

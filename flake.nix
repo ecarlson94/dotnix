@@ -4,6 +4,8 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    flake-parts.url = "github:hercules-ci/flake-parts";
+
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -14,24 +16,69 @@
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }: {
-    nixosConfigurations = {
-      wsl = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./machines/wsl/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.nixos = import ./machines/wsl/home.nix;
+  outputs =
+    { flake-parts
+    , nixpkgs
+    , home-manager
+    , ...
+    } @ inputs:
+    let
+      # config = import ./config; # import the nixvim module directly
+    in
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+        "x86_64-darwin"
+        "aarch64-darwin"
+      ];
 
-            # Optionally, use home-manager.extraSpecialArgs to pass
-            # arguments to home.nix
-          }
-        ];
-        specialArgs = { inherit inputs; };
+      flake = {
+        nixosConfigurations = {
+          wsl = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            modules = [
+              ./machines/wsl/configuration.nix
+              home-manager.nixosModules.home-manager
+              {
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.users.nixos = import ./machines/wsl/home.nix;
+
+                # Optionally, use home-manager.extraSpecialArgs to pass
+                # arguments to home.nix
+              }
+            ];
+            specialArgs = { inherit inputs; };
+          };
+        };
       };
+
+      perSystem =
+        { pkgs
+        , system
+        , ...
+        }:
+        let
+          # nixvimLib = nixvim.lib.${system};
+          # nixvim' = nixvim.legacyPackages.${system};
+          # nvim = nixvim'.makeNixvimWithModule {
+          #   inherit pkgs;
+          #   module = config;
+          #   # You can use `extraSpecialArgs` to pass additional arguments to your module files
+          #   extraSpecialArgs = {
+          #     # inherit (inputs) foo;
+          #   };
+          # };
+        in
+        {
+          checks =
+            let
+              args = { inherit inputs; };
+            in
+            {
+              nixpkgs-fmt = pkgs.callPackage ./checks/nixpkgs-fmt.nix args;
+            };
+        };
     };
-  };
 }
