@@ -2,7 +2,7 @@
 , statix
 , ...
 }:
-runCommand "check-nixpkgs-fmt" { nativeBuildInputs = [ statix ]; } ''
+runCommand "check-statix" { nativeBuildInputs = [ statix ]; } ''
   statix check ${./..}
   touch $out
 ''
