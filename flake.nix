@@ -74,7 +74,7 @@
           formatter = pkgs.nixpkgs-fmt;
 
           checks = {
-            fmt = pkgs.callPackage ./checks/fmt.nix { inherit inputs; };
+            nixpkgs-fmt = pkgs.callPackage ./checks/nixpkgs-fmt.nix { inherit inputs; };
             statix = pkgs.callPackage ./checks/statix.nix { inherit inputs; };
             nvim = pkgs.callPackage ./checks/nvim.nix {
               inherit nixvim system;
