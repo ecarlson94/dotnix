@@ -44,13 +44,13 @@
           nixos-wsl = nixpkgs.lib.nixosSystem rec {
             system = "x86_64-linux";
             modules = [
-              ./machines/nixos-wsl/configuration.nix
+              ./hosts/nixos-wsl/configuration.nix
               home-manager.nixosModules.home-manager
               {
                 home-manager = {
                   useGlobalPkgs = true;
                   useUserPackages = true;
-                  users.nixos = import ./machines/nixos-wsl/home.nix;
+                  users.nixos = import ./hosts/nixos-wsl/home.nix;
 
                   # Optionally, use home-manager.extraSpecialArgs to pass
                   # arguments to home.nix

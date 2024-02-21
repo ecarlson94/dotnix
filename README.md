@@ -2,7 +2,7 @@
 
 My [NixOS](https://nixos.org) and [Home Manager](https://github.com/nix-community/home-manager) configurations.
 
-## Machines
+## Hosts
 
 ### [NixOS WSL](https://github.com/nix-community/NixOS-WSL)
 
