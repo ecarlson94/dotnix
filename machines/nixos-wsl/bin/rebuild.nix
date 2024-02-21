@@ -2,6 +2,6 @@
 
 pkgs.writeShellScriptBin "rebuild" ''
   pushd ~/gitrepos/dotnix
-  sudo nixos-rebuild switch --flake .#wsl --impure
+  sudo nixos-rebuild switch --flake .#nixos-wsl --impure
   popd
 ''

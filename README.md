@@ -8,10 +8,10 @@ My [NixOS](https://nixos.org) and [Home Manager](https://github.com/nix-communit
 
 #### Installing
 
-1. Run the following command:
-   ```sh
-   sudo nixos-rebuild switch --flake github:ecarlson94/dotnix/main#wsl --impure
-   ```
+Run the following command:
+```sh
+sudo nixos-rebuild switch --flake github:ecarlson94/dotnix/main#nixos-wsl --impure
+```
 
 Subsequent rebuilds can be accomplished with:
 ```sh
@@ -42,7 +42,6 @@ rebuild
       - nvim
       - tmux
       - zsh
-
 
 ### [nvim](./modules/nvim)
 
