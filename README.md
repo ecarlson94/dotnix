@@ -8,10 +8,11 @@ My [NixOS](https://nixos.org) and [Home Manager](https://github.com/nix-communit
 
 #### Installing
 
-Run the following command:
-```sh
-sudo nixos-rebuild switch --flake github:ecarlson94/dotnix/main#nixos-wsl --impure
-```
+1. Enable [flakes](https://nixos-and-flakes.thiscute.world/nixos-with-flakes/nixos-with-flakes-enabled)
+1. Run the following command:
+   ```sh
+   sudo nixos-rebuild switch --flake github:ecarlson94/dotnix/main#nixos-wsl --impure
+   ```
 
 Subsequent rebuilds can be accomplished with:
 ```sh
