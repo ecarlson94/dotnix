@@ -31,6 +31,7 @@
     # Flakes use Git to pull dependencies from data sources
     git
     (import ./bin/rebuild.nix { inherit pkgs; })
+    (import ./bin/rebuild-remote.nix { inherit pkgs; })
   ];
 
   environment.pathsToLink = [ "/share/zsh" ];

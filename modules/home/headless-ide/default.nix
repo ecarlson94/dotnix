@@ -5,20 +5,22 @@ let
 in
 {
   imports = [
+    ../dircolors
     ../git
-    ../zsh
-    ../tmux
     ../nvim
+    ../tmux
+    ../zsh
   ];
 
   options.modules.headless-ide = { enable = mkEnableOption "headless-ide"; };
 
   config = mkIf cfg.enable {
     modules = {
+      dircolors.enable = true;
       git.enable = true;
-      zsh.enable = true;
-      tmux.enable = true;
       nvim.enable = true;
+      tmux.enable = true;
+      zsh.enable = true;
     };
   };
 }
