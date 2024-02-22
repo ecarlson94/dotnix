@@ -14,6 +14,8 @@ My [NixOS](https://nixos.org) and [Home Manager](https://github.com/nix-communit
    sudo nixos-rebuild switch --flake github:ecarlson94/dotnix/main#nixos-wsl --impure
    ```
 
+#### Reubilding
+
 Subsequent rebuilds can be accomplished with:
 ```sh
 rebuild-remote
