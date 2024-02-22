@@ -7,10 +7,6 @@ in
   options.modules.git = { enable = mkEnableOption "git"; };
 
   config = mkIf cfg.enable {
-    home.packages = [
-      pkgs.git
-    ];
-
     programs = {
       git = {
         enable = true;
