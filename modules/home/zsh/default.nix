@@ -151,8 +151,8 @@ in
           tgv = "terragrunt version";
 
           # Basic
-          ls = "ls --color=auto";
-          la = "ls -la";
+          ls = "ls -h --color=auto";
+          la = "ls -lah";
           md = "mkdir -vp";
           dir = "dir --color=auto";
           grep = "grep --color=auto";
