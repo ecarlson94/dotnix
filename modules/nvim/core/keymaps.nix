@@ -17,7 +17,7 @@
     { mode = [ "n" ]; key = "<C-l>"; action = "<C-w>l"; options = { desc = "Go to right window"; remap = true; }; }
 
     # Resize window using HJKL keys
-    # Vim cannot differentiate between hjkl and HJKL for bindings, find a new binding for these that doesn't use arrow keys
+    # Vim cannot differentiate between hjkl and HJKL for control bindings, find a new binding for these that doesn't use arrow keys
     # { mode = [ "n" ]; key = "<C-J>"; action = "<cmd>resize -2<cr>"; options.desc = "Decrease window height"; }
     # { mode = [ "n" ]; key = "<C-K>"; action = "<cmd>resize +2<cr>"; options.desc = "Increase window height"; }
     # { mode = [ "n" ]; key = "<C-H>"; action = "<cmd>vertical resize -2<cr>"; options.desc = "Decrease window width"; }
@@ -41,11 +41,9 @@
     # Clear search with <esc>
     { mode = [ "i" "n" ]; key = "<esc>"; action = "<cmd>noh<cr><esc>"; options.desc = "Escape and clear hlsearch"; }
 
-    # Saner behovior of n and N
-    { mode = [ "n" ]; key = "n"; action = "'Nn'[v:searchforward].'zv'"; options = { desc = "Next search result"; expr = true; }; }
-    { mode = [ "x" "o" ]; key = "n"; action = "'Nn'[v:searchforward]"; options = { desc = "Next search result"; expr = true; }; }
-    { mode = [ "n" ]; key = "N"; action = "'nN'[v:searchforward].'zv'"; options = { desc = "Prev search result"; expr = true; }; }
-    { mode = [ "x" "o" ]; key = "N"; action = "'nN'[v:searchforward]"; options = { desc = "Prev search result"; expr = true; }; }
+    # Vertically centered search and open folds of n and N
+    { mode = [ "n" ]; key = "n"; action = "nzzzv"; options.desc = "Next search result"; }
+    { mode = [ "n" ]; key = "<S-n>"; action = "Nzzzv"; options.desc = "Prev search result"; }
 
     # Centered Vertical Navigation
     { mode = [ "n" ]; key = "<C-u>"; action = "<C-u>zz"; }
