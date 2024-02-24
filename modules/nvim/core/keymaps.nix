@@ -68,7 +68,7 @@
 
     # Windows
     { mode = [ "n" ]; key = "<leader>ww"; action = "<C-W>p"; options = { desc = "Other window"; remap = true; }; }
-    { mode = [ "n" ]; key = "<leader>wd"; action = "<C-W>c"; options = { desc = "Delet window"; remap = true; }; }
+    { mode = [ "n" ]; key = "<leader>wd"; action = "<C-W>c"; options = { desc = "Delete window"; remap = true; }; }
     { mode = [ "n" ]; key = "<leader>w-"; action = "<C-W>s"; options = { desc = "Split window below"; remap = true; }; }
     { mode = [ "n" ]; key = "<leader>w|"; action = "<C-W>v"; options = { desc = "Split window right"; remap = true; }; }
     { mode = [ "n" ]; key = "<leader>-"; action = "<C-W>s"; options = { desc = "Split window below"; remap = true; }; }

@@ -2,6 +2,7 @@
   colorschemes.catppuccin = {
     enable = true;
     integrations = {
+      cmp = true;
       flash = true;
       gitsigns = true;
       leap = true;

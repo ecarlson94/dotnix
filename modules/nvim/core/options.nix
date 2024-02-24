@@ -24,8 +24,10 @@
     formatoptions = "jcroqlnt"; # tcqj
     grepformat = "%f:%l:%c:%m";
     grepprg = "rg --vimgrep";
+    hlsearch = false; # Don't keep searches highlighted after hitting enter
     ignorecase = true; # Ignore case
     inccommand = "nosplit"; # preview incremental substitute
+    incsearch = true; # Incremental search
     laststatus = 3; # global statusline
     list = true; # Show some invisible characters (tabs...
     listchars = {
@@ -42,7 +44,7 @@
     pumblend = 10; # Popup blend
     pumheight = 10; # Maximum number of entries in a popup
     relativenumber = false; # Relative line numbers
-    scrolloff = 4; # Lines of context
+    scrolloff = 6; # Lines of context
     sessionoptions = [ "buffers" "curdir" "tabpages" "winsize" "help" "globals" "skiprtp" "folds" ];
     shiftround = true; # Round indent
     shiftwidth = 2; # Size of an indent

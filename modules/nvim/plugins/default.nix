@@ -3,5 +3,6 @@
     ./editor
     ./treesitter
     ./which-key
+    ./lsp
   ];
 }
