@@ -17,11 +17,10 @@
     { mode = [ "n" ]; key = "<C-l>"; action = "<C-w>l"; options = { desc = "Go to right window"; remap = true; }; }
 
     # Resize window using HJKL keys
-    # Vim cannot differentiate between hjkl and HJKL for control bindings, find a new binding for these that doesn't use arrow keys
-    # { mode = [ "n" ]; key = "<C-J>"; action = "<cmd>resize -2<cr>"; options.desc = "Decrease window height"; }
-    # { mode = [ "n" ]; key = "<C-K>"; action = "<cmd>resize +2<cr>"; options.desc = "Increase window height"; }
-    # { mode = [ "n" ]; key = "<C-H>"; action = "<cmd>vertical resize -2<cr>"; options.desc = "Decrease window width"; }
-    # { mode = [ "n" ]; key = "<C-L>"; action = "<cmd>vertical resize +2<cr>"; options.desc = "Increase window width"; }
+    { mode = [ "n" ]; key = "<C-A-j>"; action = "<cmd>resize -2<cr>"; options.desc = "Decrease window height"; }
+    { mode = [ "n" ]; key = "<C-A-k>"; action = "<cmd>resize +2<cr>"; options.desc = "Increase window height"; }
+    { mode = [ "n" ]; key = "<C-A-h>"; action = "<cmd>vertical resize -2<cr>"; options.desc = "Decrease window width"; }
+    { mode = [ "n" ]; key = "<C-A-l>"; action = "<cmd>vertical resize +2<cr>"; options.desc = "Increase window width"; }
 
     # Move lines
     { mode = [ "n" ]; key = "<A-j>"; action = "<cmd>m .+1<cr>=="; options.desc = "Move down"; }
