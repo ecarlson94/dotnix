@@ -32,7 +32,7 @@
     { mode = [ "v" ]; key = "<A-k>"; action = ":m '<-2<cr>gv=gv"; options.desc = "Move up"; }
 
     # Buffers
-    { mode = [ "n" "v" ]; key = "<leader>bd"; action = "<cmd>bd<cr>"; options.desc = "Delete current buffer"; }
+    { mode = [ "n" "v" ]; key = "<leader>bd"; action = "<cmd>bp | bd #<cr>"; options.desc = "Delete current buffer"; }
     { mode = [ "n" ]; key = "<S-h>"; action = "<cmd>bprevious<cr>"; options.desc = "Prev buffer"; }
     { mode = [ "n" ]; key = "<S-l>"; action = "<cmd>bnext<cr>"; options.desc = "Next buffer"; }
     { mode = [ "n" ]; key = "[b"; action = "<cmd>bprevious<cr>"; options.desc = "Prev buffer"; }
@@ -73,8 +73,6 @@
     # Windows
     { mode = [ "n" ]; key = "<leader>ww"; action = "<C-W>p"; options = { desc = "Other window"; remap = true; }; }
     { mode = [ "n" ]; key = "<leader>wd"; action = "<C-W>c"; options = { desc = "Delete window"; remap = true; }; }
-    { mode = [ "n" ]; key = "<leader>w-"; action = "<C-W>s"; options = { desc = "Split window below"; remap = true; }; }
-    { mode = [ "n" ]; key = "<leader>w|"; action = "<C-W>v"; options = { desc = "Split window right"; remap = true; }; }
     { mode = [ "n" ]; key = "<leader>-"; action = "<C-W>s"; options = { desc = "Split window below"; remap = true; }; }
     { mode = [ "n" ]; key = "<leader>|"; action = "<C-W>v"; options = { desc = "Split window right"; remap = true; }; }
   ];
