@@ -1,8 +1,9 @@
 {
   imports = [
-    ./telescope.nix
     ./mini.nix
+    ./telescope.nix
     ./toggleterm.nix
+    ./which-key.nix
   ];
 
   keymaps = [
