@@ -47,6 +47,10 @@
     { mode = [ "n" ]; key = "N"; action = "'nN'[v:searchforward].'zv'"; options = { desc = "Prev search result"; expr = true; }; }
     { mode = [ "x" "o" ]; key = "N"; action = "'nN'[v:searchforward]"; options = { desc = "Prev search result"; expr = true; }; }
 
+    # Centered Vertical Navigation
+    { mode = [ "n" ]; key = "<C-u>"; action = "<C-u>zz"; }
+    { mode = [ "n" ]; key = "<C-d>"; action = "<C-d>zz"; }
+
     # Better indenting
     { mode = [ "v" ]; key = ">"; action = ">gv"; }
     { mode = [ "v" ]; key = "<"; action = "<gv"; }
