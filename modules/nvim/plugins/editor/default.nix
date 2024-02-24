@@ -1,6 +1,5 @@
 {
   imports = [
-    ./comments.nix
     ./telescope.nix
     ./mini.nix
     ./toggleterm.nix

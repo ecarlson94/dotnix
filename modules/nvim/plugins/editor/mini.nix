@@ -4,6 +4,7 @@
 
     modules = {
       surround = { };
+      comment = { };
     };
   };
 }
