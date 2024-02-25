@@ -1,5 +1,6 @@
 {
   imports = [
+    ./lualine.nix
     ./mini.nix
     ./telescope.nix
     ./toggleterm.nix

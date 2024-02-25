@@ -4,20 +4,15 @@
     cmp-buffer.enable = true;
     cmp-path.enable = true;
     cmp-cmdline.enable = true;
-    cmp_luasnip.enable = true;
-    luasnip.enable = true;
 
     nvim-cmp = {
       enable = true;
 
       sources = [
         { name = "nvim_lsp"; }
-        { name = "luasnip"; }
         { name = "path"; }
         { name = "buffer"; }
       ];
-
-      snippet = { expand = "luasnip"; };
 
       mapping = {
         "<C-n>" = "cmp.mapping.select_next_item()";
