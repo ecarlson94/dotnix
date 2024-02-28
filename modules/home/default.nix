@@ -5,10 +5,11 @@
 
   imports = [
     # CLI
-    ./zsh
-    ./git
     ./dircolors
+    ./git
     ./nvim
+    ./tmux
+    ./zsh
 
     # Profiles
     ./headless-ide
