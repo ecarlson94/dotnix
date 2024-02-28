@@ -5,14 +5,14 @@
 
   imports = [
     # CLI
-    ./dircolors
-    ./git
-    ./nvim
-    ./tmux
+    ./dircolors.nix
+    ./git.nix
+    ./nvim.nix
+    ./tmux.nix
     ./zsh
 
     # Profiles
-    ./headless-ide
+    ./headless-ide.nix
   ];
 
   home.packages = [

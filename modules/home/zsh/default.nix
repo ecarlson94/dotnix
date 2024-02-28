@@ -4,7 +4,7 @@ let
   cfg = config.modules.zsh;
 in
 {
-  imports = [ ../dircolors ];
+  imports = [ ../dircolors.nix ];
 
   options.modules.zsh = { enable = mkEnableOption "zsh"; };
 

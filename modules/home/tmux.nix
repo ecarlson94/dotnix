@@ -4,7 +4,7 @@ let
   cfg = config.modules.tmux;
 in
 {
-  imports = [ ../dircolors ];
+  imports = [ ./dircolors.nix ];
 
   options.modules.tmux = { enable = mkEnableOption "tmux"; };
 

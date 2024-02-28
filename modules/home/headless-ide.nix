@@ -1,15 +1,15 @@
-{ lib, pkgs, config, ... }:
+{ lib, config, ... }:
 with lib;
 let
   cfg = config.modules.headless-ide;
 in
 {
   imports = [
-    ../dircolors
-    ../git
-    ../nvim
-    ../tmux
-    ../zsh
+    ./dircolors.nix
+    ./git.nix
+    ./nvim.nix
+    ./tmux.nix
+    ./zsh
   ];
 
   options.modules.headless-ide = { enable = mkEnableOption "headless-ide"; };
