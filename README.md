@@ -4,17 +4,29 @@ My [NixOS](https://nixos.org) and [Home Manager](https://github.com/nix-communit
 
 ## Hosts
 
+### Prequisites
+
+- [Flakes](https://nixos-and-flakes.thiscute.world/nixos-with-flakes/nixos-with-flakes-enabled) enabled
+
 ### [NixOS WSL](https://github.com/nix-community/NixOS-WSL)
 
 #### Installing
 
-1. Enable [flakes](https://nixos-and-flakes.thiscute.world/nixos-with-flakes/nixos-with-flakes-enabled)
 1. Run the following command:
    ```sh
-   sudo nixos-rebuild switch --flake github:ecarlson94/dotnix/main#nixos-wsl --impure
+   sudo nixos-rebuild switch --flake github:ecarlson94/dotnix/main#nixos-wsl
    ```
 
-#### Reubilding
+### [NixOS Desktop](https://nixos.org/download)
+
+#### Installing
+
+1. Run the following command:
+   ```sh
+   sudo nixos-rebuild switch --flake github:ecarlson94/dotnix/main#desktop
+   ```
+
+## Reubilding
 
 Subsequent rebuilds can be accomplished with:
 ```sh

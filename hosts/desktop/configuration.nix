@@ -3,7 +3,9 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-
+let
+  target = "desktop";
+in
 {
   imports =
     [
@@ -69,8 +71,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    (import ./bin/rebuild.nix { inherit pkgs; })
-    (import ./bin/rebuild-remote.nix { inherit pkgs; })
+    (import ../bin/rebuild.nix { inherit pkgs target; })
+    (import ../bin/rebuild-remote.nix { inherit pkgs target; })
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
