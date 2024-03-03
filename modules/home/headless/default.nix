@@ -1,7 +1,7 @@
 { lib, config, ... }:
 with lib;
 let
-  cfg = config.modules.headless-ide;
+  cfg = config.modules.headless;
 in
 {
   imports = [
@@ -12,7 +12,7 @@ in
     ./zsh
   ];
 
-  options.modules.headless-ide = { enable = mkEnableOption "headless-ide"; };
+  options.modules.headless = { enable = mkEnableOption "headless"; };
 
   config = mkIf cfg.enable {
     modules = {

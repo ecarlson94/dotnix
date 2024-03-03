@@ -6,5 +6,5 @@
   home.username = "walawren";
   home.homeDirectory = "/home/walawren";
 
-  modules.headless-ide.enable = true;
+  modules.desktop.enable = true;
 }

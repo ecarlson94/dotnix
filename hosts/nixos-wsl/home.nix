@@ -6,5 +6,5 @@
   home.username = "nixos";
   home.homeDirectory = "/home/nixos";
 
-  modules.headless-ide.enable = true;
+  modules.headless.enable = true;
 }

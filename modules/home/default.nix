@@ -1,18 +1,11 @@
-{ lib, pkgs, config, ... }:
+{ pkgs, ... }:
 
 {
   home.stateVersion = "23.11";
 
   imports = [
-    # CLI
-    ./dircolors.nix
-    ./git.nix
-    ./nvim.nix
-    ./tmux.nix
-    ./zsh
-
-    # Profiles
-    ./headless-ide.nix
+    ./headless
+    ./desktop
   ];
 
   home.packages = [
