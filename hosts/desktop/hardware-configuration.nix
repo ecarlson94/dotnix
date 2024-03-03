@@ -17,13 +17,13 @@
 
   fileSystems."/" =
     {
-      device = "/dev/disk/by-label/6469817c-faa2-469c-8fce-e47b5fdea798";
+      device = "/dev/disk/by-uuid/6469817c-faa2-469c-8fce-e47b5fdea798";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
     {
-      device = "/dev/disk/by-label/DFAD-2786";
+      device = "/dev/disk/by-uuid/DFAD-2786";
       fsType = "vfat";
     };
 
