@@ -54,3 +54,5 @@ rebuild
   ```sh
   nix run github:ecarlson94/dotnix/main#nvim
   ```
+### Special Thanks
+- [sioodmy](https://github.com/sioodmy/dotfiles)

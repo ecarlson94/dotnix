@@ -28,7 +28,6 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   environment.systemPackages = with pkgs; [
-    # Flakes use Git to pull dependencies from data sources
     (import ./bin/rebuild.nix { inherit pkgs; })
     (import ./bin/rebuild-remote.nix { inherit pkgs; })
   ];
