@@ -1,6 +1,5 @@
-<h1 align="center"> <img src="./.github/assets/flake.webp" width="250px"/></h1>
-
 <h1 align="center">
+  <img src="./.github/assets/flake.webp" width="250px"/>
   ecarlson94's NixOS, HomeManager, and Nixvim Flake
   <a href='#'><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/macchiato.png" width="600px"/></a>
   <br>
