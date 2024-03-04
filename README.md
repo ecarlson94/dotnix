@@ -1,5 +1,5 @@
-<h1 align="center"> <img src="https://github.com/IogaMaster/dotfiles/main/.github/assets/flake.webp" width="250px"/></h1>
-<h2 align="center">My [NixOS](https://nixos.org) and [Home Manager](https://github.com/nix-community/home-manager) configurations.</h2>
+<h1 align="center"> <img src="./.github/assets/flake.webp" width="250px"/></h1>
+<h2 align="center">My NixOS and Home Manager configurations.</h2>
 
 <h1 align="center">
   <a href='#'><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/macchiato.png" width="600px"/></a>
