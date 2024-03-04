@@ -91,7 +91,6 @@ This is the starting point for configuring a UI.
 
 Contains toggleable modules for the following:
 
-- [dircolors](https://man7.org/linux/man-pages/man1/dircolors.1.html)
 - [git](https://git-scm.com/)
 - [nvim](#nvim)
 - [tmux](https://github.com/tmux/tmux/wiki)
@@ -107,7 +106,9 @@ modules.cli.enable = true;
 
 ### Desktop
 
-Contains GUI based app installations and configurations. Enables [CLI](#cli) by default.
+Contains GUI based app installations and configurations. Enables [CLI](#cli3) by default.
+
+Requires [Hyprland](#hyprland) configuration first.
 
 ### Special Thanks
 - [redyf](https://github.com/redyf/nixdots) for the bar and some Hyprland configuration

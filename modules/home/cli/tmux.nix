@@ -1,16 +1,12 @@
 { lib, pkgs, config, ... }:
 with lib;
 let
-  cfg = config.modules.tmux;
+  cfg = config.modules.cli.tmux;
 in
 {
-  imports = [ ./dircolors.nix ];
-
-  options.modules.tmux = { enable = mkEnableOption "tmux"; };
+  options.modules.cli.tmux = { enable = mkEnableOption "tmux"; };
 
   config = mkIf cfg.enable {
-    modules.dircolors.enable = true;
-
     programs.tmux = {
       enable = true;
       shortcut = "a";

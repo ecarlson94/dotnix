@@ -5,7 +5,6 @@ let
 in
 {
   imports = [
-    ./dircolors.nix
     ./git.nix
     ./nvim.nix
     ./tmux.nix
@@ -15,8 +14,7 @@ in
   options.modules.cli = { enable = mkEnableOption "cli"; };
 
   config = mkIf cfg.enable {
-    modules = {
-      dircolors.enable = true;
+    modules.cli = {
       git.enable = true;
       nvim.enable = true;
       tmux.enable = true;

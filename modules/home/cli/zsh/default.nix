@@ -1,12 +1,10 @@
 { lib, pkgs, config, ... }:
 with lib;
 let
-  cfg = config.modules.zsh;
+  cfg = config.modules.cli.zsh;
 in
 {
-  imports = [ ../dircolors.nix ];
-
-  options.modules.zsh = { enable = mkEnableOption "zsh"; };
+  options.modules.cli.zsh = { enable = mkEnableOption "zsh"; };
 
   config = mkIf cfg.enable {
     home.packages = [
@@ -14,10 +12,9 @@ in
       pkgs.scc
     ];
 
-    modules.dircolors.enable = true;
-
     programs = {
       dircolors.enableZshIntegration = true;
+
       fzf.enableZshIntegration = true;
 
       zsh = {
