@@ -6,16 +6,16 @@
   <br>
   <div>
     <a href="https://github.com/ecarlson94/dotnix/issues">
-        <img src="https://img.shields.io/github/issues/ecarlson94/dotnix?color=fab387&labelColor=303446&style=for-the-badge">
+        <img src="https://img.shields.io/github/issues/ecarlson94/dotnix?color=f5a97f&labelColor=303446&style=for-the-badge">
     </a>
     <a href="https://github.com/ecarlson94/dotnix/stargazers">
-        <img src="https://img.shields.io/github/stars/ecarlson94/dotnix?color=ca9ee6&labelColor=303446&style=for-the-badge">
+        <img src="https://img.shields.io/github/stars/ecarlson94/dotnix?color=c6a0f6&labelColor=303446&style=for-the-badge">
     </a>
     <a href="https://github.com/ecarlson94/dotnix">
         <img src="https://img.shields.io/github/repo-size/ecarlson94/dotnix?color=ea999c&labelColor=303446&style=for-the-badge">
     </a>
     <a href="https://github.com/ecarlson94/dotnix/blob/main/LICENSE">
-        <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=GPL-3&logoColor=ca9ee6&colorA=313244&colorB=cba6f7"/>
+        <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=GPL-3&logoColor=ca9ee6&colorA=313244&colorB=a6da95"/>
     </a>
     <a href="https://nixos.org">
         <img src="https://img.shields.io/badge/NixOS-unstable-blue.svg?style=for-the-badge&labelColor=303446&logo=NixOS&logoColor=white&color=91D7E3">
