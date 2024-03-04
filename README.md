@@ -22,7 +22,7 @@
     </a>
   </div>
   <br>
-  <a href="https://buildwithnix.org">
+  <a href="https://builtwithnix.org">
       <img src="https://builtwithnix.org/badge.svg"/>
   </a>
 </h1>
