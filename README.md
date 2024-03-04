@@ -1,5 +1,6 @@
 <h1 align="center">
   <img src="./.github/assets/flake.webp" width="250px"/>
+  <br>
   ecarlson94's NixOS, HomeManager, and Nixvim Flake
   <a href='#'><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/macchiato.png" width="600px"/></a>
   <br>
@@ -20,7 +21,6 @@
         <img src="https://img.shields.io/badge/NixOS-unstable-blue.svg?style=for-the-badge&labelColor=303446&logo=NixOS&logoColor=white&color=91D7E3">
     </a>
   </div>
-  <br>
   <a href="https://builtwithnix.org">
       <img src="https://builtwithnix.org/badge.svg"/>
   </a>
