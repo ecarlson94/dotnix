@@ -8,8 +8,8 @@
     <a href="https://github.com/ecarlson94/dotnix/issues">
         <img src="https://img.shields.io/github/issues/redyf/nixdots?color=fab387&labelColor=303446&style=for-the-badge">
     </a>
-    <a href="https://github.com/redyf/nixdots/stargazers">
-        <img src="https://img.shields.io/github/stars/redyf/nixdots?color=ca9ee6&labelColor=303446&style=for-the-badge">
+    <a href="https://github.com/ecarlson94/dotnix/stargazers">
+        <img src="https://img.shields.io/github/stars/ecarlson94/dotnix?color=ca9ee6&labelColor=303446&style=for-the-badge">
     </a>
     <a href="https://github.com/ecarlson94/dotnix">
         <img src="https://img.shields.io/github/repo-size/redyf/nixdots?color=ea999c&labelColor=303446&style=for-the-badge">
