@@ -5,14 +5,14 @@ let
 in
 {
   imports = [
-    ../headless
+    ../cli
   ];
 
   options.modules.desktop = { enable = mkEnableOption "desktop"; };
 
   config = mkIf cfg.enable {
     modules = {
-      headless.enable = true;
+      cli.enable = true;
     };
   };
 }

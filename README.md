@@ -74,8 +74,8 @@ rebuild
   - [nvim](#nvim)
   - [tmux](https://github.com/tmux/tmux/wiki)
   - [zsh](https://www.zsh.org/)
-  - headeless-ide
-    - A module that when enabled, enable the following modules:
+  - cli
+    - A module that when enabled, enables the following modules:
       - dircolors
       - git
       - nvim
