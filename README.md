@@ -6,7 +6,7 @@
   <br>
   <div>
     <a href="https://github.com/ecarlson94/dotnix/issues">
-        <img src="https://img.shields.io/github/issues/redyf/nixdots?color=fab387&labelColor=303446&style=for-the-badge">
+        <img src="https://img.shields.io/github/issues/ecarlson94/dotnix?color=fab387&labelColor=303446&style=for-the-badge">
     </a>
     <a href="https://github.com/ecarlson94/dotnix/stargazers">
         <img src="https://img.shields.io/github/stars/ecarlson94/dotnix?color=ca9ee6&labelColor=303446&style=for-the-badge">
@@ -93,7 +93,7 @@ rebuild
   ```
 ### Special Thanks
 - [redyf](https://github.com/nixdots) for the bar and some Hyprland configuration
-- [sioodmy](https://github.com/sioodmy/dotfiles) for their NixOS and Hyprland configuration
-- [IogaMaster](https://github.com/IogaMaster/dotfiles) for the most beautiful catppuccin nix flake and some Hyprland config
+- [sioodmy](https://github.com/sioodmy/dotfiles) for their NixOS and Hyprland configuration and badges
+- [IogaMaster](https://github.com/IogaMaster/dotfiles) for the most beautiful catppuccin nix flake, some Hyprland config, and the badges
 - [This reddit post](https://reddit.com/r/NixOS/comments/137j18j/comment/ju6h25k) for helping me figure out the bare minimum to get Hyprland running
   - AMD GPU minimum required config [here](./modules/system/desktop/hyprland)
