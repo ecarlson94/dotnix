@@ -77,7 +77,7 @@ rebuild
 
 ### Desktop
 
-#### [Hyprland](./modules/system/desktop/hyprland) UI
+#### [Hyprland](./modules/system/desktop/hyprland)
 
 Bare bones installation of the [Hyprland](https://hyprland.org) dynamic tiling Wayland compositor.
 
