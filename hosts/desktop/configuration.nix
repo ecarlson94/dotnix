@@ -24,6 +24,9 @@ in
     networkmanager.enable = true;
     hostName = "nixos"; # Define your hostname.
     firewall.enable = true;
+    # Open ports in the firewall.
+    # firewall.allowedTCPPorts = [ ... ];
+    # firewall.allowedUDPPorts = [ ... ];
 
     # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -89,9 +92,6 @@ in
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
