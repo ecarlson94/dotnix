@@ -19,15 +19,18 @@ in
     efi.canTouchEfiVariables = true;
   };
 
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
   # Enable networking
-  networking.networkmanager.enable = true;
+  networking = {
+    networkmanager.enable = true;
+    hostName = "nixos"; # Define your hostname.
+    firewall.enable = true;
+
+    # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
+    # Configure network proxy if necessary
+    # proxy.default = "http://user:password@proxy:port/";
+    # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  };
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -47,12 +50,6 @@ in
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
-
   programs.zsh.enable = true;
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.walawren = {
@@ -70,6 +67,11 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    firefox-wayland # browser
+    alacritty # terminal emulator
+    mako # notification daemon
+    tofi # app launcher
+    libnotify # mako depends on this
     (import ../bin/rebuild.nix { inherit pkgs target; })
     (import ../bin/rebuild-remote.nix { inherit pkgs target; })
   ];

@@ -10,7 +10,7 @@
     kernelModules = [ "kvm-amd" ];
     extraModulePackages = [ ];
     initrd = {
-      availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
+      availableKernelModules = [ "nvme" "amdgpu" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
       kernelModules = [ ];
     };
   };
@@ -37,5 +37,12 @@
   # networking.interfaces.enp0s3.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware = {
+    cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+    opengl = {
+      driSupport = true;
+      driSupport32Bit = true;
+    };
+  };
 }
