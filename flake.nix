@@ -40,50 +40,7 @@
       ];
 
       flake = {
-        nixosConfigurations = {
-          nixos-wsl = nixpkgs.lib.nixosSystem rec {
-            system = "x86_64-linux";
-            modules = [
-              ./hosts/nixos-wsl/configuration.nix
-              home-manager.nixosModules.home-manager
-              {
-                home-manager = {
-                  useGlobalPkgs = true;
-                  useUserPackages = true;
-                  users.nixos = import ./hosts/nixos-wsl/home.nix;
-
-                  # Optionally, use home-manager.extraSpecialArgs to pass
-                  # arguments to home.nix
-                  extraSpecialArgs = {
-                    inherit (self.packages.${system}) nvim;
-                  };
-                };
-              }
-            ];
-            specialArgs = { inherit inputs; };
-          };
-          desktop = nixpkgs.lib.nixosSystem rec {
-            system = "x86_64-linux";
-            modules = [
-              ./hosts/desktop/configuration.nix
-              home-manager.nixosModules.home-manager
-              {
-                home-manager = {
-                  useGlobalPkgs = true;
-                  useUserPackages = true;
-                  users.walawren = import ./hosts/desktop/home.nix;
-
-                  # Optionally, use home-manager.extraSpecialArgs to pass
-                  # arguments to home.nix
-                  extraSpecialArgs = {
-                    inherit (self.packages.${system}) nvim;
-                  };
-                };
-              }
-            ];
-            specialArgs = { inherit inputs; };
-          };
-        };
+        nixosConfigurations = import ./hosts inputs;
       };
 
       perSystem =
