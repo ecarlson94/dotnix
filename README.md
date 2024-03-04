@@ -12,7 +12,7 @@
         <img src="https://img.shields.io/github/stars/ecarlson94/dotnix?color=ca9ee6&labelColor=303446&style=for-the-badge">
     </a>
     <a href="https://github.com/ecarlson94/dotnix">
-        <img src="https://img.shields.io/github/repo-size/redyf/nixdots?color=ea999c&labelColor=303446&style=for-the-badge">
+        <img src="https://img.shields.io/github/repo-size/ecarlson94/dotnix?color=ea999c&labelColor=303446&style=for-the-badge">
     </a>
     <a href="https://github.com/ecarlson94/dotnix/blob/main/LICENSE">
         <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=GPL-3&logoColor=ca9ee6&colorA=313244&colorB=cba6f7"/>
