@@ -72,9 +72,7 @@ in
   environment.systemPackages = with pkgs; [
     firefox-wayland # browser
     alacritty # terminal emulator
-    mako # notification daemon
     tofi # app launcher
-    libnotify # mako depends on this
     (import ../bin/rebuild.nix { inherit pkgs target; })
     (import ../bin/rebuild-remote.nix { inherit pkgs target; })
   ];

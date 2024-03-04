@@ -1,9 +1,20 @@
 { pkgs, ... }:
 {
   imports = [
-    ./programs.nix
     ./services.nix
   ];
+
+  environment.systemPackages = with pkgs; [
+    mako # notification daemon
+    libnotify # mako depends on this
+  ];
+
+  programs = {
+    hyprland = {
+      enable = true;
+      xwayland.enable = true;
+    };
+  };
 
   environment.sessionVariables = {
     # Hint electron apps to use wayland
