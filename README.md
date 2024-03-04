@@ -1,7 +1,7 @@
-<h1 align="center"> <img src="./.github/assets/flake.webp" width="250px"/></h1>
-<h2 align="center">My NixOS and Home Manager configurations.</h2>
-
 <h1 align="center">
+  <img src="./.github/assets/flake.webp" width="250px"/>
+  <br>
+  ecarlson94's NixOS, HomeManager, and Nixvim Flake
   <a href='#'><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/macchiato.png" width="600px"/></a>
   <br>
   <div>
@@ -21,7 +21,6 @@
         <img src="https://img.shields.io/badge/NixOS-unstable-blue.svg?style=for-the-badge&labelColor=303446&logo=NixOS&logoColor=white&color=91D7E3">
     </a>
   </div>
-  <br>
   <a href="https://builtwithnix.org">
       <img src="https://builtwithnix.org/badge.svg"/>
   </a>
@@ -92,7 +91,7 @@ rebuild
   nix run github:ecarlson94/dotnix/main#nvim
   ```
 ### Special Thanks
-- [redyf](https://github.com/nixdots) for the bar and some Hyprland configuration
+- [redyf](https://github.com/redyf/nixdots) for the bar and some Hyprland configuration
 - [sioodmy](https://github.com/sioodmy/dotfiles) for their NixOS and Hyprland configuration and badges
 - [IogaMaster](https://github.com/IogaMaster/dotfiles) for the most beautiful catppuccin nix flake, some Hyprland config, and the badges
 - [This reddit post](https://reddit.com/r/NixOS/comments/137j18j/comment/ju6h25k) for helping me figure out the bare minimum to get Hyprland running
