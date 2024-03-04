@@ -62,27 +62,11 @@ If you have the repo installed locally at `~/gitrepos/dotnix`, you can rebuild w
 rebuild
 ```
 
-## Modules
+## System Modules
 
-### [home](./modules/home)
+### CLI
 
-- [Home Manager](https://github.com/nix-community/home-manager) configuration
-- No way to configure standalone yet, only works with [NixOS WSL](https://github.com/nix-community/NixOS-WSL)
-- Contains toggleable modules for the following:
-  - [dircolors](https://man7.org/linux/man-pages/man1/dircolors.1.html)
-  - [git](https://git-scm.com/)
-  - [nvim](#nvim)
-  - [tmux](https://github.com/tmux/tmux/wiki)
-  - [zsh](https://www.zsh.org/)
-  - cli
-    - A module that when enabled, enables the following modules:
-      - dircolors
-      - git
-      - nvim
-      - tmux
-      - zsh
-
-### [nvim](./modules/nvim)
+#### [nvim](./modules/system/cli/nvim)
 
 - Nvim Configuration using [Nixvim](https://github.com/nix-community/nixvim)
 - Available as a package
@@ -90,6 +74,41 @@ rebuild
   ```sh
   nix run github:ecarlson94/dotnix/main#nvim
   ```
+
+### Desktop
+
+#### [Hyprland](./modules/system/desktop/hyprland) UI
+
+Bare bones installation of the [Hyprland](https://hyprland.org) dynamic tiling Wayland compositor.
+
+This is the starting point for configuring a UI.
+
+## [Home Modules](./modules/home)
+
+[Home Manager](https://github.com/nix-community/home-manager) configuration
+
+### CLI
+
+Contains toggleable modules for the following:
+
+- [dircolors](https://man7.org/linux/man-pages/man1/dircolors.1.html)
+- [git](https://git-scm.com/)
+- [nvim](#nvim)
+- [tmux](https://github.com/tmux/tmux/wiki)
+- [zsh](https://www.zsh.org/)
+
+The [cli module](./modules/home/cli) will enable all of the above.
+
+```nix
+imports = [ ./modules/home ];
+
+modules.cli.enable = true;
+```
+
+### Desktop
+
+Contains GUI based app installations and configurations. Enables [CLI](#cli) by default.
+
 ### Special Thanks
 - [redyf](https://github.com/redyf/nixdots) for the bar and some Hyprland configuration
 - [sioodmy](https://github.com/sioodmy/dotfiles) for their NixOS and Hyprland configuration and badges
