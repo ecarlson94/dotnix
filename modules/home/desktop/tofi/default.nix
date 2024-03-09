@@ -11,7 +11,7 @@ in
 
     wayland.windowManager.hyprland.settings = {
       bind = [
-        "SUPER,SPACE,run-as-service $(tofi-drun)"
+        "SUPER,SPACE,exec,run-as-service $(tofi-drun)"
       ];
     };
 
