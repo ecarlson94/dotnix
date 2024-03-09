@@ -106,7 +106,7 @@ modules.cli.enable = true;
 
 ### Desktop
 
-Contains GUI based app installations and configurations. Enables [CLI](#cli3) by default.
+Contains GUI based app installations and configurations. Enables [CLI](#cli-1) by default.
 
 Requires [Hyprland](#hyprland) configuration first.
 
