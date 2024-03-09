@@ -44,35 +44,15 @@ in
             "cursor"
             "line"
           ];
-          styles = {
-            cursor = "fg=yellow,bold";
-            default = "none";
-            unknown-token = "fg=green,bold";
-            reserved-word = "fg=green,bold";
-            alias = "fg=cyan,bold";
-            builtin = "fg=cyan,bold";
-            function = "fg=cyan,bold";
-            command = "fg=cyan,bold";
-            precommand = "fg=cyan,underline";
-            commandseparator = "none";
-            hashed-command = "fg=green,bold";
-            path = "fg=214,underline";
-            globbing = "fg=063";
-            history-expansion = "fg=white,underline";
-            single-hyphen-option = "fg=070";
-            double-hyphen-option = "fg=070";
-            back-quoted-argument = "none";
-            single-quoted-argument = "fg=063";
-            double-quoted-argument = "fg=063";
-            dollar-quoted-argument = "fg=009";
-            dollar-double-quoted-argument = "fg=009";
-            assign = "none";
-          };
         };
 
         zplug = {
           enable = true;
           plugins = [
+            {
+              name = "catppuccin/zsh-syntax-highlighting";
+              tags = [ "use:themes/catppuccin_mocha-zsh-syntax-highlighting" ];
+            }
             { name = "jeffreytse/zsh-vi-mode"; }
             { name = "MichaelAquilina/zsh-you-should-use"; }
             { name = "bric3/nice-exit-code"; }
