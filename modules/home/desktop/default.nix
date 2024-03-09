@@ -6,6 +6,9 @@ in
 {
   imports = [
     ../cli
+    ./apps
+    ./hyprland
+    ./tofi
   ];
 
   options.modules.desktop = { enable = mkEnableOption "desktop"; };
@@ -14,6 +17,12 @@ in
     programs.dircolors.enable = true;
     modules = {
       cli.enable = true;
+
+      desktop = {
+        hyprland.enable = true; # Tiling Wayland Compositor
+        tofi.enable = true; # Application Launcher
+        alacritty.enable = true; # Terminal emulator
+      };
     };
   };
 }

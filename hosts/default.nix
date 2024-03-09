@@ -13,6 +13,7 @@ let
     # arguments to home.nix
     extraSpecialArgs = {
       inherit (packages.${system}) nvim;
+      theme = import ../theme;
     };
   };
 in

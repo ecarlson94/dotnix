@@ -111,6 +111,7 @@ Contains GUI based app installations and configurations. Enables [CLI](#cli-1) b
 Requires [Hyprland](#hyprland) configuration first.
 
 ### Special Thanks
+- [nekowinston](https://github.com/nekowinston) for the nixppuccin wallpaper
 - [redyf](https://github.com/redyf/nixdots) for the bar and some Hyprland configuration
 - [sioodmy](https://github.com/sioodmy/dotfiles) for their NixOS and Hyprland configuration and badges
 - [IogaMaster](https://github.com/IogaMaster/dotfiles) for the most beautiful catppuccin nix flake, some Hyprland config, and the badges

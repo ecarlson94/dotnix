@@ -1,0 +1,36 @@
+{ lib, config, pkgs, theme, ... }:
+with lib;
+let
+  cfg = config.modules.desktop.hyprland;
+  mod = "SUPER";
+
+  mkService = lib.recursiveUpdate {
+    Unit.PartOf = [ "graphical-session.target" ];
+    Unit.After = [ "graphical-session.target" ];
+    Install.WantedBy = [ "graphical-session.target" ];
+  };
+in
+{
+  options.modules.desktop.hyprland = { enable = mkEnableOption "hyprland"; };
+
+  config = mkIf cfg.enable {
+    wayland.windowManager.hyprland = {
+      enable = true;
+
+      settings = {
+        bind = [
+          "${mod},Q,killactive"
+        ];
+      };
+    };
+
+    systemd.user.services = {
+      swaybg = mkService {
+        Unit.Description = "Wallpaper chooser";
+        Service = {
+          ExecStart = "${lib.getExe pkgs.swaybg} -i ${theme.defaultWallpaper}";
+        };
+      };
+    };
+  };
+}
