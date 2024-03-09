@@ -26,13 +26,13 @@ in
       font = monospace
       ascii-input = false
       outline-width = 5
-      outline-color = #${surface0}
+      outline-color = ${surface0}
 
       border-width = 2
-      border-color = #${accent}
-      background-color = #${base}
-      text-color = #${text}
-      selection-color = #${accent}
+      border-color = ${accent}
+      background-color = ${base}
+      text-color = ${text}
+      selection-color = ${accent}
 
       min-input-width = 120
       late-keyboard-init = true
