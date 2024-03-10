@@ -7,9 +7,7 @@ in
   options.modules.desktop.kitty = { enable = mkEnableOption "kitty"; };
 
   config = mkIf cfg.enable {
-    modules.desktop.addons = {
-      fonts.enable = true;
-    };
+    modules.desktop.addons.fonts.enable = true;
 
     programs.kitty = {
       enable = true;
