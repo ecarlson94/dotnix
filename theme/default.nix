@@ -1,4 +1,5 @@
 {
+  stripPound = color: builtins.substring 1 (builtins.stringLength color) color;
   colors = rec {
     rosewater = "#f5e0dc";
     flamingo = "#f2cdcd";
@@ -31,6 +32,8 @@
     secondaryAccent = lavender;
     tertiaryAccent = teal;
   };
+
+  radius = 10;
 
   defaultWallpaper = ./wallpapers/nixppuccin.png;
 }

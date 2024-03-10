@@ -12,6 +12,7 @@
     shadingFactor = -30;
     size = 15;
     startInInsert = true;
+    floatOpts.border = "curved";
   };
 
   keymaps = [

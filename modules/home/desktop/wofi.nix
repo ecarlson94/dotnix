@@ -2,7 +2,7 @@
 with lib;
 let
   cfg = config.modules.desktop.wofi;
-  radius = "15px";
+  radius = "${builtins.toString theme.radius}px";
 in
 {
   options.modules.desktop.wofi = { enable = mkEnableOption "wofi"; };
@@ -35,7 +35,7 @@ in
         window {
           margin: 5px;
           border: 5px solid ${base};
-          border-radius: 15px;
+          border-radius: ${radius};
           font-family: "Fira Code";
           font-size: 14;
         }
@@ -59,7 +59,7 @@ in
           margin: 0px;
           padding: 10px;
           font-weight: bold;
-          border-radius: 15px
+          border-radius: ${radius};
         }
 
         #outer-box {

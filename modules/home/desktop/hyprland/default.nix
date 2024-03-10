@@ -5,6 +5,12 @@ let
   meh = "CONTROLSHIFTALT";
   hyper = "SUPERCONTROLSHIFTALT";
 
+  rgba = color: "rgba(${theme.stripPound color}ee)";
+  primaryAccent = rgba theme.colors.primaryAccent;
+  secondaryAccent = rgba theme.colors.secondaryAccent;
+  tertiaryAccent = rgba theme.colors.tertiaryAccent;
+  crust = rgba theme.colors.crust;
+
   # binds $meh + [SUPER +] {1...8} to [move to] workspace {1...8} (stolen from sioodmy)
   workspaces = builtins.concatLists (builtins.genList
     (
@@ -35,6 +41,37 @@ in
       settings = {
         input = {
           follow_mouse = 0;
+        };
+
+        general = {
+          gaps_in = 2;
+          gaps_out = 10;
+          border_size = 3;
+          layout = "dwindle";
+          apply_sens_to_raw = 1; # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
+          "col.active_border" = "${primaryAccent} ${secondaryAccent} ${tertiaryAccent} 45deg";
+          "col.inactive_border" = "${crust}";
+        };
+
+        decoration = {
+          rounding = theme.radius;
+          drop_shadow = "yes";
+          shadow_range = 4;
+          shadow_render_power = 3;
+        };
+
+        animations = {
+          enabled = true;
+          bezier = [
+            "linear,0.0,0.0,1.0,1.0"
+          ];
+          animation = [
+            "borderangle,1,100,linear,loop"
+          ];
+        };
+
+        dwindle = {
+          preserve_split = "yes";
         };
 
         bind = [
