@@ -5,6 +5,21 @@ let
   meh = "CONTROLSHIFTALT";
   hyper = "SUPERCONTROLSHIFTALT";
 
+  # binds $meh + [SUPER +] {1...8} to [move to] workspace {1...8} (stolen from sioodmy)
+  workspaces = builtins.concatLists (builtins.genList
+    (
+      i:
+      let
+        workspace = builtins.toString (i + 1);
+      in
+      [
+        "${meh}, ${workspace}, workspace, ${workspace}"
+        "${hyper}, ${workspace}, movetoworkspace, ${workspace}"
+      ]
+    )
+    8
+  );
+
   mkService = lib.recursiveUpdate {
     Unit.PartOf = [ "graphical-session.target" ];
     Unit.After = [ "graphical-session.target" ];
@@ -30,6 +45,7 @@ in
       settings = {
         bind = [
           "${meh},Q,killactive"
+          "${meh},F, fullscreen"
 
           "${meh},H,movefocus,l"
           "${meh},L,movefocus,r"
@@ -40,7 +56,8 @@ in
           "${hyper},L,movewindow,r"
           "${hyper},K,movewindow,u"
           "${hyper},J,movewindow,d"
-        ];
+        ]
+        ++ workspaces;
 
         bindm = [
           "${meh},mouse:272,movewindow" # TODO: remove after reflashing keyboard
