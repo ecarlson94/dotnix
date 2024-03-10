@@ -2,7 +2,7 @@
 with lib;
 let
   cfg = config.modules.desktop.hyprland;
-  mod = "SUPER";
+  meh = "CONTROLSHIFTALT";
 
   mkService = lib.recursiveUpdate {
     Unit.PartOf = [ "graphical-session.target" ];
@@ -24,7 +24,7 @@ in
 
       settings = {
         bind = [
-          "${mod},Q,killactive"
+          "${meh},Q,killactive"
         ];
       };
     };

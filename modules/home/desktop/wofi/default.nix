@@ -13,7 +13,7 @@ in
 
     wayland.windowManager.hyprland.settings = {
       bind = [
-        "SUPER,SPACE,exec,wofi --show drun"
+        "CONTROLSHIFTALT,A,exec,wofi --show drun"
       ];
     };
   };
