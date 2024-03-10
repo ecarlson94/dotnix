@@ -19,21 +19,11 @@ let
     )
     8
   );
-
-  mkService = lib.recursiveUpdate {
-    Unit.PartOf = [ "graphical-session.target" ];
-    Unit.After = [ "graphical-session.target" ];
-    Install.WantedBy = [ "graphical-session.target" ];
-  };
 in
 {
   options.modules.desktop.hyprland = { enable = mkEnableOption "hyprland"; };
 
   config = mkIf cfg.enable {
-    modules.desktop.addons = {
-      wofi.enable = true;
-    };
-
     home.packages = with pkgs; [
       wf-recorder
       wl-clipboard
@@ -72,15 +62,6 @@ in
           ",XF86AudioRaiseVolume,exec,pactl set-sink-volume @DEFAULT_SINK@ +5%"
           ",XF86AudioLowerVolume,exec,pactl set-sink-volume @DEFAULT_SINK@ -5%"
         ];
-      };
-    };
-
-    systemd.user.services = {
-      swaybg = mkService {
-        Unit.Description = "Wallpaper chooser";
-        Service = {
-          ExecStart = "${lib.getExe pkgs.swaybg} -i ${theme.defaultWallpaper}";
-        };
       };
     };
   };

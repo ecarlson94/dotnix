@@ -1,14 +1,14 @@
 { lib, config, theme, ... }:
 with lib;
 let
-  cfg = config.modules.desktop.addons.wofi;
+  cfg = config.modules.desktop.wofi;
   radius = "15px";
 in
 {
-  options.modules.desktop.addons.wofi = { enable = mkEnableOption "wofi"; };
+  options.modules.desktop.wofi = { enable = mkEnableOption "wofi"; };
 
   config = mkIf cfg.enable {
-    modules.desktop.addons.fonts.enable = true;
+    modules.desktop.fonts.enable = true;
 
     programs.wofi = {
       enable = true;

@@ -110,6 +110,11 @@ Contains GUI based app installations and configurations. Enables [CLI](#cli-1) b
 
 Requires [Hyprland](#hyprland) configuration first.
 
+- Configures user settings for Hyprland
+- Configures [kitty](https://sw.kovidgoyal.net/kitty) terminal emulator
+- Configures [wofi](https://hg.sr.ht/~scoopta/wofi) app launcher
+- Configures wallpaper selector
+
 ### Special Thanks
 - [nekowinston](https://github.com/nekowinston) for the nixppuccin wallpaper
 - [redyf](https://github.com/redyf/nixdots) for the bar and some Hyprland configuration

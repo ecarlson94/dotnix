@@ -1,10 +1,10 @@
 { lib, config, pkgs, ... }:
 with lib;
 let
-  cfg = config.modules.desktop.addons.fonts;
+  cfg = config.modules.desktop.fonts;
 in
 {
-  options.modules.desktop.addons.fonts = { enable = mkEnableOption "fonts"; };
+  options.modules.desktop.fonts = { enable = mkEnableOption "fonts"; };
 
   config = mkIf cfg.enable {
     fonts.fontconfig.enable = true;
