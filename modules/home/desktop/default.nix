@@ -7,9 +7,7 @@ in
   imports = [
     ../cli
     ./apps
-    ./hyprland
-    ./wofi
-    ./gtk.nix
+    ./addons
   ];
 
   options.modules.desktop = { enable = mkEnableOption "desktop"; };
@@ -22,7 +20,8 @@ in
       desktop = {
         hyprland.enable = true; # Tiling Wayland Compositor
         wofi.enable = true; # Application Launcher
-        alacritty.enable = true; # Terminal emulator
+        kitty.enable = true; # Terminal Emulator
+        fonts.enable = true;
       };
     };
   };
