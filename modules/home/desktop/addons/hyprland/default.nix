@@ -43,6 +43,10 @@ in
       enable = true;
 
       settings = {
+        input = {
+          follow_mouse = 0;
+        };
+
         bind = [
           "${meh},Q,killactive"
           "${meh},F, fullscreen"
