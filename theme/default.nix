@@ -29,8 +29,8 @@
     crust = "#11111b";
 
     primaryAccent = pink;
-    secondaryAccent = lavender;
-    tertiaryAccent = teal;
+    secondaryAccent = teal;
+    tertiaryAccent = mauve;
   };
 
   radius = 10;
