@@ -3,6 +3,7 @@ with lib;
 let
   cfg = config.modules.desktop.hyprland;
   meh = "CONTROLSHIFTALT";
+  hyper = "SUPERCONTROLSHIFTALT";
 
   mkService = lib.recursiveUpdate {
     Unit.PartOf = [ "graphical-session.target" ];
@@ -30,6 +31,15 @@ in
           "${meh},L,movefocus,r"
           "${meh},K,movefocus,u"
           "${meh},J,movefocus,d"
+
+          "${hyper},H,movewindow,l"
+          "${hyper},L,movewindow,r"
+          "${hyper},K,movewindow,u"
+          "${hyper},J,movewindow,d"
+        ];
+
+        bindm = [
+          "${meh},mouse:272,movewindow" # TODO: remove after reflashing keyboard
         ];
       };
     };
