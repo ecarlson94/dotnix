@@ -12,7 +12,7 @@ in
 
       settings = {
         font = {
-          size = 12;
+          size = 14;
         };
 
         colors = with theme.colors; {
@@ -20,7 +20,7 @@ in
             background = base;
             foreground = text;
             dim_foreground = text;
-            bright_foregrount = text;
+            bright_foreground = text;
           };
 
           cursor = {
@@ -28,7 +28,7 @@ in
             cursor = accent;
           };
 
-          vi_mode_cusor = {
+          vi_mode_cursor = {
             text = base;
             cursor = accent2;
           };
@@ -39,15 +39,15 @@ in
               background = subtext0;
             };
 
-            focused_matched = {
+            focused_match = {
               foreground = base;
               background = green;
             };
+          };
 
-            footer_bar = {
-              foreground = base;
-              background = subtext0;
-            };
+          footer_bar = {
+            foreground = base;
+            background = subtext0;
           };
 
           hints = {

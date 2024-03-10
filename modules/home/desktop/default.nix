@@ -8,7 +8,8 @@ in
     ../cli
     ./apps
     ./hyprland
-    ./tofi
+    ./wofi
+    ./gtk.nix
   ];
 
   options.modules.desktop = { enable = mkEnableOption "desktop"; };
@@ -20,7 +21,7 @@ in
 
       desktop = {
         hyprland.enable = true; # Tiling Wayland Compositor
-        tofi.enable = true; # Application Launcher
+        wofi.enable = true; # Application Launcher
         alacritty.enable = true; # Terminal emulator
       };
     };

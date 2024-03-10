@@ -70,9 +70,6 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    firefox-wayland # browser
-    alacritty # terminal emulator
-    tofi # app launcher
     (import ../bin/rebuild.nix { inherit pkgs target; })
     (import ../bin/rebuild-remote.nix { inherit pkgs target; })
   ];

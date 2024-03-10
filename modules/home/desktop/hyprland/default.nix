@@ -14,6 +14,11 @@ in
   options.modules.desktop.hyprland = { enable = mkEnableOption "hyprland"; };
 
   config = mkIf cfg.enable {
+    home.packages = with pkgs; [
+      wf-recorder
+      wl-clipboard
+    ];
+
     wayland.windowManager.hyprland = {
       enable = true;
 
