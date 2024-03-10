@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ lib, config, pkgs, ... }:
 with lib;
 let
   cfg = config.modules.desktop.kitty;
@@ -8,6 +8,10 @@ in
 
   config = mkIf cfg.enable {
     modules.desktop.fonts.enable = true;
+
+    home.packages = with pkgs; [
+      wl-clipboard
+    ];
 
     programs.kitty = {
       enable = true;
