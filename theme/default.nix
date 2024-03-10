@@ -27,8 +27,9 @@
     mantle = "#181825";
     crust = "#11111b";
 
-    accent = pink;
-    accent2 = lavender;
+    primaryAccent = pink;
+    secondaryAccent = lavender;
+    tertiaryAccent = teal;
   };
 
   defaultWallpaper = ./wallpapers/nixppuccin.png;

@@ -15,6 +15,10 @@ in
   options.modules.desktop.hyprland = { enable = mkEnableOption "hyprland"; };
 
   config = mkIf cfg.enable {
+    modules.desktop.addons = {
+      wofi.enable = true;
+    };
+
     home.packages = with pkgs; [
       wf-recorder
       wl-clipboard

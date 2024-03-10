@@ -19,9 +19,7 @@ in
 
       desktop = {
         hyprland.enable = true; # Tiling Wayland Compositor
-        wofi.enable = true; # Application Launcher
         kitty.enable = true; # Terminal Emulator
-        fonts.enable = true;
       };
     };
   };

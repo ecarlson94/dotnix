@@ -1,10 +1,10 @@
-{ lib, config, pkgs, theme, ... }:
+{ lib, config, ... }:
 with lib;
 let
-  cfg = config.modules.desktop.wofi;
+  cfg = config.modules.desktop.addons.wofi;
 in
 {
-  options.modules.desktop.wofi = { enable = mkEnableOption "wofi"; };
+  options.modules.desktop.addons.wofi = { enable = mkEnableOption "wofi"; };
 
   config = mkIf cfg.enable {
     programs.wofi = {
