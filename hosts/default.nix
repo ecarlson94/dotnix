@@ -13,6 +13,7 @@ let
     # arguments to home.nix
     extraSpecialArgs = {
       inherit (packages.${system}) nvim;
+      firefox-addons = inputs.firefox-addons.packages.${system};
       theme = import ../theme;
     };
   };

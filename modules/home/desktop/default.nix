@@ -24,9 +24,13 @@ in
 
       desktop = {
         hyprland.enable = true; # Tiling Wayland Compositor
-        kitty.enable = true; # Terminal Emulator
         wallpaper.enable = true; # Configures the wallpaper
         wofi.enable = true; # Application launcher
+
+        apps = {
+          kitty.enable = true; # Terminal Emulator
+          firefox.enable = true; # Browser
+        };
       };
     };
   };
