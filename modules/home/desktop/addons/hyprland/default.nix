@@ -60,7 +60,13 @@ in
         ++ workspaces;
 
         bindm = [
-          "${meh},mouse:272,movewindow" # TODO: remove after reflashing keyboard
+          "${meh},mouse:272,movewindow"
+          "${meh},mouse:273,resizewindow"
+        ];
+
+        binde = [
+          ",XF86AudioRaiseVolume,exec,pactl set-sink-volume @DEFAULT_SINK@ +5%"
+          ",XF86AudioLowerVolume,exec,pactl set-sink-volume @DEFAULT_SINK@ -5%"
         ];
       };
     };
