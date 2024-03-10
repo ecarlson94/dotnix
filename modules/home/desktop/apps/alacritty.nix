@@ -15,6 +15,10 @@ in
           size = 14;
         };
 
+        window = {
+          opacity = .75;
+        };
+
         colors = with theme.colors; {
           primary = {
             background = base;
@@ -95,6 +99,12 @@ in
           { key = "Space"; mods = "Control"; action = "ToggleViMode"; }
         ];
       };
+    };
+
+    wayland.windowManager.hyprland.settings = {
+      bind = [
+        "CONTROLSHIFTALT,T,exec,alacritty"
+      ];
     };
   };
 }
