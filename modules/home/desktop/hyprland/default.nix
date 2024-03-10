@@ -25,6 +25,11 @@ in
       settings = {
         bind = [
           "${meh},Q,killactive"
+
+          "${meh},H,movefocus,l"
+          "${meh},L,movefocus,r"
+          "${meh},K,movefocus,u"
+          "${meh},J,movefocus,d"
         ];
       };
     };
