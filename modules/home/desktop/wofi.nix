@@ -14,8 +14,8 @@ in
       enable = true;
 
       settings = {
-        width = 900;
-        height = 600;
+        width = 600;
+        height = 400;
         location = "center";
         show = "drun";
         prompt = "Search...";
