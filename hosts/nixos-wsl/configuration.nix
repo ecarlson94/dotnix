@@ -41,7 +41,10 @@ in
     setSocketVariable = true;
   };
 
-  programs.zsh.enable = true;
+  programs = {
+    zsh.enable = true;
+    dconf.enable = true;
+  };
 
   users.users = {
     nixos = {
