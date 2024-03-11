@@ -60,7 +60,6 @@ in
     isNormalUser = true;
     description = "Eric Carlson";
     extraGroups = [ "networkmanager" "wheel" "audio" "sound" "video" ];
-    packages = with pkgs; [ ];
   };
 
   # Allow unfree packages
@@ -69,7 +68,7 @@ in
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [ ] ++ (import ../bin { inherit pkgs target; });
+  environment.systemPackages = import ../bin { inherit pkgs target; };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

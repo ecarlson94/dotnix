@@ -29,7 +29,7 @@ in
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  environment.systemPackages = with pkgs; [ ] ++ (import ../bin { inherit pkgs target; });
+  environment.systemPackages = import ../bin { inherit pkgs target; };
 
   environment.pathsToLink = [ "/share/zsh" ];
 
