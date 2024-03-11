@@ -5,10 +5,7 @@
 # NixOS-WSL specific options are documented on the NixOS-WSL repository:
 # https://github.com/nix-community/NixOS-WSL
 
-{ pkgs, inputs, ... }:
-let
-  target = "nixos-wsl";
-in
+{ pkgs, target, inputs, config, ... }:
 {
   imports = [
     # include NixOS-WSL modules
@@ -16,7 +13,7 @@ in
   ];
 
   wsl.enable = true;
-  wsl.defaultUser = "walawren";
+  wsl.defaultUser = config.user.name;
 
 
   # This value determines the NixOS release from which the default
@@ -41,15 +38,5 @@ in
     setSocketVariable = true;
   };
 
-  programs = {
-    zsh.enable = true;
-    dconf.enable = true;
-  };
-
-  users.users = {
-    walawren = {
-      shell = pkgs.zsh;
-      extraGroups = [ "docker" ];
-    };
-  };
+  programs.dconf.enable = true; # Required for Home Manager
 }

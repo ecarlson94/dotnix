@@ -8,8 +8,10 @@
     ./desktop
   ];
 
-  home.packages = [
-    pkgs.curl
-    pkgs.wget
-  ];
+  home = {
+    packages = [
+      pkgs.curl
+      pkgs.wget
+    ];
+  };
 }

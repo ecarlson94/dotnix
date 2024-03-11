@@ -62,11 +62,7 @@ If you have the repo installed locally at `~/gitrepos/dotnix`, you can rebuild w
 rebuild
 ```
 
-## System Modules
-
-### CLI
-
-#### [nvim](./modules/system/cli/nvim)
+## [Nixvim Modules](./modules/nixvim)
 
 - Nvim Configuration using [Nixvim](https://github.com/nix-community/nixvim)
 - Available as a package
@@ -75,13 +71,31 @@ rebuild
   nix run github:ecarlson94/dotnix/main#nvim
   ```
 
+## [User Module](./modules/user/default.nix)
+
+Configures a user for the NixOS using a dynamic user name that can be configured in `nixosConfiguration`.
+
+## System Modules
+
+### [Home](./modules/system/home.nix)
+
+Configures Home Manager to be managed by the system for the configured user.
+
+Downside: Changes to [home modules](./modules/home) require full system rebuild.
+
+Upside: ONE COMMAND TO RULE THEM ALL (rebuild).
+
 ### Desktop
 
-#### [Hyprland](./modules/system/desktop/hyprland)
+#### [Hyprland](./modules/system/desktop/hyprland.nix)
 
 Bare bones installation of the [Hyprland](https://hyprland.org) dynamic tiling Wayland compositor.
 
-This is the starting point for configuring a UI.
+This is the starting point for configuring a UI for NixOS.
+
+#### [Sound](./modules/system/desktop/sound.nix)
+
+Configures sound for NixOS.
 
 ## [Home Modules](./modules/home)
 

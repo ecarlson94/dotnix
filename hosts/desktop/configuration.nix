@@ -2,10 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, ... }:
-let
-  target = "desktop";
-in
+{ pkgs, target, ... }:
 {
   imports =
     [
@@ -51,15 +48,6 @@ in
     LC_PAPER = "en_US.UTF-8";
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
-  };
-
-  programs.zsh.enable = true;
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.walawren = {
-    shell = pkgs.zsh;
-    isNormalUser = true;
-    description = "Eric Carlson";
-    extraGroups = [ "networkmanager" "wheel" "audio" "sound" "video" ];
   };
 
   # Allow unfree packages
