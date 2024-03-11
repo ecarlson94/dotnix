@@ -1,10 +1,6 @@
 {
   imports = [
     ./hyprland
+    ./sound.nix
   ];
-
-  sound = {
-    enable = true;
-    mediaKeys.enable = true;
-  };
 }

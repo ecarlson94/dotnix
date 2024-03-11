@@ -39,10 +39,6 @@ in
       enable = true;
 
       settings = {
-        input = {
-          follow_mouse = 0;
-        };
-
         general = {
           gaps_in = 2;
           gaps_out = 10;

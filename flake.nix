@@ -66,7 +66,7 @@
           };
 
           packages = {
-            nvim = pkgs.callPackage ./modules/system/cli/nvim/makeNvim.nix {
+            nvim = pkgs.callPackage ./modules/nixvim/makeNvim.nix {
               inherit inputs system;
               nixvim = nixvim.legacyPackages.${system};
             };
