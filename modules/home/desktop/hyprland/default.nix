@@ -70,6 +70,10 @@ in
           preserve_split = "yes";
         };
 
+        exec-once = [
+          "waybar"
+        ];
+
         bind = [
           "${meh},Q,killactive"
           "${meh},F, fullscreen"

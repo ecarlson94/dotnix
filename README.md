@@ -77,14 +77,6 @@ Configures a user for the NixOS using a dynamic user name that can be configured
 
 ## System Modules
 
-### [Home](./modules/system/home.nix)
-
-Configures Home Manager to be managed by the system for the configured user.
-
-Downside: Changes to [home modules](./modules/home) require full system rebuild.
-
-Upside: ONE COMMAND TO RULE THEM ALL (rebuild).
-
 ### Desktop
 
 #### [Hyprland](./modules/system/desktop/hyprland.nix)
@@ -96,6 +88,14 @@ This is the starting point for configuring a UI for NixOS.
 #### [Sound](./modules/system/desktop/sound.nix)
 
 Configures sound for NixOS.
+
+### [Home](./modules/system/home.nix)
+
+Configures Home Manager to be managed by the system for the configured user.
+
+Downside: Changes to [home modules](./modules/home) require full system rebuild.
+
+Upside: ONE COMMAND TO RULE THEM ALL (rebuild).
 
 ## [Home Modules](./modules/home)
 
@@ -129,6 +129,22 @@ Requires [Hyprland](#hyprland) configuration first.
 - Installs and configures [kitty](https://sw.kovidgoyal.net/kitty) terminal emulator
 - Installs and configures [wofi](https://hg.sr.ht/~scoopta/wofi) app launcher
 - Installs and configures [firefox](https://www.mozilla.org/en-US/firefox/new) browser
+
+```nix
+imports = [ ./modules/home ];
+
+modules.desktop.enable = true;
+```
+
+Each module can be individually turned on as well.
+
+```nix
+imports = [ ./modules/home ];
+
+modules.desktop.hyprland.enable = true;
+modules.desktop.apps.firefox.enable = true;
+...
+```
 
 ### Special Thanks
 - [nekowinston](https://github.com/nekowinston) for the nixppuccin wallpaper
