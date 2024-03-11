@@ -66,7 +66,7 @@ in
           };
 
           memory = {
-            format = "󰍛 {}%";
+            format = "󰍛 {percentage}%";
             format-alt = "󰍛 {used}/{total} GiB";
             interval = 5;
           };
