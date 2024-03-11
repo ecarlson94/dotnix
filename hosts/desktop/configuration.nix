@@ -59,7 +59,7 @@ in
     shell = pkgs.zsh;
     isNormalUser = true;
     description = "Eric Carlson";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "audio" "sound" "video" ];
     packages = with pkgs; [ ];
   };
 

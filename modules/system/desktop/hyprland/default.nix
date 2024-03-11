@@ -1,9 +1,5 @@
 { pkgs, ... }:
 {
-  imports = [
-    ./services.nix
-  ];
-
   environment.systemPackages = with pkgs; [
     mako # notification daemon
     libnotify # mako depends on this
@@ -21,10 +17,7 @@
     NIXOS_OZONE_WL = "1";
   };
 
-  hardware = {
-    opengl.enable = true;
-    pulseaudio.support32Bit = true;
-  };
+  hardware.opengl.enable = true;
 
   xdg = {
     autostart.enable = true;
@@ -38,11 +31,26 @@
     };
   };
 
-  security = {
-    rtkit.enable = true;
+  services = {
+    xserver = {
+      enable = true;
+      videoDrivers = [ "amdgpu" ];
+      displayManager.gdm = {
+        enable = true;
+        wayland = true;
+      };
 
-    pam.services.swaylock = {
-      text = "auth include login";
+      # Configure keymap in X11
+      xkb = {
+        layout = "us";
+        variant = "";
+      };
     };
+
+    gnome.gnome-keyring.enable = true;
+
+    dbus.enable = true;
   };
+
+  security.pam.services.swaylock.text = "auth include login";
 }
