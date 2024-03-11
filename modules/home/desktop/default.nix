@@ -6,8 +6,10 @@ in
 {
   imports = [
     ../cli
+
     ./apps
     ./hyprland
+    ./waybar
 
     ./gtk.nix
     ./fonts.nix
@@ -26,6 +28,7 @@ in
         hyprland.enable = true; # Tiling Wayland Compositor
         wallpaper.enable = true; # Configures the wallpaper
         wofi.enable = true; # Application launcher
+        waybar.enable = true; # Desktop Bar
 
         apps = {
           kitty.enable = true; # Terminal Emulator
