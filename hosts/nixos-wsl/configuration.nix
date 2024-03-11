@@ -5,7 +5,7 @@
 # NixOS-WSL specific options are documented on the NixOS-WSL repository:
 # https://github.com/nix-community/NixOS-WSL
 
-{ config, lib, pkgs, inputs, ... }:
+{ pkgs, inputs, ... }:
 let
   target = "nixos-wsl";
 in
@@ -29,10 +29,7 @@ in
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  environment.systemPackages = with pkgs; [
-    (import ../bin/rebuild.nix { inherit pkgs target; })
-    (import ../bin/rebuild-remote.nix { inherit pkgs target; })
-  ];
+  environment.systemPackages = with pkgs; [ ] ++ (import ../bin { inherit pkgs target; });
 
   environment.pathsToLink = [ "/share/zsh" ];
 
