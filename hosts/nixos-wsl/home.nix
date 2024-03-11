@@ -1,10 +1,8 @@
-{ config, pkgs, lib, ... }:
-
 {
   imports = [ ../../modules/home ];
 
-  home.username = "nixos";
-  home.homeDirectory = "/home/nixos";
+  home.username = "walawren";
+  home.homeDirectory = "/home/walawren";
 
   modules.cli.enable = true;
 }

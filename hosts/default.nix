@@ -27,7 +27,7 @@ in
       {
         home-manager = createHomeManager {
           inherit system;
-          user = "nixos";
+          user = "walawren";
           homeFile = ./nixos-wsl/home.nix;
         };
       }

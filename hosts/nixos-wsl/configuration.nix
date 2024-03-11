@@ -16,7 +16,7 @@ in
   ];
 
   wsl.enable = true;
-  wsl.defaultUser = "nixos";
+  wsl.defaultUser = "walawren";
 
 
   # This value determines the NixOS release from which the default
@@ -47,7 +47,7 @@ in
   };
 
   users.users = {
-    nixos = {
+    walawren = {
       shell = pkgs.zsh;
       extraGroups = [ "docker" ];
     };
