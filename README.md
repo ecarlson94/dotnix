@@ -118,6 +118,16 @@ imports = [ ./modules/home ];
 modules.cli.enable = true;
 ```
 
+Each module can be individually enabled as well.
+
+```nix
+imports = [ ./modules/home ];
+
+modules.cli.git.enable = true;
+modules.cli.zsh.enable = true;
+...
+```
+
 ### Desktop
 
 Contains GUI based app installations and configurations. Enables [CLI](#cli-1) by default.
@@ -136,7 +146,7 @@ imports = [ ./modules/home ];
 modules.desktop.enable = true;
 ```
 
-Each module can be individually turned on as well.
+Each module can be individually enabled as well.
 
 ```nix
 imports = [ ./modules/home ];
@@ -152,4 +162,4 @@ modules.desktop.apps.firefox.enable = true;
 - [sioodmy](https://github.com/sioodmy/dotfiles) for their NixOS and Hyprland configuration and badges
 - [IogaMaster](https://github.com/IogaMaster/dotfiles) for the most beautiful catppuccin nix flake, some Hyprland config, and the badges
 - [This reddit post](https://reddit.com/r/NixOS/comments/137j18j/comment/ju6h25k) for helping me figure out the bare minimum to get Hyprland running
-  - AMD GPU minimum required config [here](./modules/system/desktop/hyprland)
+  - AMD GPU minimum required config [here](./modules/system/desktop/hyprland.nix)
