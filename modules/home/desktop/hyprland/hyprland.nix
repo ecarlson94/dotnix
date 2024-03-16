@@ -37,6 +37,7 @@ in
 
     wayland.windowManager.hyprland = {
       enable = true;
+      systemd.enable = true;
 
       settings = {
         general = {
@@ -47,6 +48,11 @@ in
           apply_sens_to_raw = 1; # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
           "col.active_border" = "${primaryAccent} ${secondaryAccent} ${tertiaryAccent} 45deg";
           "col.inactive_border" = "${crust}";
+        };
+
+        misc = {
+          mouse_move_enables_dpms = true;
+          key_press_enables_dpms = true;
         };
 
         decoration = {

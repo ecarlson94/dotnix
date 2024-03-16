@@ -136,6 +136,7 @@ Requires [Hyprland](#hyprland) configuration first.
 
 - Configures user settings for Hyprland
 - Configures [Hyprlock](https://github.com/hyprwm/hyprlock) lock screen
+- Configures [Hypridle](https://github.com/hyprwm/hypridle) idle daemon
 - Configures wallpaper selector
 - Installs and configures [kitty](https://sw.kovidgoyal.net/kitty) terminal emulator
 - Installs and configures [wofi](https://hg.sr.ht/~scoopta/wofi) app launcher

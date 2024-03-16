@@ -9,7 +9,6 @@ let
   subtext1 = theme.stripPound theme.colors.subtext1;
   lavender = theme.stripPound theme.colors.lavender;
   red = theme.stripPound theme.colors.red;
-  crust = theme.stripPound theme.colors.crust;
   font_family = "Fira Code";
 in
 {
