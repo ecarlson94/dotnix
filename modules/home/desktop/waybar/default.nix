@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ lib, config, theme, ... }:
 with lib;
 let
   cfg = config.modules.desktop.waybar;
@@ -17,7 +17,7 @@ in
           layer = "top";
           position = "top";
           mod = "dock";
-          height = 32;
+          height = 48;
 
           modules-left = [ "hyprland/workspaces" ];
 
@@ -98,6 +98,8 @@ in
           };
         };
       };
+
+      style = import ./style.nix { inherit theme; };
     };
   };
 }

@@ -1,6 +1,8 @@
 {
   colorschemes.catppuccin = {
     enable = true;
+    transparentBackground = true;
+
     integrations = {
       cmp = true;
       flash = true;
