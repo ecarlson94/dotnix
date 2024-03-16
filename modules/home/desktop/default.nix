@@ -26,6 +26,7 @@ in
 
       desktop = {
         hyprland.enable = true; # Tiling Wayland Compositor
+        hyprlock.enable = true; # Lock screen
         wallpaper.enable = true; # Configures the wallpaper
         wofi.enable = true; # Application launcher
         waybar.enable = true; # Desktop Bar

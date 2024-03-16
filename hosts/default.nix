@@ -4,7 +4,6 @@ let
 
   userHomeModules = [
     ../modules/user
-    inputs.home-manager.nixosModules.home-manager
     ../modules/system/home.nix
   ];
 in

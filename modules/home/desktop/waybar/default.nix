@@ -1,4 +1,4 @@
-{ lib, config, theme, ... }:
+{ lib, config, theme, pkgs, ... }:
 with lib;
 let
   cfg = config.modules.desktop.waybar;
@@ -11,6 +11,11 @@ in
 
     programs.waybar = {
       enable = true;
+
+      systemd = {
+        enable = true;
+        target = "hyprland-session.target";
+      };
 
       settings = {
         mainBar = {
@@ -34,9 +39,6 @@ in
           "hyprland/workspaces" = {
             active-only = false;
             all-outputs = true;
-            disable-scroll = false;
-            on-scroll-up = "hyprctl dispatch workspace e-1";
-            on-scroll-down = "hyprctl dispatch workspace e+1";
             on-click = "activate";
             format = "{icon}";
             format-icons = {
@@ -62,7 +64,7 @@ in
               default = [ "󰕿" "󰖀" "󰕾" ];
             };
             scroll-step = 5;
-            on-click = "pavucontrol";
+            on-click = "kill $(pgrep pavucontrol) || ${pkgs.pavucontrol}/bin/pavucontrol";
           };
 
           memory = {

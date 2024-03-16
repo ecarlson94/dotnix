@@ -52,5 +52,25 @@
     dbus.enable = true;
   };
 
-  security.pam.services.swaylock.text = "auth include login";
+  security.pam = {
+    services = {
+      hyprlock.text = "auth include login";
+      login.enableGnomeKeyring = true;
+    };
+
+    loginLimits = [
+      {
+        domain = "@wheel";
+        item = "nofile";
+        type = "soft";
+        value = "524288";
+      }
+      {
+        domain = "@wheel";
+        item = "nofile";
+        type = "hard";
+        value = "1048576";
+      }
+    ];
+  };
 }

@@ -1,10 +1,16 @@
 { system, inputs, packages, config, homeOptions ? { }, ... }:
 {
+  imports = [
+    inputs.home-manager.nixosModules.home-manager
+  ];
+
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
     users.${config.user.name} = {
-      imports = [ ../home ]; # Home Options
+      imports = [
+        ../home
+      ]; # Home Options
 
       home.username = config.user.name;
       home.homeDirectory = "/home/${config.user.name}";
@@ -14,6 +20,7 @@
     # arguments to home.nix
     extraSpecialArgs = {
       inherit (packages.${system}) nvim;
+      inherit inputs;
       firefox-addons = inputs.firefox-addons.packages.${system};
       theme = import ../../theme;
     };
