@@ -33,19 +33,31 @@ with theme.colors; ''
   }
 
   #cpu {
-    color: ${secondaryAccent}
+    color: ${secondaryAccent};
   }
 
   #memory {
-    color: ${yellow}
+    color: ${yellow};
   }
 
   #pulseaudio {
-    color: ${rosewater}
+    color: ${rosewater};
   }
 
   #network {
-    color: ${lavender}
+    color: ${lavender};
+  }
+
+  #battery {
+    color: ${green};
+  }
+
+  #battery.warning {
+    color: ${yellow};
+  }
+
+  #battery.critical:not(.charging) {
+    color: ${red};
   }
 
   #window {
