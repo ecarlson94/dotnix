@@ -23,9 +23,7 @@ with theme.colors; ''
     border-radius: ${radius};
     background: ${base};
     color: ${primaryAccent};
-    margin-top: 5px;
-    margin-right: 2px;
-    margin-left: 2px;
+    margin: 5px 2px;
     transition: all 0.3s ease;
     font-weight: bold;
   }
