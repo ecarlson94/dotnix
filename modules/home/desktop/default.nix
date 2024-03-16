@@ -31,8 +31,9 @@ in
         waybar.enable = true; # Desktop Bar
 
         apps = {
-          kitty.enable = true; # Terminal Emulator
+          vencord.enable = true;
           firefox.enable = true; # Browser
+          kitty.enable = true; # Terminal Emulator
         };
       };
     };

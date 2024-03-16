@@ -139,6 +139,7 @@ Requires [Hyprland](#hyprland) configuration first.
 - Installs and configures [kitty](https://sw.kovidgoyal.net/kitty) terminal emulator
 - Installs and configures [wofi](https://hg.sr.ht/~scoopta/wofi) app launcher
 - Installs and configures [firefox](https://www.mozilla.org/en-US/firefox/new) browser
+- Installs and configures [vesktop](https://github.com/Vencord/Vesktop) (Custom Discord client with [Vencord](https://vencord.dev/) preinstalled)
 
 ```nix
 imports = [ ./modules/home ];
