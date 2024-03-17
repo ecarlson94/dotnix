@@ -1,15 +1,7 @@
-{ lib, config, pkgs, ... }:
+{ lib, config, ... }:
 with lib;
 let
   cfg = config.modules.desktop.hypridle;
-
-  suspendScript = pkgs.writeShellScript "suspend-script" ''
-    ${pkgs.pipewire}/bin/pw-cli i all | ${pkgs.ripgrep}/bin/rg running
-    # only suspend if audio isn't running
-    if [ $? == 1 ]; then
-      systemctl suspend
-    fi
-  '';
 in
 {
   options.modules.desktop.hypridle = { enable = mkEnableOption "hypridle"; };
@@ -30,10 +22,6 @@ in
           timeout = 600; # 10 minutes
           onTimeout = "hyprctl dispatch dpms off"; # screen off after timeout
           onResume = "hyprctl dispatch dpms on"; # screen on when activity is detected after timeout has fired
-        }
-        {
-          timeout = 1800; # 30 minutes
-          onTimeout = suspendScript.outPath; # suspend pc
         }
       ];
     };
