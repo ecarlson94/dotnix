@@ -36,6 +36,7 @@ in
           vencord.enable = true;
           firefox.enable = true; # Browser
           kitty.enable = true; # Terminal Emulator
+          slack.enable = true; # Teams communication
         };
       };
     };

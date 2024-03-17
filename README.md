@@ -134,14 +134,16 @@ Contains GUI based app installations and configurations. Enables [CLI](#cli-1) b
 
 Requires [Hyprland](#hyprland) configuration first.
 
-- Configures user settings for Hyprland
-- Configures [Hyprlock](https://github.com/hyprwm/hyprlock) lock screen
-- Configures [Hypridle](https://github.com/hyprwm/hypridle) idle daemon
-- Configures wallpaper selector
-- Installs and configures [kitty](https://sw.kovidgoyal.net/kitty) terminal emulator
-- Installs and configures [wofi](https://hg.sr.ht/~scoopta/wofi) app launcher
-- Installs and configures [Firefox](https://www.mozilla.org/en-US/firefox/new) browser
-- Installs and configures [Vesktop](https://github.com/Vencord/Vesktop) (Custom Discord client with [Vencord](https://vencord.dev/) preinstalled)
+The following are also installed and configured:
+- User settings for Hyprland
+- [Hyprlock](https://github.com/hyprwm/hyprlock) lock screen
+- [Hypridle](https://github.com/hyprwm/hypridle) idle daemon
+- Wallpaper selector
+- [kitty](https://sw.kovidgoyal.net/kitty) terminal emulator
+- [wofi](https://hg.sr.ht/~scoopta/wofi) app launcher
+- [Firefox](https://www.mozilla.org/en-US/firefox/new) browser
+- [Vesktop](https://github.com/Vencord/Vesktop) (Custom Discord client with [Vencord](https://vencord.dev/) preinstalled)
+- [Slack](https://slack.com/)
 
 ```nix
 imports = [ ./modules/home ];
