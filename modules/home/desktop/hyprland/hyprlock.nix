@@ -77,7 +77,7 @@ in
 
     wayland.windowManager.hyprland.settings = {
       bind = [
-        "CONTROLSHIFTALT,L,exec,hyprlock"
+        "SUPERCONTROLSHIFTALT,L,exec,hyprlock"
       ];
     };
   };
