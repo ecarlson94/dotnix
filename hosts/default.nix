@@ -3,8 +3,8 @@ let
   inherit (self) inputs packages;
 
   userHomeModules = [
-    ../modules/user
-    ../modules/system/home.nix
+    ../modules/nixos/user.nix
+    ../modules/nixos/home.nix
   ];
 in
 {
@@ -24,7 +24,7 @@ in
     system = "x86_64-linux";
     modules = [
       ./desktop/configuration.nix
-      ../modules/system/desktop
+      ../modules/nixos/desktop
     ] ++ userHomeModules;
     specialArgs = {
       inherit inputs system packages;
