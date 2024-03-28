@@ -1,11 +1,9 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
   home.stateVersion = "23.11";
 
   imports = [
-    inputs.hypridle.homeManagerModules.hypridle
-    inputs.hyprlock.homeManagerModules.hyprlock
     ./cli
     ./desktop
   ];

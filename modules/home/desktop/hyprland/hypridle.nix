@@ -1,9 +1,13 @@
-{ lib, config, ... }:
+{ lib, config, inputs, ... }:
 with lib;
 let
   cfg = config.modules.desktop.hypridle;
 in
 {
+  imports = [
+    inputs.hypridle.homeManagerModules.hypridle
+  ];
+
   options.modules.desktop.hypridle = { enable = mkEnableOption "hypridle"; };
 
   config = mkIf cfg.enable {

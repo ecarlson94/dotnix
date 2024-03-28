@@ -1,4 +1,4 @@
-{ lib, config, theme, ... }:
+{ lib, config, theme, inputs, ... }:
 with lib;
 let
   cfg = config.modules.desktop.hyprlock;
@@ -12,6 +12,10 @@ let
   font_family = "Fira Code";
 in
 {
+  imports = [
+    inputs.hyprlock.homeManagerModules.hyprlock
+  ];
+
   options.modules.desktop.hyprlock = { enable = mkEnableOption "hyprlock"; };
 
   config = mkIf cfg.enable {
