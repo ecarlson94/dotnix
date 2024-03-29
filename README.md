@@ -75,7 +75,7 @@ rebuild
 
 Configures a user for the NixOS using a dynamic user name that can be configured in `nixosConfiguration`.
 
-## System Modules
+## NixOS Modules
 
 ### Desktop
 
@@ -85,11 +85,11 @@ Bare bones installation of the [Hyprland](https://hyprland.org) dynamic tiling W
 
 This is the starting point for configuring a UI for NixOS.
 
-#### [Sound](./modules/system/desktop/sound.nix)
+#### [Sound](./modules/nixos/desktop/sound.nix)
 
 Configures sound for NixOS.
 
-### [Home](./modules/system/home.nix)
+### [Home](./modules/nixos/home.nix)
 
 Configures Home Manager to be managed by the system for the configured user.
 
