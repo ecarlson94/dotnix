@@ -130,9 +130,17 @@ modules.cli.zsh.enable = true;
 
 ### Desktop
 
+```nix
+imports = [ ./modules/home ];
+
+modules.desktop.enable = true;
+```
+
+Enables [CLI](#cli) and [Apps](#apps) by default.
+
 #### Apps
 
-Contains GUI based app installations and configurations. Enables [CLI](#cli-1) by default.
+Contains GUI based app installations and configurations.
 
 The following are also installed and configured:
 - User settings for Hyprland
@@ -144,7 +152,7 @@ The following are also installed and configured:
 ```nix
 imports = [ ./modules/home ];
 
-modules.desktop.enable = true;
+modules.desktop.apps.enable = true;
 ```
 
 Each module can be individually enabled as well.
