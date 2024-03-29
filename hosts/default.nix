@@ -17,17 +17,17 @@ in
     };
   };
 
-  desktop = nixpkgs.lib.nixosSystem rec {
+  nixos-desktop = nixpkgs.lib.nixosSystem rec {
     system = "x86_64-linux";
     modules = [
-      ./desktop/configuration.nix
+      ./nixos-desktop/configuration.nix
       ../modules/nixos/desktop
       ../modules/user
       ../modules/nixos/home.nix
     ];
     specialArgs = {
       inherit inputs system packages;
-      target = "desktop";
+      target = "nixos-desktop";
       homeOptions = {
         modules.desktop = {
           enable = true;
