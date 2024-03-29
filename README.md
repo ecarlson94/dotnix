@@ -159,7 +159,7 @@ modules.desktop.apps.kitty.enable = true;
 
 #### NixOS
 
-Contains base GUE configuration for NixOS.
+Contains NixOS GUI user configurations.
 
 Requires [Hyprland](#hyprland) configuration first.
 
