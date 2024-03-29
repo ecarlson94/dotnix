@@ -130,17 +130,13 @@ modules.cli.zsh.enable = true;
 
 ### Desktop
 
-Contains GUI based app installations and configurations. Enables [CLI](#cli-1) by default.
+#### Apps
 
-Requires [Hyprland](#hyprland) configuration first.
+Contains GUI based app installations and configurations. Enables [CLI](#cli-1) by default.
 
 The following are also installed and configured:
 - User settings for Hyprland
-- [Hyprlock](https://github.com/hyprwm/hyprlock) lock screen
-- [Hypridle](https://github.com/hyprwm/hypridle) idle daemon
-- Wallpaper selector
 - [kitty](https://sw.kovidgoyal.net/kitty) terminal emulator
-- [wofi](https://hg.sr.ht/~scoopta/wofi) app launcher
 - [Firefox](https://www.mozilla.org/en-US/firefox/new) browser
 - [Vesktop](https://github.com/Vencord/Vesktop) (Custom Discord client with [Vencord](https://vencord.dev/) preinstalled)
 - [Slack](https://slack.com/)
@@ -156,8 +152,36 @@ Each module can be individually enabled as well.
 ```nix
 imports = [ ./modules/home ];
 
-modules.desktop.hyprland.enable = true;
 modules.desktop.apps.firefox.enable = true;
+modules.desktop.apps.kitty.enable = true;
+...
+```
+
+#### NixOS
+
+Contains base GUE configuration for NixOS.
+
+Requires [Hyprland](#hyprland) configuration first.
+
+The following are also installed and configured:
+- [Hyprlock](https://github.com/hyprwm/hyprlock) lock screen
+- [Hypridle](https://github.com/hyprwm/hypridle) idle daemon
+- Wallpaper selector
+- [wofi](https://hg.sr.ht/~scoopta/wofi) app launcher
+
+```nix
+imports = [ ./modules/home ];
+
+modules.desktop.nixos.enable = true;
+```
+
+Each module can be individually enabled as well.
+
+```nix
+imports = [ ./modules/home ];
+
+modules.desktop.nixos.hyprland.enable = true;
+modules.desktop.nixos.wofi.enable = true;
 ...
 ```
 
