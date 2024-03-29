@@ -1,7 +1,7 @@
 { lib, config, pkgs, theme, ... }:
 with lib;
 let
-  cfg = config.modules.desktop.hyprland;
+  cfg = config.modules.desktop.nixos.hyprland;
   meh = "CONTROLSHIFTALT";
   hyper = "SUPERCONTROLSHIFTALT";
 
@@ -27,7 +27,7 @@ let
   );
 in
 {
-  options.modules.desktop.hyprland = { enable = mkEnableOption "hyprland"; };
+  options.modules.desktop.nixos.hyprland = { enable = mkEnableOption "hyprland"; };
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [

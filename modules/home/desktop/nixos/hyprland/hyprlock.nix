@@ -1,7 +1,7 @@
 { lib, config, theme, inputs, ... }:
 with lib;
 let
-  cfg = config.modules.desktop.hyprlock;
+  cfg = config.modules.desktop.nixos.hyprlock;
 
   base = theme.stripPound theme.colors.base;
   accent = theme.stripPound theme.colors.primaryAccent;
@@ -16,7 +16,7 @@ in
     inputs.hyprlock.homeManagerModules.hyprlock
   ];
 
-  options.modules.desktop.hyprlock = { enable = mkEnableOption "hyprlock"; };
+  options.modules.desktop.nixos.hyprlock = { enable = mkEnableOption "hyprlock"; };
 
   config = mkIf cfg.enable {
     programs.hyprlock = {

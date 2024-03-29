@@ -8,13 +8,9 @@ in
     ../cli
 
     ./apps
-    ./hyprland
-    ./waybar
+    ./nixos
 
-    ./gtk.nix
     ./fonts.nix
-    ./wallpaper.nix
-    ./wofi.nix
   ];
 
   options.modules.desktop = { enable = mkEnableOption "desktop"; };
@@ -25,13 +21,6 @@ in
       cli.enable = true;
 
       desktop = {
-        hyprland.enable = true; # Tiling Wayland Compositor
-        hyprlock.enable = true; # Lock screen
-        hypridle.enable = true; # Idle daemon
-        wallpaper.enable = true; # Configures the wallpaper
-        wofi.enable = true; # Application launcher
-        waybar.enable = true; # Desktop Bar
-
         apps = {
           vencord.enable = true;
           firefox.enable = true; # Browser

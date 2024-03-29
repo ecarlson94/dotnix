@@ -1,11 +1,11 @@
 { lib, config, theme, ... }:
 with lib;
 let
-  cfg = config.modules.desktop.wofi;
+  cfg = config.modules.desktop.nixos.wofi;
   radius = "${builtins.toString theme.radius}px";
 in
 {
-  options.modules.desktop.wofi = { enable = mkEnableOption "wofi"; };
+  options.modules.desktop.nixos.wofi = { enable = mkEnableOption "wofi"; };
 
   config = mkIf cfg.enable {
     modules.desktop.fonts.enable = true;

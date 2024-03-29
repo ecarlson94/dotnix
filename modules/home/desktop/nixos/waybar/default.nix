@@ -1,10 +1,10 @@
 { lib, config, theme, pkgs, ... }:
 with lib;
 let
-  cfg = config.modules.desktop.waybar;
+  cfg = config.modules.desktop.nixos.waybar;
 in
 {
-  options.modules.desktop.waybar = { enable = mkEnableOption "waybar"; };
+  options.modules.desktop.nixos.waybar = { enable = mkEnableOption "waybar"; };
 
   config = mkIf cfg.enable {
     modules.desktop.fonts.enable = true;

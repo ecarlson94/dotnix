@@ -1,7 +1,7 @@
 { lib, config, pkgs, theme, ... }:
 with lib;
 let
-  cfg = config.modules.desktop.wallpaper;
+  cfg = config.modules.desktop.nixos.wallpaper;
 
   mkService = lib.recursiveUpdate {
     Unit.PartOf = [ "graphical-session.target" ];
@@ -10,7 +10,7 @@ let
   };
 in
 {
-  options.modules.desktop.wallpaper = { enable = mkEnableOption "wallpaper"; };
+  options.modules.desktop.nixos.wallpaper = { enable = mkEnableOption "wallpaper"; };
 
   config = mkIf cfg.enable {
     systemd.user.services = {

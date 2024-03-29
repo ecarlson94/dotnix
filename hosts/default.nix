@@ -28,7 +28,12 @@ in
     specialArgs = {
       inherit inputs system packages;
       target = "desktop";
-      homeOptions = { modules.desktop.enable = true; };
+      homeOptions = {
+        modules.desktop = {
+          enable = true;
+          nixos.enable = true;
+        };
+      };
     };
   };
 }
