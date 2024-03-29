@@ -7,7 +7,7 @@ in
     system = "x86_64-linux";
     modules = [
       ./nixos-wsl/configuration.nix
-      ../modules/nixos/user.nix
+      ../modules/user
       ../modules/nixos/home.nix
     ];
     specialArgs = {
@@ -22,7 +22,7 @@ in
     modules = [
       ./desktop/configuration.nix
       ../modules/nixos/desktop
-      ../modules/nixos/user.nix
+      ../modules/user
       ../modules/nixos/home.nix
     ];
     specialArgs = {
