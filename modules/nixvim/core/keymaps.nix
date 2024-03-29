@@ -1,7 +1,7 @@
 {
   keymaps = [
     # Saving
-    { mode = [ "i" "x" "n" "s" "v" ]; key = "<C-s>"; action = "<cmd>wa<cr><esc>"; options.desc = "Save all files"; }
+    { mode = [ "i" "x" "n" "s" "v" ]; key = "<leader>a"; action = "<cmd>wa<cr><esc>"; options.desc = "Save all files"; }
     { mode = [ "x" "n" "s" "v" ]; key = "<leader>fs"; action = "<cmd>wa<cr><esc>"; options.desc = "Save all files"; }
 
     # Better up/down
@@ -70,7 +70,7 @@
     # Windows
     { mode = [ "n" ]; key = "<leader>ww"; action = "<C-W>p"; options = { desc = "Other window"; remap = true; }; }
     { mode = [ "n" ]; key = "<leader>wd"; action = "<C-W>c"; options = { desc = "Delete window"; remap = true; }; }
-    { mode = [ "n" ]; key = "<leader>-"; action = "<C-W>s"; options = { desc = "Split window below"; remap = true; }; }
-    { mode = [ "n" ]; key = "<leader>|"; action = "<C-W>v"; options = { desc = "Split window right"; remap = true; }; }
+    { mode = [ "n" ]; key = "<leader>sh"; action = "<C-W>s"; options = { desc = "Split window below"; remap = true; }; }
+    { mode = [ "n" ]; key = "<leader>sv"; action = "<C-W>v"; options = { desc = "Split window right"; remap = true; }; }
   ];
 }
