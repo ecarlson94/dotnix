@@ -1,8 +1,8 @@
 {
   keymaps = [
     # Saving
-    { mode = [ "i" "x" "n" "s" "v" ]; key = "<leader>a"; action = "<cmd>wa<cr><esc>"; options.desc = "Save all files"; }
-    { mode = [ "x" "n" "s" "v" ]; key = "<leader>fs"; action = "<cmd>wa<cr><esc>"; options.desc = "Save all files"; }
+    { mode = [ "i" "x" "n" "s" "v" ]; key = "<C-s>"; action = "<cmd>wa<cr><esc>"; options.desc = "Save all files"; }
+    { mode = [ "x" "n" "s" "v" ]; key = "<leader>a"; action = "<cmd>wa<cr><esc>"; options.desc = "Save all files"; }
 
     # Better up/down
     { mode = [ "x" "n" ]; key = "j"; action = "v:count == 0 ? 'gj' : 'j'"; options = { expr = true; silent = true; }; }
