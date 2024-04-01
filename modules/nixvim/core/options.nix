@@ -13,7 +13,7 @@
     root_spec = [ "lsp" [ ".git" "lua" ] "cwd" ];
   };
 
-  config.options = {
+  config.opts = {
     autowrite = true; # Enable auto write
     clipboard = "unnamedplus"; # Sync with system clipboard
     completeopt = "menu,menuone,noselect";
