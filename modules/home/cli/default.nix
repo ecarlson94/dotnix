@@ -1,9 +1,11 @@
-{ lib, config, ... }:
-with lib;
-let
-  cfg = config.modules.cli;
-in
 {
+  lib,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.modules.cli;
+in {
   imports = [
     ./git.nix
     ./nvim.nix
@@ -11,7 +13,7 @@ in
     ./zsh
   ];
 
-  options.modules.cli = { enable = mkEnableOption "cli"; };
+  options.modules.cli = {enable = mkEnableOption "cli";};
 
   config = mkIf cfg.enable {
     modules.cli = {

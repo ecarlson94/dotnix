@@ -45,15 +45,15 @@
     };
   };
 
-  outputs =
-    { flake-parts
-    , nixpkgs
-    , home-manager
-    , nixvim
-    , self
-    , ...
-    } @ inputs:
-    flake-parts.lib.mkFlake { inherit inputs; } {
+  outputs = {
+    flake-parts,
+    nixpkgs,
+    home-manager,
+    nixvim,
+    self,
+    ...
+  } @ inputs:
+    flake-parts.lib.mkFlake {inherit inputs;} {
       systems = [
         "x86_64-linux"
         "aarch64-linux"
@@ -65,29 +65,28 @@
         nixosConfigurations = import ./hosts inputs;
       };
 
-      perSystem =
-        { pkgs
-        , system
-        , ...
-        }:
-        {
-          formatter = pkgs.nixpkgs-fmt;
+      perSystem = {
+        pkgs,
+        system,
+        ...
+      }: {
+        formatter = pkgs.alejandra;
 
-          checks = {
-            nixpkgs-fmt = pkgs.callPackage ./checks/nixpkgs-fmt.nix { inherit inputs; };
-            statix = pkgs.callPackage ./checks/statix.nix { inherit inputs; };
-            nvim = pkgs.callPackage ./checks/nvim.nix {
-              inherit nixvim system;
-              inherit (self.packages.${system}) nvim;
-            };
-          };
-
-          packages = {
-            nvim = pkgs.callPackage ./modules/nixvim/makeNvim.nix {
-              inherit inputs system;
-              nixvim = nixvim.legacyPackages.${system};
-            };
+        checks = {
+          format = pkgs.callPackage ./checks/format.nix {inherit inputs;};
+          statix = pkgs.callPackage ./checks/statix.nix {inherit inputs;};
+          nvim = pkgs.callPackage ./checks/nvim.nix {
+            inherit nixvim system;
+            inherit (self.packages.${system}) nvim;
           };
         };
+
+        packages = {
+          nvim = pkgs.callPackage ./modules/nixvim/makeNvim.nix {
+            inherit inputs system;
+            nixvim = nixvim.legacyPackages.${system};
+          };
+        };
+      };
     };
 }

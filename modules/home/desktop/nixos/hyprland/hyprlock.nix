@@ -1,6 +1,11 @@
-{ lib, config, theme, inputs, ... }:
-with lib;
-let
+{
+  lib,
+  config,
+  theme,
+  inputs,
+  ...
+}:
+with lib; let
   cfg = config.modules.desktop.nixos.hyprlock;
 
   base = theme.stripPound theme.colors.base;
@@ -10,13 +15,12 @@ let
   lavender = theme.stripPound theme.colors.lavender;
   red = theme.stripPound theme.colors.red;
   font_family = "Fira Code";
-in
-{
+in {
   imports = [
     inputs.hyprlock.homeManagerModules.hyprlock
   ];
 
-  options.modules.desktop.nixos.hyprlock = { enable = mkEnableOption "hyprlock"; };
+  options.modules.desktop.nixos.hyprlock = {enable = mkEnableOption "hyprlock";};
 
   config = mkIf cfg.enable {
     programs.hyprlock = {

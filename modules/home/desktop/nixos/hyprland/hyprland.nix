@@ -1,6 +1,11 @@
-{ lib, config, pkgs, theme, ... }:
-with lib;
-let
+{
+  lib,
+  config,
+  pkgs,
+  theme,
+  ...
+}:
+with lib; let
   cfg = config.modules.desktop.nixos.hyprland;
   meh = "CONTROLSHIFTALT";
   hyper = "SUPERCONTROLSHIFTALT";
@@ -12,22 +17,20 @@ let
   crust = rgba theme.colors.crust;
 
   # binds $meh + [SUPER +] {1...8} to [move to] workspace {1...8} (stolen from sioodmy)
-  workspaces = builtins.concatLists (builtins.genList
+  workspaces = builtins.concatLists (
+    builtins.genList
     (
-      i:
-      let
+      i: let
         workspace = builtins.toString (i + 1);
-      in
-      [
+      in [
         "${meh}, ${workspace}, workspace, ${workspace}"
         "${hyper}, ${workspace}, movetoworkspace, ${workspace}"
       ]
     )
     8
   );
-in
-{
-  options.modules.desktop.nixos.hyprland = { enable = mkEnableOption "hyprland"; };
+in {
+  options.modules.desktop.nixos.hyprland = {enable = mkEnableOption "hyprland";};
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
@@ -76,21 +79,22 @@ in
           preserve_split = "yes";
         };
 
-        bind = [
-          "${meh},Q,killactive"
-          "${meh},F, fullscreen"
+        bind =
+          [
+            "${meh},Q,killactive"
+            "${meh},F, fullscreen"
 
-          "${meh},H,movefocus,l"
-          "${meh},L,movefocus,r"
-          "${meh},K,movefocus,u"
-          "${meh},J,movefocus,d"
+            "${meh},H,movefocus,l"
+            "${meh},L,movefocus,r"
+            "${meh},K,movefocus,u"
+            "${meh},J,movefocus,d"
 
-          "${hyper},H,movewindow,l"
-          "${hyper},L,movewindow,r"
-          "${hyper},K,movewindow,u"
-          "${hyper},J,movewindow,d"
-        ]
-        ++ workspaces;
+            "${hyper},H,movewindow,l"
+            "${hyper},L,movewindow,r"
+            "${hyper},K,movewindow,u"
+            "${hyper},J,movewindow,d"
+          ]
+          ++ workspaces;
 
         bindm = [
           "${meh},mouse:272,movewindow"

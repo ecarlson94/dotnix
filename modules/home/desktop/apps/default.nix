@@ -1,9 +1,11 @@
-{ lib, config, ... }:
-with lib;
-let
-  cfg = config.modules.desktop.apps;
-in
 {
+  lib,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.modules.desktop.apps;
+in {
   imports = [
     ./vencord
     ./firefox.nix
@@ -11,7 +13,7 @@ in
     ./slack.nix
   ];
 
-  options.modules.desktop.apps = { enable = mkEnableOption "apps"; };
+  options.modules.desktop.apps = {enable = mkEnableOption "apps";};
 
   config = mkIf cfg.enable {
     modules.desktop.apps = {

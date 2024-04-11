@@ -1,10 +1,13 @@
-{ lib, config, pkgs, ... }:
-with lib;
-let
-  cfg = config.modules.desktop.apps.vencord;
-in
 {
-  options.modules.desktop.apps.vencord = { enable = mkEnableOption "vencord"; };
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+with lib; let
+  cfg = config.modules.desktop.apps.vencord;
+in {
+  options.modules.desktop.apps.vencord = {enable = mkEnableOption "vencord";};
 
   config = mkIf cfg.enable {
     home.packages = [
@@ -28,8 +31,8 @@ in
         autoUpdate = false;
         autoUpdateNotification = false;
         useQuickCss = true;
-        themeLinks = [ ];
-        enabledThemes = [ "Catppuccin.theme.css" ];
+        themeLinks = [];
+        enabledThemes = ["Catppuccin.theme.css"];
         enableReactDevtools = true;
         frameless = false;
         transparent = true;
