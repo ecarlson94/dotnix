@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     mako # notification daemon
     libnotify # mako depends on this
@@ -34,7 +33,7 @@
   services = {
     xserver = {
       enable = true;
-      videoDrivers = [ "amdgpu" ];
+      videoDrivers = ["amdgpu"];
       displayManager.gdm = {
         enable = true;
         wayland = true;

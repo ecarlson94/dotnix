@@ -1,9 +1,11 @@
-{ lib, config, ... }:
-with lib;
-let
-  cfg = config.modules.desktop;
-in
 {
+  lib,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.modules.desktop;
+in {
   imports = [
     ../cli
 
@@ -13,7 +15,7 @@ in
     ./fonts.nix
   ];
 
-  options.modules.desktop = { enable = mkEnableOption "desktop"; };
+  options.modules.desktop = {enable = mkEnableOption "desktop";};
 
   config = mkIf cfg.enable {
     programs.dircolors.enable = true;

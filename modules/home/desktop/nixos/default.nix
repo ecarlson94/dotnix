@@ -1,9 +1,11 @@
-{ lib, config, ... }:
-with lib;
-let
-  cfg = config.modules.desktop.nixos;
-in
 {
+  lib,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.modules.desktop.nixos;
+in {
   imports = [
     ./hyprland
     ./waybar
@@ -13,7 +15,7 @@ in
     ./wofi.nix
   ];
 
-  options.modules.desktop.nixos = { enable = mkEnableOption "nixos"; };
+  options.modules.desktop.nixos = {enable = mkEnableOption "nixos";};
 
   config = mkIf cfg.enable {
     modules = {

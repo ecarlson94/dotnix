@@ -1,7 +1,8 @@
-{ nvim
-, system
-, nixvim
-, ...
+{
+  nvim,
+  system,
+  nixvim,
+  ...
 }:
 nixvim.lib.${system}.check.mkTestDerivationFromNvim {
   inherit nvim;

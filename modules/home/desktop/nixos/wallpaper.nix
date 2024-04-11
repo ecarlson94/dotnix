@@ -1,16 +1,20 @@
-{ lib, config, pkgs, theme, ... }:
-with lib;
-let
+{
+  lib,
+  config,
+  pkgs,
+  theme,
+  ...
+}:
+with lib; let
   cfg = config.modules.desktop.nixos.wallpaper;
 
   mkService = lib.recursiveUpdate {
-    Unit.PartOf = [ "graphical-session.target" ];
-    Unit.After = [ "graphical-session.target" ];
-    Install.WantedBy = [ "graphical-session.target" ];
+    Unit.PartOf = ["graphical-session.target"];
+    Unit.After = ["graphical-session.target"];
+    Install.WantedBy = ["graphical-session.target"];
   };
-in
-{
-  options.modules.desktop.nixos.wallpaper = { enable = mkEnableOption "wallpaper"; };
+in {
+  options.modules.desktop.nixos.wallpaper = {enable = mkEnableOption "wallpaper";};
 
   config = mkIf cfg.enable {
     systemd.user.services = {

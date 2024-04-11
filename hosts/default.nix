@@ -1,8 +1,10 @@
-{ nixpkgs, self, ... }:
-let
-  inherit (self) inputs packages;
-in
 {
+  nixpkgs,
+  self,
+  ...
+}: let
+  inherit (self) inputs packages;
+in {
   nixos-wsl = nixpkgs.lib.nixosSystem rec {
     system = "x86_64-linux";
     modules = [
@@ -14,7 +16,7 @@ in
     specialArgs = {
       inherit inputs system packages;
       target = "nixos-wsl";
-      homeOptions = { modules.cli.enable = true; };
+      homeOptions = {modules.cli.enable = true;};
     };
   };
 

@@ -1,12 +1,15 @@
-{ lib, config, pkgs, ... }:
-with lib;
-let
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+with lib; let
   cfg = config.user;
 
   mkOpt = type: default: description:
-    mkOption { inherit type default description; };
-in
-{
+    mkOption {inherit type default description;};
+in {
   options.user = with types; {
     name = mkOpt str "walawren" "The name to use for the user account";
   };
@@ -19,7 +22,7 @@ in
       home = "/home/${cfg.name}";
       group = "users";
 
-      extraGroups = [ "wheel" "networkmanager" "audio" "sound" "video" "input" "tty" "docker" ];
+      extraGroups = ["wheel" "networkmanager" "audio" "sound" "video" "input" "tty" "docker"];
     };
 
     programs.zsh.enable = true;

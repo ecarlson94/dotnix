@@ -1,10 +1,13 @@
-{ lib, config, pkgs, ... }:
-with lib;
-let
-  cfg = config.modules.desktop.apps.kitty;
-in
 {
-  options.modules.desktop.apps.kitty = { enable = mkEnableOption "kitty"; };
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+with lib; let
+  cfg = config.modules.desktop.apps.kitty;
+in {
+  options.modules.desktop.apps.kitty = {enable = mkEnableOption "kitty";};
 
   config = mkIf cfg.enable {
     modules.desktop.fonts.enable = true;

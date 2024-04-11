@@ -1,10 +1,14 @@
-{ lib, config, theme, pkgs, ... }:
-with lib;
-let
-  cfg = config.modules.desktop.nixos.waybar;
-in
 {
-  options.modules.desktop.nixos.waybar = { enable = mkEnableOption "waybar"; };
+  lib,
+  config,
+  theme,
+  pkgs,
+  ...
+}:
+with lib; let
+  cfg = config.modules.desktop.nixos.waybar;
+in {
+  options.modules.desktop.nixos.waybar = {enable = mkEnableOption "waybar";};
 
   config = mkIf cfg.enable {
     modules.desktop.fonts.enable = true;
@@ -24,7 +28,7 @@ in
           mod = "dock";
           height = 48;
 
-          modules-left = [ "hyprland/workspaces" ];
+          modules-left = ["hyprland/workspaces"];
 
           modules-right = [
             "tray"
@@ -61,7 +65,7 @@ in
             format = "{icon} {volume}%";
             format-muted = "󰝟";
             format-icons = {
-              default = [ "󰕿" "󰖀" "󰕾" ];
+              default = ["󰕿" "󰖀" "󰕾"];
             };
             scroll-step = 5;
             on-click = "kill $(pgrep pavucontrol) || ${pkgs.pavucontrol}/bin/pavucontrol";
@@ -89,7 +93,7 @@ in
             format-charging = "  {capacity}%";
             format-plugged = " {capacity}% ";
             format-alt = "{icon} {time}";
-            format-icons = [ "" "" "" "" "" ];
+            format-icons = ["" "" "" "" ""];
           };
 
           clock = {
@@ -101,7 +105,7 @@ in
         };
       };
 
-      style = import ./style.nix { inherit theme; };
+      style = import ./style.nix {inherit theme;};
     };
   };
 }

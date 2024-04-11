@@ -1,5 +1,11 @@
-{ system, inputs, packages, config, homeOptions ? { }, ... }:
 {
+  system,
+  inputs,
+  packages,
+  config,
+  homeOptions ? {},
+  ...
+}: {
   imports = [
     inputs.home-manager.nixosModules.home-manager
   ];
@@ -7,14 +13,16 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    users.${config.user.name} = {
-      imports = [
-        ../home
-      ]; # Home Options
+    users.${config.user.name} =
+      {
+        imports = [
+          ../home
+        ]; # Home Options
 
-      home.username = config.user.name;
-      home.homeDirectory = "/home/${config.user.name}";
-    } // homeOptions;
+        home.username = config.user.name;
+        home.homeDirectory = "/home/${config.user.name}";
+      }
+      // homeOptions;
 
     # Optionally, use home-manager.extraSpecialArgs to pass
     # arguments to home.nix

@@ -1,10 +1,13 @@
-{ lib, pkgs, config, ... }:
-with lib;
-let
-  cfg = config.modules.cli.zsh;
-in
 {
-  options.modules.cli.zsh = { enable = mkEnableOption "zsh"; };
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.modules.cli.zsh;
+in {
+  options.modules.cli.zsh = {enable = mkEnableOption "zsh";};
 
   config = mkIf cfg.enable {
     home.packages = [
@@ -51,13 +54,16 @@ in
           plugins = [
             {
               name = "catppuccin/zsh-syntax-highlighting";
-              tags = [ "use:themes/catppuccin_mocha-zsh-syntax-highlighting" ];
+              tags = ["use:themes/catppuccin_mocha-zsh-syntax-highlighting"];
             }
-            { name = "jeffreytse/zsh-vi-mode"; }
-            { name = "MichaelAquilina/zsh-you-should-use"; }
-            { name = "bric3/nice-exit-code"; }
-            { name = "chrissicool/zsh-256color"; }
-            { name = "plugins/git"; tags = [ "from:oh-my-zsh" ]; }
+            {name = "jeffreytse/zsh-vi-mode";}
+            {name = "MichaelAquilina/zsh-you-should-use";}
+            {name = "bric3/nice-exit-code";}
+            {name = "chrissicool/zsh-256color";}
+            {
+              name = "plugins/git";
+              tags = ["from:oh-my-zsh"];
+            }
           ];
         };
 

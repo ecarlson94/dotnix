@@ -1,14 +1,17 @@
-{ lib, config, inputs, ... }:
-with lib;
-let
-  cfg = config.modules.desktop.nixos.hypridle;
-in
 {
+  lib,
+  config,
+  inputs,
+  ...
+}:
+with lib; let
+  cfg = config.modules.desktop.nixos.hypridle;
+in {
   imports = [
     inputs.hypridle.homeManagerModules.hypridle
   ];
 
-  options.modules.desktop.nixos.hypridle = { enable = mkEnableOption "hypridle"; };
+  options.modules.desktop.nixos.hypridle = {enable = mkEnableOption "hypridle";};
 
   config = mkIf cfg.enable {
     services.hypridle = {

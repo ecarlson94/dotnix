@@ -3,8 +3,8 @@
     enable = true;
 
     modules = {
-      surround = { };
-      comment = { };
+      surround = {};
+      comment = {};
     };
   };
 }
