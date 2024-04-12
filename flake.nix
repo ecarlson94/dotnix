@@ -2,15 +2,23 @@
   description = "NixOS configuration";
 
   inputs = {
+    # Repo configuration dependencies
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     flake-parts.url = "github:hercules-ci/flake-parts";
+
+    git-hooks = {
+      # Automatically runs check on commit
+      url = "github:cachix/git-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # User configuration dependencies
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -22,6 +30,7 @@
       inputs.home-manager.follows = "home-manager";
     };
 
+    # UI deps
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -54,6 +63,10 @@
     ...
   } @ inputs:
     flake-parts.lib.mkFlake {inherit inputs;} {
+      imports = [
+        inputs.git-hooks.flakeModule
+      ];
+
       systems = [
         "x86_64-linux"
         "aarch64-linux"
@@ -66,6 +79,7 @@
       };
 
       perSystem = {
+        config,
         pkgs,
         system,
         ...
@@ -86,6 +100,18 @@
             inherit inputs system;
             nixvim = nixvim.legacyPackages.${system};
           };
+        };
+
+        pre-commit.settings.hooks = {
+          alejandra.enable = true;
+          statix.enable = true;
+        };
+
+        devShells.default = pkgs.mkShell {
+          nativeBuildInputs = [config.pre-commit.settings.package];
+          shellHook = ''
+            ${config.pre-commit.installationScript}
+          '';
         };
       };
     };
