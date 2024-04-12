@@ -19,7 +19,7 @@ in {
 
   config = mkIf cfg.enable {
     modules.cli = {
-      dircolors.enable = true; # Folder/file colors for ls etc
+      dircolors.enable = true; # Folder colors for ls (and dir, etc.)
       direnv.enable = true; # Auto change dev environment on changing directory
       git.enable = true; # Version Control
       nvim.enable = true; # Text editor

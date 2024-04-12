@@ -105,6 +105,8 @@ Upside: ONE COMMAND TO RULE THEM ALL (rebuild).
 
 Contains toggleable modules for the following:
 
+- [dircolors](https://www.gnu.org/software/coreutils/manual/html_node/dircolors-invocation.html#dircolors-invocation)
+- [direnv](https://direnv.net/)
 - [git](https://git-scm.com/)
 - [nvim](#nvim)
 - [tmux](https://github.com/tmux/tmux/wiki)
