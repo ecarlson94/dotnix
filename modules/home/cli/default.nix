@@ -7,6 +7,7 @@ with lib; let
   cfg = config.modules.cli;
 in {
   imports = [
+    ./direnv.nix
     ./git.nix
     ./nvim.nix
     ./tmux.nix
@@ -17,6 +18,7 @@ in {
 
   config = mkIf cfg.enable {
     modules.cli = {
+      direnv.enable = true;
       git.enable = true;
       nvim.enable = true;
       tmux.enable = true;
