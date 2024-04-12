@@ -17,10 +17,10 @@ in {
 
   config = mkIf cfg.enable {
     modules.desktop.apps = {
-      vencord.enable = true; # Discord
-      firefox.enable = true; # Browser
-      kitty.enable = true; # Terminal Emulator
-      slack.enable = true; # Teams communication
+      vencord.enable = true;
+      firefox.enable = true;
+      kitty.enable = true;
+      slack.enable = true;
     };
   };
 }

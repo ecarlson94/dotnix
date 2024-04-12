@@ -105,12 +105,12 @@ Upside: ONE COMMAND TO RULE THEM ALL (rebuild).
 
 Contains toggleable modules for the following:
 
-- [dircolors](https://www.gnu.org/software/coreutils/manual/html_node/dircolors-invocation.html#dircolors-invocation)
-- [direnv](https://direnv.net/)
-- [git](https://git-scm.com/)
-- [nvim](#nvim)
-- [tmux](https://github.com/tmux/tmux/wiki)
-- [zsh](https://www.zsh.org/)
+- [dircolors](https://www.gnu.org/software/coreutils/manual/html_node/dircolors-invocation.html#dircolors-invocation) -  Folder colors for ls (and dir, etc.)
+- [direnv](https://direnv.net/) -  Auto change dev environment on changing directory
+- [git](https://git-scm.com/) - Version control
+- [nvim](#nvim) - Text editor
+- [tmux](https://github.com/tmux/tmux/wiki) - Terminal multiplexer
+- [zsh](https://www.zsh.org/) - Shell
 
 The [cli module](./modules/home/cli) will enable all of the above.
 
@@ -146,10 +146,10 @@ Contains GUI based app installations and configurations.
 
 The following are also installed and configured:
 - User settings for Hyprland
-- [kitty](https://sw.kovidgoyal.net/kitty) terminal emulator
-- [Firefox](https://www.mozilla.org/en-US/firefox/new) browser
-- [Vesktop](https://github.com/Vencord/Vesktop) (Custom Discord client with [Vencord](https://vencord.dev/) preinstalled)
-- [Slack](https://slack.com/)
+- [kitty](https://sw.kovidgoyal.net/kitty)-  Terminal emulator
+- [Firefox](https://www.mozilla.org/en-US/firefox/new) - Browser
+- [Vesktop](https://github.com/Vencord/Vesktop) - Custom Discord client with [Vencord](https://vencord.dev/) preinstalled
+- [Slack](https://slack.com/) - Teams communication
 
 ```nix
 imports = [ ./modules/home ];
