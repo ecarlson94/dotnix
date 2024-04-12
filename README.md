@@ -182,7 +182,7 @@ The following are also installed and configured:
 ```nix
 imports = [ ./modules/home ];
 
-modules.desktop.nixos.enable = true;
+modules.desktop.nixos.enable = true; # Defaults to true
 ```
 
 Each module can be individually enabled as well.
