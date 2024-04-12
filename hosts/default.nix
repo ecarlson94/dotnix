@@ -16,7 +16,7 @@ in {
     specialArgs = {
       inherit inputs system packages;
       target = "nixos-wsl";
-      homeOptions = {modules.cli.enable = true;};
+      homeOptions.modules.cli.enable = true;
     };
   };
 
@@ -32,11 +32,9 @@ in {
     specialArgs = {
       inherit inputs system packages;
       target = "nixos-desktop";
-      homeOptions = {
-        modules.desktop = {
-          enable = true;
-          nixos.enable = true;
-        };
+      homeOptions.modules.desktop = {
+        enable = true;
+        nixos.enable = true;
       };
     };
   };
