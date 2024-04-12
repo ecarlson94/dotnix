@@ -7,6 +7,7 @@ with lib; let
   cfg = config.modules.cli;
 in {
   imports = [
+    ./dircolors.nix
     ./direnv.nix
     ./git.nix
     ./nvim.nix
@@ -18,11 +19,12 @@ in {
 
   config = mkIf cfg.enable {
     modules.cli = {
-      direnv.enable = true;
-      git.enable = true;
-      nvim.enable = true;
-      tmux.enable = true;
-      zsh.enable = true;
+      dircolors.enable = true; # Folder/file colors for ls etc
+      direnv.enable = true; # Auto change dev environment on changing directory
+      git.enable = true; # Version Control
+      nvim.enable = true; # Text editor
+      tmux.enable = true; # Terminal Emulator
+      zsh.enable = true; # Shell
     };
   };
 }

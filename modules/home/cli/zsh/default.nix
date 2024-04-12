@@ -16,10 +16,6 @@ in {
     ];
 
     programs = {
-      dircolors.enableZshIntegration = true;
-
-      fzf.enableZshIntegration = true;
-
       zsh = {
         enable = true;
         enableCompletion = true;
