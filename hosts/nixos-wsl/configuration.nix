@@ -34,11 +34,12 @@
   environment.pathsToLink = ["/share/zsh"];
 
   # Docker
-  virtualisation.docker.enable = true;
-
-  virtualisation.docker.rootless = {
+  virtualisation.docker = {
     enable = true;
-    setSocketVariable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
   };
 
   programs.dconf.enable = true; # Required for Home Manager

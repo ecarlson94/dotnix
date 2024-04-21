@@ -2,17 +2,19 @@
   plugins.toggleterm = {
     enable = true;
 
-    autoScroll = true;
-    closeOnExit = true;
-    direction = "horizontal";
-    hideNumbers = true;
-    persistMode = true;
-    persistSize = true;
-    shadeTerminals = true;
-    shadingFactor = -30;
-    size = 15;
-    startInInsert = true;
-    floatOpts.border = "curved";
+    settings = {
+      auto_scroll = true;
+      close_on_exit = true;
+      direction = "horizontal";
+      hide_numbers = true;
+      persist_mode = true;
+      persist_size = true;
+      shade_terminals = true;
+      shading_factor = -30;
+      size = 15;
+      start_in_insert = true;
+      float_opts.border = "curved";
+    };
   };
 
   keymaps = [
