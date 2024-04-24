@@ -42,6 +42,11 @@ in {
     services.mako = {
       enable = true;
       catppuccin.enable = true;
+      anchor = "bottom-right";
+      width = 400;
+      height = 300;
+      borderRadius = theme.radius;
+      defaultTimeout = 10000; # 10s
     };
 
     wayland.windowManager.hyprland = {
