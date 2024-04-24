@@ -114,6 +114,7 @@
         devShells.default = pkgs.mkShell {
           nativeBuildInputs = [
             pkgs.alejandra
+            pkgs.prettierd
             config.pre-commit.settings.package
           ];
           shellHook = ''

@@ -7,6 +7,7 @@ with lib; let
   cfg = config.modules.cli;
 in {
   imports = [
+    ./btop.nix
     ./dircolors.nix
     ./direnv.nix
     ./git.nix
@@ -19,6 +20,7 @@ in {
 
   config = mkIf cfg.enable {
     modules.cli = {
+      btop.enable = true;
       dircolors.enable = true;
       direnv.enable = true;
       git.enable = true;
