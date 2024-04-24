@@ -9,6 +9,7 @@ in {
     system = "x86_64-linux";
     modules = [
       ./nixos-wsl/configuration.nix
+      ../modules/nixos/system
       ../modules/user
       ../modules/nixos/home.nix
       ../modules/nixos/bin
@@ -24,6 +25,7 @@ in {
     system = "x86_64-linux";
     modules = [
       ./nixos-desktop/configuration.nix
+      ../modules/nixos/system
       ../modules/nixos/desktop
       ../modules/user
       ../modules/nixos/home.nix

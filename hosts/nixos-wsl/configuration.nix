@@ -6,7 +6,6 @@
 {
   inputs,
   config,
-  pkgs,
   ...
 }: {
   imports = [
@@ -16,6 +15,8 @@
 
   wsl.enable = true;
   wsl.defaultUser = config.user.name;
+
+  networking.hostName = "nixos-wsl";
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -27,20 +28,7 @@
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
-  environment.systemPackages = with pkgs; [
-    devbox
-  ];
-
   environment.pathsToLink = ["/share/zsh"];
-
-  # Docker
-  virtualisation.docker = {
-    enable = true;
-    rootless = {
-      enable = true;
-      setSocketVariable = true;
-    };
-  };
 
   programs.dconf.enable = true; # Required for Home Manager
 }

@@ -7,6 +7,8 @@
 with lib; let
   cfg = config.user;
 
+  home = "/home/${cfg.name}";
+
   mkOpt = type: default: description:
     mkOption {inherit type default description;};
 in {
@@ -16,13 +18,17 @@ in {
 
   config = {
     users.users.${cfg.name} = {
+      inherit home;
       inherit (cfg) name;
       shell = pkgs.zsh;
       isNormalUser = true;
-      home = "/home/${cfg.name}";
       group = "users";
 
-      extraGroups = ["wheel" "networkmanager" "audio" "sound" "video" "input" "tty" "docker"];
+      extraGroups = ["wheel" "networkmanager" "audio" "sound" "video" "input" "tty"];
+    };
+
+    environment.sessionVariables = {
+      FLAKE = "${home}/gitrepos/dotnix";
     };
 
     programs.zsh.enable = true;

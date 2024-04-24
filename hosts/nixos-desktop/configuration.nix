@@ -16,7 +16,7 @@
   # Enable networking
   networking = {
     networkmanager.enable = true;
-    hostName = "nixos"; # Define your hostname.
+    hostName = "nixos-desktop"; # Define your hostname.
     firewall.enable = true;
     # Open ports in the firewall.
     # firewall.allowedTCPPorts = [ ... ];
@@ -54,15 +54,6 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  # environment.systemPackages = with pkgs; [];
-
-  virtualisation.docker = {
-    enable = true;
-    rootless = {
-      enable = true;
-      setSocketVariable = true;
-    };
-  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
