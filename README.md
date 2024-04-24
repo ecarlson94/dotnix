@@ -52,13 +52,7 @@
 
 ## Rebuilding
 
-Subsequent rebuilds can be accomplished with:
-
-```sh
-rebuild-remote
-```
-
-If you have the repo installed locally at `~/gitrepos/dotnix`, you can rebuild with the following:
+If you have the repo cloned locally at `~/gitrepos/dotnix`, you can rebuild with the following:
 
 ```sh
 nh os switch
