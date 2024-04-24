@@ -91,7 +91,7 @@ Configures Home Manager to be managed by the system for the configured user.
 
 Downside: Changes to [home modules](./modules/home) require full system rebuild.
 
-Upside: ONE COMMAND TO RULE THEM ALL (rebuild).
+Upside: ONE COMMAND TO RULE THEM ALL (`nh os switch`).
 
 ## [Home Modules](./modules/home)
 
