@@ -4,10 +4,9 @@
  * @version 1.0.0
  */
 
-
 @import url("https://catppuccin.github.io/discord/dist/catppuccin-mocha-pink.theme.css");
 
-#app-mount{
+#app-mount {
   background-color: transparent;
   border-color: transparent;
 }
@@ -22,22 +21,22 @@ body,
 .container_b2ce9c,
 .chatContent__5dca8,
 .member_aa4760 {
-    background: transparent !important
+  background: transparent !important;
 }
 
 .app_de4237 {
-    background: #1e1e2e	 !important;
+  background: #1e1e2e !important;
 }
 
 .guilds__2b93a,
 .sidebar_ded4b5,
-section[class^=title],
+section[class^="title"],
 .channelTextArea__2e60f,
 .members__9f47b {
-    background: rgba(0, 0, 0, 0.1) !important;
+  background: rgba(0, 0, 0, 0.1) !important;
 }
 
 form::before,
 .children__32014::after {
-    background: unset !important;
+  background: unset !important;
 }
