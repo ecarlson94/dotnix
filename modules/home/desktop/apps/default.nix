@@ -12,6 +12,7 @@ in {
     ./kitty.nix
     ./slack.nix
     ./spotify.nix
+    ./teams.nix
   ];
 
   options.modules.desktop.apps = {enable = mkEnableOption "apps";};
@@ -23,6 +24,7 @@ in {
       kitty.enable = true;
       slack.enable = true;
       spotify.enable = true;
+      teams.enable = true;
     };
   };
 }
