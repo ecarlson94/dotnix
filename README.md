@@ -58,10 +58,10 @@ Subsequent rebuilds can be accomplished with:
 rebuild-remote
 ```
 
-If you have the repo installed locally at `~/gitrepos/dotnix`, you can rebuild with the following instead:
+If you have the repo installed locally at `~/gitrepos/dotnix`, you can rebuild with the following:
 
 ```sh
-rebuild
+nh os switch
 ```
 
 ## [Nixvim Modules](./modules/nixvim)

@@ -12,7 +12,6 @@ in {
       ../modules/nixos/system
       ../modules/user
       ../modules/nixos/home.nix
-      ../modules/nixos/bin
     ];
     specialArgs = {
       inherit inputs system packages;
@@ -29,7 +28,6 @@ in {
       ../modules/nixos/desktop
       ../modules/user
       ../modules/nixos/home.nix
-      ../modules/nixos/bin
     ];
     specialArgs = {
       inherit inputs system packages;

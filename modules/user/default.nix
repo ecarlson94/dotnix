@@ -27,10 +27,6 @@ in {
       extraGroups = ["wheel" "networkmanager" "audio" "sound" "video" "input" "tty"];
     };
 
-    environment.sessionVariables = {
-      FLAKE = "${home}/gitrepos/dotnix";
-    };
-
     programs.zsh.enable = true;
   };
 }

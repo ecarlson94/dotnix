@@ -77,9 +77,6 @@ in {
         ];
 
         shellAliases = {
-          # Node
-          nr = "npm run";
-
           # Docker
           docker = "sudo $(which docker)";
 
@@ -128,6 +125,13 @@ in {
           tgsr = "terragrunt state remove";
           tgt = "terragrunt taint";
           tgv = "terragrunt version";
+
+          # Nix Helper
+          nhr = "nh os switch";
+          nhb = "nh os boot";
+          nht = "nh os test";
+          nhs = "nh search";
+          nhc = "nh clean all --keep 10 --keep-since 10d";
 
           # Basic
           ls = "ls -h --color=auto";

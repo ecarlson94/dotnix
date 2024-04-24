@@ -1,8 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{inputs, ...}: {
   home.stateVersion = "23.11";
 
   imports = [
@@ -13,11 +9,4 @@
   ];
 
   catppuccin.flavour = "mocha";
-
-  home = {
-    packages = [
-      pkgs.curl
-      pkgs.wget
-    ];
-  };
 }
