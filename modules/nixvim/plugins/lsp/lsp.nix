@@ -16,23 +16,23 @@
       };
       keymaps = {
         lspBuf = {
-          "<leader>gd" = {
+          "gd" = {
             action = "definition";
             desc = "Goto Definitions";
           };
-          "<leader>gr" = {
+          "gr" = {
             action = "rename";
             desc = "Rename text across file";
           };
-          "<leader>gD" = {
+          "gD" = {
             action = "references";
             desc = "Goto References";
           };
-          "<leader>gt" = {
+          "gt" = {
             action = "type_definition";
             desc = "Goto Type Definitions";
           };
-          "<leader>gi" = {
+          "gi" = {
             action = "implementation";
             desc = "Goto implementation";
           };

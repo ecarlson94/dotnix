@@ -240,34 +240,6 @@
       options.desc = "New file";
     }
 
-    # Location/Quickfix
-    {
-      mode = ["n"];
-      key = "<leader>xl";
-      action = "<cmd>lopen<cr>";
-      options.desc = "Location list";
-    }
-    {
-      mode = ["n"];
-      key = "<leader>xq";
-      action = "<cmd>copen<cr>";
-      options.desc = "Quickfix list";
-    }
-    {
-      mode = ["n"];
-      key = "[q";
-      action = "vim.cmd.cprev";
-      lua = true;
-      options.desc = "Prev quickfix";
-    }
-    {
-      mode = ["n"];
-      key = "]q";
-      action = "vim.cmd.cnext";
-      lua = true;
-      options.desc = "Next quickfix";
-    }
-
     # Quit
     {
       mode = ["n"];
