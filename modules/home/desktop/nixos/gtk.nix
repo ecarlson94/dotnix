@@ -4,7 +4,6 @@
     enable = true;
     catppuccin = {
       enable = true;
-      cursor.enable = true;
       accent = "pink";
       size = "standard";
       tweaks = ["rimless"];

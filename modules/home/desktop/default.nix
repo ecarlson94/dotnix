@@ -13,6 +13,7 @@ in {
     ./nixos
 
     ./fonts.nix
+    ./cursors.nix
   ];
 
   options.modules.desktop = {enable = mkEnableOption "desktop";};
@@ -20,7 +21,10 @@ in {
   config = mkIf cfg.enable {
     modules = {
       cli.enable = true;
-      desktop.apps.enable = true;
+      desktop = {
+        cursors.enable = true;
+        apps.enable = true;
+      };
     };
   };
 }
