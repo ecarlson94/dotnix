@@ -27,4 +27,3 @@ jobs:
           pr-title: "Update flake.lock"
           pr-labels: |
             dependencies
-

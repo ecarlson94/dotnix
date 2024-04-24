@@ -111,10 +111,7 @@
 
         pre-commit.settings.hooks = {
           alejandra.enable = true;
-          prettier = {
-            enable = true;
-            settings.ignore-unknown = true;
-          };
+          prettier.enable = true;
           statix.enable = true;
         };
 

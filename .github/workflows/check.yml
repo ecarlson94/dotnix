@@ -23,11 +23,10 @@ jobs:
         uses: cachix/cachix-action@v14
         with:
           name: ecarlson94
-          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
 
       - name: Nix Flake Checker
         uses: DeterminateSystems/flake-checker-action@v5
 
       - name: Run Checks
         run: nix flake check --show-trace
-
