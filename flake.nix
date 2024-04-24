@@ -52,6 +52,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.hyprlang.follows = "hyprlang";
     };
+
+    catppuccin = {
+      url = "github:catppuccin/nix";
+    };
   };
 
   outputs = {

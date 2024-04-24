@@ -38,6 +38,12 @@ in {
       wl-clipboard
     ];
 
+    # Notification daemon
+    services.mako = {
+      enable = true;
+      catppuccin.enable = true;
+    };
+
     wayland.windowManager.hyprland = {
       enable = true;
       systemd.enable = true;

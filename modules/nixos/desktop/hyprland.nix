@@ -1,9 +1,4 @@
 {pkgs, ...}: {
-  environment.systemPackages = with pkgs; [
-    mako # notification daemon
-    libnotify # mako depends on this
-  ];
-
   programs = {
     hyprland = {
       enable = true;
