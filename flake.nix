@@ -54,6 +54,11 @@
     };
 
     catppuccin.url = "github:catppuccin/nix";
+
+    spicetify-nix = {
+      url = "github:the-argus/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
