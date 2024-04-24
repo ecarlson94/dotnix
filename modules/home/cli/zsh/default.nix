@@ -16,6 +16,11 @@ in {
     ];
 
     programs = {
+      dircolors.enableZshIntegration = true;
+      direnv.enableZshIntegration = true;
+      fzf.enableZshIntegration = true;
+      kitty.shellIntegration.enableZshIntegration = true;
+
       zsh = {
         enable = true;
         enableCompletion = true;
