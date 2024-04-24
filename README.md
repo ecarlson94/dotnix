@@ -148,6 +148,7 @@ The following are also installed and configured:
 - [Firefox](https://www.mozilla.org/en-US/firefox/new) - Browser
 - [Vesktop](https://github.com/Vencord/Vesktop) - Custom Discord client with [Vencord](https://vencord.dev/) preinstalled
 - [Slack](https://slack.com/) - Teams communication
+- [Spotify](https://www.spotify.com/us/download/linux/) - Music streaming client
 
 ```nix
 imports = [ ./modules/home ];
