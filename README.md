@@ -146,9 +146,10 @@ The following are also installed and configured:
 - User settings for Hyprland
 - [kitty](https://sw.kovidgoyal.net/kitty)- Terminal emulator
 - [Firefox](https://www.mozilla.org/en-US/firefox/new) - Browser
-- [Vesktop](https://github.com/Vencord/Vesktop) - Custom Discord client with [Vencord](https://vencord.dev/) preinstalled
 - [Slack](https://slack.com/) - Teams communication
 - [Spotify](https://www.spotify.com/us/download/linux/) - Music streaming client
+- [Teams for Linux](https://github.com/IsmaelMartinez/teams-for-linux) - Teams communication
+- [Vesktop](https://github.com/Vencord/Vesktop) - Custom Discord client with [Vencord](https://vencord.dev/) preinstalled
 
 ```nix
 imports = [ ./modules/home ];
