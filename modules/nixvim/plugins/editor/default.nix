@@ -1,5 +1,6 @@
 {
   imports = [
+    ./conform-nvim.nix
     ./lualine.nix
     ./mini.nix
     ./telescope.nix

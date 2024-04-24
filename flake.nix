@@ -112,7 +112,10 @@
         };
 
         devShells.default = pkgs.mkShell {
-          nativeBuildInputs = [config.pre-commit.settings.package];
+          nativeBuildInputs = [
+            pkgs.alejandra
+            config.pre-commit.settings.package
+          ];
           shellHook = ''
             ${config.pre-commit.installationScript}
           '';
