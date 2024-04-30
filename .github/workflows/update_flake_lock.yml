@@ -27,3 +27,24 @@ jobs:
           pr-title: "Update flake.lock"
           pr-labels: |
             dependencies
+          pr-body: |
+            Automated changes by the [update-flake-lock](https://github.com/DeterminateSystems/update-flake-lock) GitHub Action.
+
+            ```
+            {{ env.GIT_COMMIT_MESSAGE }}
+            ```
+
+
+            ### Running GitHub Actions on this PR
+
+            GitHub Actions will not run workflows on pull requests which are opened by a GitHub Action.
+
+            To run GitHub Actions workflows on this PR, run:
+
+            ```sh
+            gbD update_flake_lock_action && \
+            gf origin && \
+            gco update_flake_lock_action && \
+            gcn! && \
+            ggf
+            ```
