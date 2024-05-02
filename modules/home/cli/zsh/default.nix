@@ -25,7 +25,6 @@ in {
         enable = true;
         enableCompletion = true;
         autosuggestion.enable = true;
-        autocd = true;
 
         history = {
           expireDuplicatesFirst = true;
