@@ -85,6 +85,10 @@ This is the starting point for configuring a UI for NixOS.
 
 Configures sound for NixOS.
 
+#### [Gaming](./modules/nixos/desktop/gaming.nix)
+
+Configures gaming for NixOS. Includes [steam](https://store.steampowered.com/about/), [protonup](https://github.com/AUNaseef/protonup), and [heroic](https://heroicgameslauncher.com/).
+
 ### [Home](./modules/nixos/home.nix)
 
 Configures Home Manager to be managed by the system for the configured user.
