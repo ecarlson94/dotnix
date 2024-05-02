@@ -10,7 +10,7 @@
 
   environment.systemPackages = with pkgs; [
     heroic
-    lutron
+    lutris
     mangohud
     protonup
   ];
