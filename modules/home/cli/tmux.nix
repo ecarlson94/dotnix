@@ -27,10 +27,6 @@ in {
 
         # Enable 24-bit "True color" support
         set-option -ga terminal-overrides ",xterm-256color:Tc"
-
-        # Setup right status bar
-        set -g status-right-length "60"
-        set -g status-right "#{prefix_highlight}#[fg=brightblack,bg=black,nobold,noitalics,nounderscore]#[fg=white,bg=brightblack] #{battery_icon}#{battery_percentage}  #{cpu_icon} #{cpu_percentage} #[fg=white,bg=brightblack,nobold,noitalics,nounderscore]#[fg=white,bg=brightblack] %H:%M #[fg=cyan,bg=brightblack,nobold,noitalics,nounderscore]#[fg=black,bg=cyan,bold] #H "
       '';
 
       plugins = with pkgs; [
@@ -38,6 +34,15 @@ in {
           plugin = tmuxPlugins.catppuccin;
           extraConfig = ''
             set -g @catppuccin-flavor "mocha"
+            set -g @catppuccin_window_status_enable "yes"
+            set -g @catppuccin_window_status_icon_enable "yes"
+            set -g @catppuccin_icon_window_last "󰖰 "
+            set -g @catppuccin_icon_window_current "󰖯 "
+            set -g @catppuccin_icon_window_zoom "󰁌 "
+            set -g @catppuccin_icon_window_mark "󰃀 "
+            set -g @catppuccin_icon_window_silent "󰂛 "
+            set -g @catppuccin_icon_window_activity "󱅫 "
+            set -g @catppuccin_icon_window_bell "󰂞 "
           '';
         }
       ];
