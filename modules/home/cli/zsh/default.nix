@@ -84,7 +84,7 @@ in {
 
         shellAliases = {
           # Docker
-          docker = "sudo $(which docker)";
+          docker = "sudo $(sudo which docker)";
 
           # .NET
           db = "dotnet build";
