@@ -1,6 +1,7 @@
 {
   plugins.conform-nvim = {
     enable = true;
+    notifyOnError = false;
 
     formatOnSave = {
       lspFallback = true;
@@ -14,7 +15,9 @@
     };
 
     formattersByFt = {
+      cs = ["csharpier"];
       css = [["prettierd" "prettier"]];
+      elixir = ["mix"];
       html = [["prettierd" "prettier"]];
       javascript = [["prettierd" "prettier"]];
       javascriptreact = [["prettierd" "prettier"]];
@@ -22,7 +25,6 @@
       nix = [["alejandra" "nixpkgs-fmt"]];
       typescript = [["prettierd" "prettier"]];
       typescriptreact = [["prettierd" "prettier"]];
-      elixir = ["mix"];
       go = ["gofmt"];
     };
   };
