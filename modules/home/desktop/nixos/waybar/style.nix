@@ -4,9 +4,25 @@ in
   with theme.colors; ''
     * {
       border: none;
-      border-radius: ${radius};
       font-family: "Fira Code";
-      font-size: 13px;
+      font-size: 12px;
+      margin: 0px;
+      padding: 0px;
+    }
+
+    #window {
+      background-color: transparent;
+      box-shadow: none;
+    }
+
+    window#waybar {
+      background-color: transparent;
+      border-radius: 0px;
+    }
+
+    window * {
+      background-color: transparent;
+      border-radius: 0px;
     }
 
     #clock,
@@ -18,11 +34,11 @@ in
     #pulseaudio,
     #window,
     #tray {
-      padding: 5px 15px;
       border-radius: ${radius};
       background: ${base};
       color: ${primaryAccent};
-      margin: 5px 2px;
+      margin: 5px 2px 0px 2px;
+      padding: 3px 13px;
       transition: all 0.3s ease;
       font-weight: bold;
     }
@@ -59,21 +75,6 @@ in
       color: ${red};
     }
 
-    #window {
-      background-color: transparent;
-      box-shadow: none;
-    }
-
-    window#waybar {
-      background-color: rgba(0, 0, 0, 0.096);
-      border-radius: ${radius};
-    }
-
-    window * {
-      background-color: transparent;
-      border-radius: 0px;
-    }
-
     #workspaces button label {
       color: ${secondaryAccent};
     }
@@ -100,6 +101,7 @@ in
       background-color: ${base};
       border-radius: ${radius};
       margin-left: 10px;
+      padding: 0px 10px;
 
       transition: all 0.3s ease;
     }
