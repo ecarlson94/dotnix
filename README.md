@@ -75,19 +75,27 @@ Configures a user for the NixOS using a dynamic user name that can be configured
 
 ### Desktop
 
+#### [File Explorer](./modules/nixos/desktop/file-explorer.nix)
+
+Configures a file explorer;
+
+#### [Gaming](./modules/nixos/desktop/gaming.nix)
+
+Configures gaming for NixOS. Includes [steam](https://store.steampowered.com/about/), [protonup](https://github.com/AUNaseef/protonup), and [heroic](https://heroicgameslauncher.com/).
+
 #### [Hyprland](./modules/nixos/desktop/hyprland.nix)
 
 Bare bones installation of the [Hyprland](https://hyprland.org) dynamic tiling Wayland compositor.
 
 This is the starting point for configuring a UI for NixOS.
 
+#### [Plymouth](./modules/nixos/desktop/plymouth.nix)
+
+Configures a customizable boot splash screen called [Plymouth](https://gitlab.freedesktop.org/plymouth/plymouth).
+
 #### [Sound](./modules/nixos/desktop/sound.nix)
 
 Configures sound for NixOS.
-
-#### [Gaming](./modules/nixos/desktop/gaming.nix)
-
-Configures gaming for NixOS. Includes [steam](https://store.steampowered.com/about/), [protonup](https://github.com/AUNaseef/protonup), and [heroic](https://heroicgameslauncher.com/).
 
 ### [Home](./modules/nixos/home.nix)
 
