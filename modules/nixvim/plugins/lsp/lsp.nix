@@ -13,6 +13,7 @@
         nil_ls.enable = true; # Nix
         tsserver.enable = true;
         terraformls.enable = true;
+        omnisharp.enable = true;
       };
       keymaps = {
         lspBuf = {
