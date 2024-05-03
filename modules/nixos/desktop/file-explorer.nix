@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     xfce.thunar
-    gvfs
   ];
+
+  services.gvfs.enable = true;
 }
