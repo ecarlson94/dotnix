@@ -47,12 +47,6 @@
       inputs.hyprlang.follows = "hyprlang";
     };
 
-    hypridle = {
-      url = "github:hyprwm/hypridle";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.hyprlang.follows = "hyprlang";
-    };
-
     catppuccin.url = "github:catppuccin/nix";
 
     spicetify-nix = {
