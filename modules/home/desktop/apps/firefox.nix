@@ -111,7 +111,7 @@ in {
               definedAliases = ["@nw" "@nixwiki"];
             };
             "Bing".metaData.hidden = true;
-            "Google".metaData.alial = "@g"; # builtin engines only support specifying one additional alias
+            "Google".metaData.alias = "@g"; # builtin engines only support specifying one additional alias
           };
         };
       };
