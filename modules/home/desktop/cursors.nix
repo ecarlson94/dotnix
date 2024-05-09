@@ -16,7 +16,7 @@ in {
 
       name = "Catppuccin-Mocha-Teal-Cursors";
       package = pkgs.catppuccin-cursors.mochaTeal;
-      size = 18;
+      size = 24;
     };
   };
 }

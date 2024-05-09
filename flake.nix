@@ -47,8 +47,7 @@
       inputs.hyprlang.follows = "hyprlang";
     };
 
-    # Remove sha when https://github.com/catppuccin/nix/issues/157 is resolved
-    catppuccin.url = "github:catppuccin/nix/ccc188e244e8fb3248e3c8f19f70280076bf1408";
+    catppuccin.url = "github:catppuccin/nix";
 
     spicetify-nix = {
       url = "github:the-argus/spicetify-nix";
