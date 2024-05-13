@@ -5,8 +5,8 @@
   theme,
   ...
 }:
-with lib; let
-  inherit (builtins) listToAttrs baseNameOf map;
+with lib;
+with builtins; let
   cfg = config.modules.desktop.nixos.hyprpaper;
 
   themedWallpaper = wallpaper:
@@ -26,17 +26,33 @@ with lib; let
       '';
     };
 
-  wallpapers = lib.filesystem.listFilesRecursive theme.wallpapers;
+  wallpapers = filesystem.listFilesRecursive theme.wallpapers;
   themedWallpapers = listToAttrs (map (wallpaper: {
       name = "${baseNameOf wallpaper}";
       value = themedWallpaper wallpaper;
     })
     wallpapers);
-  themedDefaultWallpaper = themedWallpapers."${baseNameOf theme.defaultWallpaper}";
+
+  wallpaperBashArray = "(\"${strings.concatStrings (strings.intersperse "\" \"" (map (wallpaper: "${wallpaper}") (attrValues themedWallpapers)))}\")";
+
+  wallpaperRandomizer = pkgs.writeShellScriptBin "wallpaperRandomizer" ''
+    wallpapers=${wallpaperBashArray}
+    rand=$[$RANDOM % ''${#wallpapers[@]}]
+    wallpaper=''${wallpapers[$rand]}
+
+    monitor=(`hyprctl monitors | grep Monitor | awk '{print $2}'`)
+    hyprctl hyprpaper unload all
+    hyprctl hyprpaper preload $wallpaper
+    for m in ''${monitor[@]}; do
+      hyprctl hyprpaper wallpaper "$m,$wallpaper"
+    done
+  '';
 in {
   options.modules.desktop.nixos.hyprpaper = {enable = mkEnableOption "hyprpaper";};
 
   config = mkIf cfg.enable {
+    home.packages = [wallpaperRandomizer];
+
     services.hyprpaper = {
       enable = true;
 
@@ -44,13 +60,32 @@ in {
         ipc = "on";
         splash = false;
         splash_offset = 2.0;
+      };
+    };
 
-        preload = ["${themedDefaultWallpaper}"];
+    systemd.user = {
+      services.wallpaperRandomizer = {
+        Install = {WantedBy = ["graphical-session.target"];};
 
-        wallpaper = [
-          "DP-3,${themedDefaultWallpaper}"
-          "DP-1,${themedDefaultWallpaper}"
-        ];
+        Unit = {
+          Description = "Set random desktop background using hyprpaper";
+          After = ["graphical-session-pre.target"];
+          PartOf = ["graphical-session.target"];
+        };
+
+        Service = {
+          Type = "oneshot";
+          ExecStart = "${wallpaperRandomizer}/bin/wallpaperRandomizer";
+          IOSchedulingClass = "idle";
+        };
+      };
+
+      timers.wallpaperRandomizer = {
+        Unit = {Description = "Set random desktop background using hyprpaper on an interval";};
+
+        Timer = {OnUnitActiveSec = "1h";};
+
+        Install = {WantedBy = ["timers.target"];};
       };
     };
   };
