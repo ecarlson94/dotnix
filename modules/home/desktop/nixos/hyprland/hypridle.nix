@@ -9,6 +9,8 @@ in {
   options.modules.desktop.nixos.hypridle = {enable = mkEnableOption "hypridle";};
 
   config = mkIf cfg.enable {
+    modules.desktop.nixos.hyprland.enable = true;
+
     services.hypridle = {
       enable = true;
 

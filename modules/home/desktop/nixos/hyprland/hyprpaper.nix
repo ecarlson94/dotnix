@@ -34,7 +34,6 @@ with builtins; let
     wallpapers);
 
   wallpaperBashArray = "(\"${strings.concatStrings (strings.intersperse "\" \"" (map (wallpaper: "${wallpaper}") (attrValues themedWallpapers)))}\")";
-
   wallpaperRandomizer = pkgs.writeShellScriptBin "wallpaperRandomizer" ''
     wallpapers=${wallpaperBashArray}
     rand=$[$RANDOM % ''${#wallpapers[@]}]
@@ -51,6 +50,8 @@ in {
   options.modules.desktop.nixos.hyprpaper = {enable = mkEnableOption "hyprpaper";};
 
   config = mkIf cfg.enable {
+    modules.desktop.nixos.hyprland.enable = true;
+
     home.packages = [wallpaperRandomizer];
 
     services.hyprpaper = {
