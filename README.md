@@ -118,7 +118,7 @@ Contains toggleable modules for the following:
 - [direnv](https://direnv.net/) - Auto change dev environment on changing directory
 - [git](https://git-scm.com/) - Version control
 - [nvim](#nvim) - Text editor
-- [tmux](https://github.com/tmux/tmux/wiki) - Terminal multiplexer
+- [Zellij](https://zellij.dev/) - Terminal multiplexer
 - [zsh](https://www.zsh.org/) - Shell
 
 The [cli module](./modules/home/cli) will enable all of the above.
