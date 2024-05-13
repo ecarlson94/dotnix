@@ -189,7 +189,7 @@ The following are also installed and configured:
 
 - [Hyprlock](https://github.com/hyprwm/hyprlock) lock screen
 - [Hypridle](https://github.com/hyprwm/hypridle) idle daemon
-- Wallpaper selector
+- [Hyprpaper](https://github.com/hyprwm/hyprpaper) Wallpaper utility and selector
 - [wofi](https://hg.sr.ht/~scoopta/wofi) app launcher
 
 ```nix
