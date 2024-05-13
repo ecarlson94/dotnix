@@ -157,7 +157,7 @@
     # Buffers
     {
       mode = ["n" "v"];
-      key = "<leader>bd";
+      key = "<leader>db";
       action = "<cmd>bp | bd #<cr>";
       options.desc = "Delete current buffer";
     }
@@ -254,7 +254,7 @@
       key = "<leader>ui";
       action = "vim.show_pos";
       lua = true;
-      options.desc = "Quit all";
+      options.desc = "Highlight under cursor";
     }
 
     # Windows
@@ -269,7 +269,7 @@
     }
     {
       mode = ["n"];
-      key = "<leader>wd";
+      key = "<leader>dw";
       action = "<C-W>c";
       options = {
         desc = "Delete window";

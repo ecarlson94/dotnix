@@ -12,7 +12,7 @@ in {
     ./direnv.nix
     ./git.nix
     ./nvim.nix
-    ./tmux.nix
+    ./zellij.nix
     ./zsh
   ];
 
@@ -25,7 +25,7 @@ in {
       direnv.enable = true;
       git.enable = true;
       nvim.enable = true;
-      tmux.enable = true;
+      zellij.enable = true;
       zsh.enable = true;
     };
   };

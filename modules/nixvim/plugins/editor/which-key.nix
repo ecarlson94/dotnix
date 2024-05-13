@@ -20,7 +20,7 @@
       "<leader>u" = "+ui";
       "<leader>w" = "+windows";
       "<leader>x" = "+diagnostics/quickfix";
-      "<leader>t" = "+test/terminal";
+      "<leader>t" = "+test";
     };
   };
 }

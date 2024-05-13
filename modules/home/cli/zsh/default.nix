@@ -20,6 +20,7 @@ in {
       direnv.enableZshIntegration = true;
       fzf.enableZshIntegration = true;
       kitty.shellIntegration.enableZshIntegration = true;
+      zellij.enableZshIntegration = true;
 
       zsh = {
         enable = true;
