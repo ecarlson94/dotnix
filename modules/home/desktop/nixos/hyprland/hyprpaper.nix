@@ -11,7 +11,7 @@ with builtins; let
 
   themedWallpaper = wallpaper:
     pkgs.stdenv.mkDerivation rec {
-      name = "${theme.name}-${builtins.baseNameOf wallpaper}";
+      name = "${theme.name}-${baseNameOf wallpaper}";
       nativeBuildInputs = [pkgs.lutgen];
 
       phases = ["buildPhase" "installPhase"];
