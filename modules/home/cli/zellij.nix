@@ -47,6 +47,18 @@ in {
             "bind \"Ctrl w\"" = {SwitchToMode = "Scroll";};
             unbind = "Ctrl s";
           };
+
+          locked = {
+            "bind \"Alt i\"" = {
+              MoveTab = "Left";
+            };
+            "bind \"Alt o\"" = {
+              MoveTab = "Right";
+            };
+          };
+          "shared_except \"locked\"" = {
+            unbind = ["Alt o" "Alt i"];
+          };
         };
       };
     };
