@@ -65,7 +65,7 @@ in {
             font_size = 64;
             color = "rgb(${lavender})";
 
-            position = "0 80";
+            position = "0, 80";
 
             valign = "center";
             halign = "center";
