@@ -28,21 +28,18 @@ in {
           no_fade_in = true;
         };
 
-        backgrounds = [
+        background = [
           {
             monitor = "";
             path = "${theme.defaultWallpaper}";
           }
         ];
 
-        input-fields = [
+        input-field = [
           {
             monitor = "";
 
-            size = {
-              width = 300;
-              height = 50;
-            };
+            size = "300, 50";
 
             outline_thickness = 2;
 
@@ -60,7 +57,7 @@ in {
           }
         ];
 
-        labels = [
+        label = [
           {
             monitor = "";
             text = "$TIME";
@@ -68,10 +65,7 @@ in {
             font_size = 64;
             color = "rgb(${lavender})";
 
-            position = {
-              x = 0;
-              y = 80;
-            };
+            position = "0 80";
 
             valign = "center";
             halign = "center";
