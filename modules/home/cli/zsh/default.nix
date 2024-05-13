@@ -2,6 +2,7 @@
   lib,
   pkgs,
   config,
+  theme,
   ...
 }:
 with lib; let
@@ -57,7 +58,7 @@ in {
           plugins = [
             {
               name = "catppuccin/zsh-syntax-highlighting";
-              tags = ["use:themes/catppuccin_mocha-zsh-syntax-highlighting"];
+              tags = ["use:themes/catppuccin_${theme.variant}-zsh-syntax-highlighting"];
             }
             {name = "jeffreytse/zsh-vi-mode";}
             {name = "MichaelAquilina/zsh-you-should-use";}

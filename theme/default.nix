@@ -1,4 +1,4 @@
-{
+rec {
   stripPound = color: builtins.substring 1 (builtins.stringLength color) color;
   colors = rec {
     rosewater = "#f5e0dc";
@@ -35,5 +35,10 @@
 
   radius = 10;
 
+  variant = "mocha";
+  variantUpper = "Mocha";
+  name = "catppuccin-${variant}";
+
   defaultWallpaper = ./wallpapers/nixppuccin.png;
+  wallpapers = ./wallpapers;
 }

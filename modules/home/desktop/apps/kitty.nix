@@ -2,6 +2,7 @@
   lib,
   config,
   pkgs,
+  theme,
   ...
 }:
 with lib; let
@@ -18,7 +19,7 @@ in {
 
     programs.kitty = {
       enable = true;
-      theme = "Catppuccin-Mocha";
+      theme = "Catppuccin-${theme.variantUpper}";
 
       font = {
         name = "Fira Code";

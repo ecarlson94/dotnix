@@ -30,6 +30,7 @@ in {
     ];
     specialArgs = {
       inherit inputs system packages;
+      theme = import ../theme;
       homeOptions.modules.desktop = {
         enable = true;
         nixos.enable = true;

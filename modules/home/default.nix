@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  inputs,
+  theme,
+  ...
+}: {
   home.stateVersion = "23.11";
 
   imports = [
@@ -8,5 +12,5 @@
     inputs.catppuccin.homeManagerModules.catppuccin
   ];
 
-  catppuccin.flavour = "mocha";
+  catppuccin.flavour = theme.variant;
 }

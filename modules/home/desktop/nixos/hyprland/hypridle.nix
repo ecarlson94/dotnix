@@ -6,9 +6,6 @@
 with lib; let
   cfg = config.modules.desktop.nixos.hypridle;
 in {
-  imports = [
-  ];
-
   options.modules.desktop.nixos.hypridle = {enable = mkEnableOption "hypridle";};
 
   config = mkIf cfg.enable {

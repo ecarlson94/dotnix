@@ -11,7 +11,6 @@ in {
     ./waybar
 
     ./gtk.nix
-    ./wallpaper.nix
     ./wofi.nix
   ];
 
@@ -21,10 +20,10 @@ in {
     modules = {
       desktop = {
         nixos = {
-          hyprland.enable = true; # Tiling Wayland Compositor
-          hyprlock.enable = true; # Lock screen
           hypridle.enable = true; # Idle daemon
-          wallpaper.enable = true; # Configures the wallpaper
+          hyprland.enable = true; # Tiling Wayland Compositor
+          hyprlock.enable = false; # Lock screen
+          hyprpaper.enable = true; # Configures wallpaper
           wofi.enable = true; # Application launcher
           waybar.enable = true; # Desktop Bar
         };

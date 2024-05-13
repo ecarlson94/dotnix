@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  theme,
   ...
 }:
 with lib; let
@@ -13,7 +14,7 @@ in {
       enable = true;
 
       settings = {
-        theme = "catppuccin-mocha";
+        theme = theme.name;
         simplified_ui = true;
         pane_frames = false;
         ui.pane_frames.rounded_corners = true;

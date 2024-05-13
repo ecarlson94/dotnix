@@ -2,6 +2,7 @@
   lib,
   config,
   pkgs,
+  theme,
   ...
 }:
 with lib; let
@@ -14,8 +15,8 @@ in {
       gtk.enable = true;
       x11.enable = true;
 
-      name = "Catppuccin-Mocha-Teal-Cursors";
-      package = pkgs.catppuccin-cursors.mochaTeal;
+      name = "Catppuccin-${theme.variantUpper}-Teal-Cursors";
+      package = pkgs.catppuccin-cursors."${theme.variant}Teal";
       size = 24;
     };
   };
