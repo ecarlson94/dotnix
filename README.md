@@ -157,7 +157,7 @@ The following are also installed and configured:
 
 - User settings for Hyprland
 - [Firefox](https://www.mozilla.org/en-US/firefox/new) - Browser
-- [Gimp](https://www.gimp.org/) Image Manipulation Program
+- [Gimp](https://www.gimp.org/) - Image Manipulation Program
 - [kitty](https://sw.kovidgoyal.net/kitty)- Terminal emulator
 - [Slack](https://slack.com/) - Teams communication
 - [Spotify](https://www.spotify.com/us/download/linux/) - Music streaming client
