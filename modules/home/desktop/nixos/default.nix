@@ -20,6 +20,7 @@ in {
     modules = {
       desktop = {
         nixos = {
+          grimblast.enable = true; # Screenshot utility
           hypridle.enable = true; # Idle daemon
           hyprland.enable = true; # Tiling Wayland Compositor
           hyprlock.enable = false; # Lock screen

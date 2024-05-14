@@ -156,8 +156,9 @@ Contains GUI based app installations and configurations.
 The following are also installed and configured:
 
 - User settings for Hyprland
-- [kitty](https://sw.kovidgoyal.net/kitty)- Terminal emulator
 - [Firefox](https://www.mozilla.org/en-US/firefox/new) - Browser
+- [Gimp](https://www.gimp.org/) Image Manipulation Program
+- [kitty](https://sw.kovidgoyal.net/kitty)- Terminal emulator
 - [Slack](https://slack.com/) - Teams communication
 - [Spotify](https://www.spotify.com/us/download/linux/) - Music streaming client
 - [Teams for Linux](https://github.com/IsmaelMartinez/teams-for-linux) - Teams communication
@@ -187,6 +188,7 @@ Requires [Hyprland](#hyprland) configuration first.
 
 The following are also installed and configured:
 
+- [Grimblast](https://github.com/hyprwm/contrib/tree/main/grimblast) Screenshot utility
 - [Hyprlock](https://github.com/hyprwm/hyprlock) lock screen
 - [Hypridle](https://github.com/hyprwm/hypridle) idle daemon
 - [Hyprpaper](https://github.com/hyprwm/hyprpaper) Wallpaper utility and selector

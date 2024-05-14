@@ -36,6 +36,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprland-contrib = {
+      url = "github:hyprwm/contrib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     catppuccin.url = "github:catppuccin/nix";
 
     spicetify-nix = {
