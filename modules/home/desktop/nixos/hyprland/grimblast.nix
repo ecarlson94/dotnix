@@ -15,6 +15,10 @@ in {
       inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
     ];
 
+    home.sessionVariables = {
+      GRIMBLAST_EDITOR = "${pkgs.pinta}/bin/pinta";
+    };
+
     wayland.windowManager.hyprland.settings = {
       bind = [
         "CONTROLSHIFTALT,O,exec,grimblast copy area"

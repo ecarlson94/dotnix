@@ -8,7 +8,6 @@ with lib; let
 in {
   imports = [
     ./firefox.nix
-    ./gimp.nix
     ./kitty.nix
     ./slack.nix
     ./spotify.nix
@@ -21,7 +20,6 @@ in {
   config = mkIf cfg.enable {
     modules.desktop.apps = {
       firefox.enable = true;
-      gimp.enable = true;
       kitty.enable = true;
       slack.enable = true;
       spotify.enable = true;
