@@ -38,7 +38,7 @@ in {
       style = with theme.colors; ''
         window {
           margin: 5px;
-          border: 5px solid ${base};
+          border: 5px solid #${base};
           border-radius: ${radius};
           font-family: "${theme.font}";
           font-size: ${toString theme.fontSize};
@@ -50,9 +50,9 @@ in {
           padding: 4px 10px;
           margin: 4px;
           border: none;
-          color: ${text};
+          color: #${text};
           font-weight: bold;
-          background-color: ${mantle};
+          background-color: #${mantle};
           outline: none;
           border-radius: ${radius};
           margin: 10px
@@ -70,19 +70,19 @@ in {
           margin: 0px;
           padding: 10px;
           border: none;
-          border: 5px solid ${mantle};
+          border: 5px solid #${mantle};
           border-radius: ${radius};
         }
 
         #scroll {
-          color: ${mantle};
+          color: #${mantle};
           margin: 0px 0px;
           border: none;
           border-radius: ${radius};
         }
 
         #text:selected {
-          color: ${mantle};
+          color: #${mantle};
           margin: 0px 0px;
           border: none;
           border-radius: ${radius};
@@ -97,10 +97,10 @@ in {
 
         #entry:selected {
           margin: 0px 0px;
-          color: ${text}
+          color: #${text}
           border: none;
           border-radius: ${radius};
-          background-color: ${primaryAccent};
+          background-color: #${primaryAccent};
           background-size: 400% 400%;
         }
       '';

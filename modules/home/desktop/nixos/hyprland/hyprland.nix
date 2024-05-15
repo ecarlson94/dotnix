@@ -10,7 +10,7 @@ with lib; let
   meh = "CONTROLSHIFTALT";
   hyper = "SUPERCONTROLSHIFTALT";
 
-  rgba = color: "rgba(${theme.stripPound color}ee)";
+  rgba = color: "rgba(${color}ee)";
   primaryAccent = rgba theme.colors.primaryAccent;
   secondaryAccent = rgba theme.colors.secondaryAccent;
   tertiaryAccent = rgba theme.colors.tertiaryAccent;

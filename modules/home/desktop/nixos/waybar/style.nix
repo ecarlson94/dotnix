@@ -36,8 +36,8 @@ in
     #window,
     #tray {
       border-radius: ${radius};
-      background: ${base};
-      color: ${primaryAccent};
+      background: #${base};
+      color: #${primaryAccent};
       margin: 5px 2px 0px 2px;
       padding: 3px 13px;
       transition: all 0.3s ease;
@@ -45,49 +45,49 @@ in
     }
 
     #clock {
-      color: ${tertiaryAccent};
+      color: #${tertiaryAccent};
     }
 
     #cpu {
-      color: ${secondaryAccent};
+      color: #${secondaryAccent};
     }
 
     #memory {
-      color: ${yellow};
+      color: #${yellow};
     }
 
     #pulseaudio {
-      color: ${rosewater};
+      color: #${rosewater};
     }
 
     #network {
-      color: ${lavender};
+      color: #${lavender};
     }
 
     #battery {
-      color: ${green};
+      color: #${green};
     }
 
     #battery.warning {
-      color: ${yellow};
+      color: #${yellow};
     }
 
     #battery.critical:not(.charging) {
-      color: ${red};
+      color: #${red};
     }
 
     #workspaces button label {
-      color: ${secondaryAccent};
+      color: #${secondaryAccent};
     }
 
     #workspaces button.active label {
-      color: ${base};
+      color: #${base};
       font-weight: bolder;
     }
 
     #workspaces button:hover {
-      box-shadow: ${secondaryAccent} 0 0 0 1.5px;
-      background-color: ${base};
+      box-shadow: #${secondaryAccent} 0 0 0 1.5px;
+      background-color: #${base};
       min-width: 50px;
     }
 
@@ -99,7 +99,7 @@ in
     }
 
     #workspaces button {
-      background-color: ${base};
+      background-color: #${base};
       border-radius: ${radius};
       margin-left: 10px;
       padding: 0px 10px;
@@ -110,7 +110,7 @@ in
     #workspaces button.active {
       min-width: 50px;
       box-shadow: rgba(0, 0, 0, 0.288) 2 2 5 2px;
-      background-color: ${primaryAccent};
+      background-color: #${primaryAccent};
       background-size: 400% 400%;
       transition: all 0.3s ease-in-out;
       background-size: 300% 300%;

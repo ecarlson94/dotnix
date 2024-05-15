@@ -4,16 +4,9 @@
   theme,
   ...
 }:
+with theme.colors;
 with lib; let
   cfg = config.modules.desktop.nixos.hyprlock;
-
-  base = theme.stripPound theme.colors.base;
-  accent = theme.stripPound theme.colors.primaryAccent;
-  text = theme.stripPound theme.colors.text;
-  subtext1 = theme.stripPound theme.colors.subtext1;
-  lavender = theme.stripPound theme.colors.lavender;
-  red = theme.stripPound theme.colors.red;
-  font_family = theme.font;
 in {
   options.modules.desktop.nixos.hyprlock = {enable = mkEnableOption "hyprlock";};
 
@@ -50,7 +43,7 @@ in {
             rounding = theme.radius;
 
             fade_on_empty = false;
-            placeholder_text = ''<span font_family="${font_family}" foreground="##${subtext1}">Password...</span>'';
+            placeholder_text = ''<span font_family="${theme.font}" foreground="##${subtext1}">Password...</span>'';
 
             dots_spacing = 0.3;
             dots_center = true;
@@ -61,7 +54,7 @@ in {
           {
             monitor = "";
             text = "$TIME";
-            inherit font_family;
+            font_family = theme.font;
             font_size = 64;
             color = "rgb(${lavender})";
 
