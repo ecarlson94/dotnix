@@ -216,4 +216,4 @@ modules.desktop.nixos.wofi.enable = true;
 - [sioodmy](https://github.com/sioodmy/dotfiles) for their NixOS and Hyprland configuration and badges
 - [IogaMaster](https://github.com/IogaMaster/dotfiles) for the most beautiful catppuccin nix flake, some Hyprland config, and the badges
 - [This reddit post](https://reddit.com/r/NixOS/comments/137j18j/comment/ju6h25k) for helping me figure out the bare minimum to get Hyprland running
-  - AMD GPU minimum required config [here](./modules/nixos/desktop/hyprland)
+  - AMD GPU minimum required config [here](./modules/nixos/desktop/hyprland.nix)

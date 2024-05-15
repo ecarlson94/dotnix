@@ -9,9 +9,10 @@
     ./bootloader.nix
     ./file-explorer.nix
     ./gaming.nix
-    ./hyprland
+    ./hyprland.nix
     ./packages.nix
     ./plymouth.nix
+    ./sddm-theme.nix
     ./sound.nix
   ];
 
