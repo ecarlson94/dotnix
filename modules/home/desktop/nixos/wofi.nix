@@ -4,9 +4,10 @@
   theme,
   ...
 }:
-with lib; let
+with lib;
+with builtins; let
   cfg = config.modules.desktop.nixos.wofi;
-  radius = "${builtins.toString theme.radius}px";
+  radius = "${toString theme.radius}px";
 in {
   options.modules.desktop.nixos.wofi = {enable = mkEnableOption "wofi";};
 
@@ -39,8 +40,8 @@ in {
           margin: 5px;
           border: 5px solid ${base};
           border-radius: ${radius};
-          font-family: "Fira Code";
-          font-size: 14;
+          font-family: "${theme.font}";
+          font-size: ${toString theme.fontSize};
         }
 
         #input {

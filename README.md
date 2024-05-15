@@ -83,7 +83,7 @@ Configures a file explorer;
 
 Configures gaming for NixOS. Includes [steam](https://store.steampowered.com/about/), [protonup](https://github.com/AUNaseef/protonup), and [heroic](https://heroicgameslauncher.com/).
 
-#### [Hyprland](./modules/nixos/desktop/hyprland.nix)
+#### [Hyprland](./modules/nixos/desktop/hyprland)
 
 Bare bones installation of the [Hyprland](https://hyprland.org) dynamic tiling Wayland compositor.
 
@@ -216,4 +216,4 @@ modules.desktop.nixos.wofi.enable = true;
 - [sioodmy](https://github.com/sioodmy/dotfiles) for their NixOS and Hyprland configuration and badges
 - [IogaMaster](https://github.com/IogaMaster/dotfiles) for the most beautiful catppuccin nix flake, some Hyprland config, and the badges
 - [This reddit post](https://reddit.com/r/NixOS/comments/137j18j/comment/ju6h25k) for helping me figure out the bare minimum to get Hyprland running
-  - AMD GPU minimum required config [here](./modules/nixos/desktop/hyprland.nix)
+  - AMD GPU minimum required config [here](./modules/nixos/desktop/hyprland)

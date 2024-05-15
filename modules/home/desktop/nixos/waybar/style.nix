@@ -1,11 +1,12 @@
-{theme}: let
-  radius = "${builtins.toString theme.radius}px";
+{theme}:
+with builtins; let
+  radius = "${toString theme.radius}px";
 in
   with theme.colors; ''
     * {
       border: none;
-      font-family: "Fira Code";
-      font-size: 12px;
+      font-family: "${theme.font}";
+      font-size: ${toString theme.fontSizeSmall}px;
       margin: 0px;
       padding: 0px;
     }

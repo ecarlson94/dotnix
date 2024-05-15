@@ -29,11 +29,6 @@
     xserver = {
       enable = true;
 
-      displayManager.gdm = {
-        enable = true;
-        wayland = true;
-      };
-
       # Configure keymap in X11
       xkb = {
         layout = "us";

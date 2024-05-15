@@ -22,8 +22,8 @@ in {
       theme = "Catppuccin-${theme.variantUpper}";
 
       font = {
-        name = "Fira Code";
-        size = 14;
+        name = theme.font;
+        size = theme.fontSize;
       };
 
       settings = {

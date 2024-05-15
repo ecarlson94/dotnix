@@ -13,7 +13,7 @@ with lib; let
   subtext1 = theme.stripPound theme.colors.subtext1;
   lavender = theme.stripPound theme.colors.lavender;
   red = theme.stripPound theme.colors.red;
-  font_family = "Fira Code";
+  font_family = theme.font;
 in {
   options.modules.desktop.nixos.hyprlock = {enable = mkEnableOption "hyprlock";};
 
