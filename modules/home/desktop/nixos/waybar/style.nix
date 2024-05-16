@@ -109,7 +109,7 @@ in
 
     #workspaces button.active {
       min-width: 50px;
-      box-shadow: rgba(0, 0, 0, 0.288) 2 2 5 2px;
+      box-shadow: rgba(0, 0, 0, 0.288) 1px 1px 2px 2px;
       background-color: #${primaryAccent};
       background-size: 400% 400%;
       transition: all 0.3s ease-in-out;
