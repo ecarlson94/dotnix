@@ -18,7 +18,7 @@
     {
       mode = ["n"];
       key = "<leader>e";
-      action = "<cmd>Oil<cr>";
+      action = "<cmd>Oil --float<cr>";
       options.desc = "Open Explorer";
     }
   ];
