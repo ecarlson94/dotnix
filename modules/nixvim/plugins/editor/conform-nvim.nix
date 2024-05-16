@@ -26,6 +26,7 @@
       typescript = [["prettierd" "prettier"]];
       typescriptreact = [["prettierd" "prettier"]];
       go = ["gofmt"];
+      sh = ["shfmt"];
     };
   };
 }

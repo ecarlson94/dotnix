@@ -11,7 +11,7 @@ in {
   options.modules.cli.nvim = {enable = mkEnableOption "nvim";};
 
   config = mkIf cfg.enable {
-    home.packages = [nvim pkgs.fd];
+    home.packages = with pkgs; [nvim fd shfmt];
 
     programs = {
       ripgrep.enable = true;
