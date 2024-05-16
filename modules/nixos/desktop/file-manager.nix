@@ -1,4 +1,6 @@
 {pkgs, ...}: {
+  environment.systemPackages = with pkgs; [unzip];
+
   programs.thunar = {
     enable = true;
     plugins = with pkgs.xfce; [

@@ -7,7 +7,7 @@
     inputs.catppuccin.nixosModules.catppuccin
 
     ./bootloader.nix
-    ./file-explorer.nix
+    ./file-manager.nix
     ./gaming.nix
     ./hyprland.nix
     ./packages.nix
