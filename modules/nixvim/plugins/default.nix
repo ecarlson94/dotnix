@@ -1,7 +1,7 @@
 {
   imports = [
+    ./completion
     ./editor
     ./treesitter
-    ./lsp
   ];
 }
