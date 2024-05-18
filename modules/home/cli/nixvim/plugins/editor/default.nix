@@ -1,6 +1,7 @@
 {
   imports = [
     ./conform-nvim.nix
+    ./flash.nix
     ./gitsigns.nix
     ./harpoon.nix
     ./indent-blankline.nix
