@@ -1,6 +1,5 @@
 {
   lib,
-  pkgs,
   config,
   inputs,
   ...
@@ -17,8 +16,6 @@ in {
   options.modules.cli.nixvim = {enable = mkEnableOption "nixvim";};
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [shfmt];
-
     programs = {
       ripgrep.enable = true;
 

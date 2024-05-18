@@ -1,32 +1,44 @@
 {
-  programs.nixvim.plugins.conform-nvim = {
-    enable = true;
-    notifyOnError = false;
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.modules.cli.nixvim;
+in {
+  config = mkIf cfg.enable {
+    home.packages = with pkgs; [shfmt prettierd];
 
-    formatOnSave = {
-      lspFallback = true;
-      timeoutMs = 500;
-    };
+    programs.nixvim.plugins.conform-nvim = {
+      enable = true;
+      notifyOnError = false;
 
-    formatters = {
-      shfmt = {
-        prepend_args = ["-i" "2" "-ci"];
+      formatOnSave = {
+        lspFallback = true;
+        timeoutMs = 500;
       };
-    };
 
-    formattersByFt = {
-      cs = ["csharpier"];
-      css = [["prettierd" "prettier"]];
-      elixir = ["mix"];
-      html = [["prettierd" "prettier"]];
-      javascript = [["prettierd" "prettier"]];
-      javascriptreact = [["prettierd" "prettier"]];
-      markdown = [["prettierd" "prettier"]];
-      nix = [["alejandra" "nixpkgs-fmt"]];
-      typescript = [["prettierd" "prettier"]];
-      typescriptreact = [["prettierd" "prettier"]];
-      go = ["gofmt"];
-      sh = ["shfmt"];
+      formatters = {
+        shfmt = {
+          prepend_args = ["-i" "2" "-ci"];
+        };
+      };
+
+      formattersByFt = {
+        cs = ["csharpier"];
+        css = [["prettierd" "prettier"]];
+        elixir = ["mix"];
+        html = [["prettierd" "prettier"]];
+        javascript = [["prettierd" "prettier"]];
+        javascriptreact = [["prettierd" "prettier"]];
+        markdown = [["prettierd" "prettier"]];
+        nix = [["alejandra" "nixpkgs-fmt"]];
+        typescript = [["prettierd" "prettier"]];
+        typescriptreact = [["prettierd" "prettier"]];
+        go = ["gofmt"];
+        sh = ["shfmt"];
+      };
     };
   };
 }
