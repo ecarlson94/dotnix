@@ -11,7 +11,7 @@ in {
     ./dircolors.nix
     ./direnv.nix
     ./git.nix
-    ./nvim.nix
+    ./nixvim
     ./zellij.nix
     ./zsh
   ];
@@ -24,7 +24,7 @@ in {
       dircolors.enable = true;
       direnv.enable = true;
       git.enable = true;
-      nvim.enable = true;
+      nixvim.enable = true;
       zellij.enable = true;
       zsh.enable = true;
     };

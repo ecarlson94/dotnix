@@ -58,15 +58,6 @@ If you have the repo cloned locally at `~/gitrepos/dotnix`, you can rebuild with
 nh os switch
 ```
 
-## [Nixvim Modules](./modules/nixvim)
-
-- Nvim Configuration using [Nixvim](https://github.com/nix-community/nixvim)
-- Available as a package
-- With [flakes enabled](https://nixos-and-flakes.thiscute.world/nixos-with-flakes/nixos-with-flakes-enabled), can be run with:
-  ```sh
-  nix run github:ecarlson94/dotnix/main#nvim
-  ```
-
 ## [User Module](./modules/user/default.nix)
 
 Configures a user for the NixOS using a dynamic user name that can be configured in `nixosConfiguration`.
@@ -117,7 +108,7 @@ Contains toggleable modules for the following:
 - [dircolors](https://www.gnu.org/software/coreutils/manual/html_node/dircolors-invocation.html#dircolors-invocation) - Folder colors for ls (and dir, etc.)
 - [direnv](https://direnv.net/) - Auto change dev environment on changing directory
 - [git](https://git-scm.com/) - Version control
-- [nvim](#nvim) - Text editor
+- [neovim](https://neovim.io/) - Neovim terminal text editor using [nixvim](https://github.com/nix-community/nixvim)
 - [Zellij](https://zellij.dev/) - Terminal multiplexer
 - [zsh](https://www.zsh.org/) - Shell
 

@@ -1,5 +1,5 @@
 {
-  plugins.lualine = {
+  programs.nixvim.plugins.lualine = {
     enable = true;
 
     componentSeparators = {

@@ -1,5 +1,5 @@
 {
-  autoCmd = [
+  programs.nixvim.autoCmd = [
     # Automatically trim all whitespace an save
     {
       event = ["BufWritePre"];

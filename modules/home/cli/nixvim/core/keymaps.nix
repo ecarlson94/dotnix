@@ -1,5 +1,5 @@
 {
-  keymaps = [
+  programs.nixvim.keymaps = [
     # Saving
     {
       mode = ["i" "x" "n" "s" "v"];

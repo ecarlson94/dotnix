@@ -1,5 +1,5 @@
 {
-  plugins.harpoon = {
+  programs.nixvim.plugins.harpoon = {
     enable = true;
     markBranch = true;
     saveOnToggle = true;

@@ -53,7 +53,6 @@
     flake-parts,
     nixpkgs,
     home-manager,
-    nixvim,
     self,
     ...
   } @ inputs:
@@ -84,17 +83,6 @@
         checks = {
           format = pkgs.callPackage ./checks/format.nix {inherit inputs;};
           statix = pkgs.callPackage ./checks/statix.nix {inherit inputs;};
-          nvim = pkgs.callPackage ./checks/nvim.nix {
-            inherit nixvim system;
-            inherit (self.packages.${system}) nvim;
-          };
-        };
-
-        packages = {
-          nvim = pkgs.callPackage ./modules/nixvim/makeNvim.nix {
-            inherit inputs system;
-            nixvim = nixvim.legacyPackages.${system};
-          };
         };
 
         pre-commit.settings.hooks = {
