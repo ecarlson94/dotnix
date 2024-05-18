@@ -15,6 +15,10 @@
         treesitter = true;
         treesitter_context = true;
         which_key = true;
+        indent_blankline = {
+          enable = true;
+          colored_indent_levels = true;
+        };
       };
     };
   };
