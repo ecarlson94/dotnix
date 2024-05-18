@@ -36,7 +36,7 @@ in {
 
             outline_thickness = 2;
 
-            outer_color = "rgb(${accent})";
+            outer_color = "rgb(${primaryAccent})";
             inner_color = "rgb(${base})";
             font_color = "rgb(${text})";
             fail_color = "rgb(${red})";

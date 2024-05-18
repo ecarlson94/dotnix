@@ -23,7 +23,7 @@ in {
           grimblast.enable = true; # Screenshot utility
           hypridle.enable = true; # Idle daemon
           hyprland.enable = true; # Tiling Wayland Compositor
-          hyprlock.enable = false; # Lock screen
+          hyprlock.enable = true; # Lock screen
           hyprpaper.enable = true; # Configures wallpaper
           wofi.enable = true; # Application launcher
           waybar.enable = true; # Desktop Bar
