@@ -17,10 +17,21 @@ in {
   options.modules.cli.nixvim = {enable = mkEnableOption "nixvim";};
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [fd shfmt];
+    home.packages = with pkgs; [shfmt];
 
     programs = {
       ripgrep.enable = true;
+
+      fd = {
+        enable = true;
+        hidden = true;
+        ignores = [
+          ".git/"
+          "node_modules/"
+          "dist"
+        ];
+      };
+
       fzf = {
         enable = true;
         defaultCommand = "fd --type f --color=always";
