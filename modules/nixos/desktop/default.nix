@@ -6,6 +6,7 @@
   imports = [
     inputs.catppuccin.nixosModules.catppuccin
 
+    ./bluetooth.nix
     ./bootloader.nix
     ./file-manager.nix
     ./gaming.nix
