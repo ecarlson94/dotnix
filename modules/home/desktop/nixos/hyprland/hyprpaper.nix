@@ -5,35 +5,12 @@
   theme,
   ...
 }:
-with lib;
-with builtins; let
+with lib; let
   cfg = config.modules.desktop.nixos.hyprpaper;
 
-  themedWallpaper = wallpaper:
-    pkgs.stdenv.mkDerivation rec {
-      name = "${theme.name}-${baseNameOf wallpaper}";
-      nativeBuildInputs = [pkgs.lutgen];
-
-      phases = ["buildPhase" "installPhase"];
-
-      buildPhase = ''
-        cp ${wallpaper} ./${name}
-        lutgen apply -p ${theme.name} ${name} -o themed
-      '';
-
-      installPhase = ''
-        cp themed/${name} $out
-      '';
-    };
-
   wallpapers = filesystem.listFilesRecursive theme.wallpapers;
-  themedWallpapers = listToAttrs (map (wallpaper: {
-      name = "${baseNameOf wallpaper}";
-      value = themedWallpaper wallpaper;
-    })
-    wallpapers);
 
-  wallpaperBashArray = "(\"${strings.concatStrings (strings.intersperse "\" \"" (map (wallpaper: "${wallpaper}") (attrValues themedWallpapers)))}\")";
+  wallpaperBashArray = "(\"${strings.concatStrings (strings.intersperse "\" \"" (map (wallpaper: "${wallpaper}") wallpapers))}\")";
   wallpaperRandomizer = pkgs.writeShellScriptBin "wallpaperRandomizer" ''
     wallpapers=${wallpaperBashArray}
     rand=$[$RANDOM % ''${#wallpapers[@]}]
