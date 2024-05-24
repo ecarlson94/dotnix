@@ -10,6 +10,7 @@ in {
 
   config = mkIf cfg.enable {
     modules.desktop.nixos.hyprland.enable = true;
+    modules.desktop.nixos.hyprlock.enable = true;
 
     services.hypridle = {
       enable = true;
