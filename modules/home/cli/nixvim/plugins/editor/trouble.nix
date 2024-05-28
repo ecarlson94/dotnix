@@ -42,15 +42,13 @@
       {
         mode = ["n"];
         key = "[q";
-        action = "vim.cmd.cprev";
-        lua = true;
+        action.__raw = "vim.cmd.cprev";
         options.desc = "Prev quickfix";
       }
       {
         mode = ["n"];
         key = "]q";
-        action = "vim.cmd.cnext";
-        lua = true;
+        action.__raw = "vim.cmd.cnext";
         options.desc = "Next quickfix";
       }
     ];

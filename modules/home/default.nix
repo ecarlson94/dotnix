@@ -12,5 +12,5 @@
     inputs.catppuccin.homeManagerModules.catppuccin
   ];
 
-  catppuccin.flavour = theme.variant;
+  catppuccin.flavor = theme.variant;
 }

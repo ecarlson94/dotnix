@@ -252,8 +252,7 @@
     {
       mode = ["n"];
       key = "<leader>ui";
-      action = "vim.show_pos";
-      lua = true;
+      action.__raw = "vim.show_pos";
       options.desc = "Highlight under cursor";
     }
 
