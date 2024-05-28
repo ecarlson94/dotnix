@@ -17,5 +17,5 @@
     ./sound.nix
   ];
 
-  catppuccin.flavour = theme.variant;
+  catppuccin.flavor = theme.variant;
 }
