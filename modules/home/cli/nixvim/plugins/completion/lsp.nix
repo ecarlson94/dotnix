@@ -10,7 +10,7 @@
         gopls.enable = true;
         jsonls.enable = true;
         marksman.enable = true;
-        nil_ls.enable = true; # Nix
+        nil-ls.enable = true; # Nix
         tsserver.enable = true;
         terraformls.enable = true;
         omnisharp.enable = true;
