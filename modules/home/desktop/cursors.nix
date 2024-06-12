@@ -15,7 +15,7 @@ in {
       gtk.enable = true;
       x11.enable = true;
 
-      name = "Catppuccin-${theme.variantUpper}-Teal-Cursors";
+      name = "catppuccin-${theme.variant}-teal-cursors";
       package = pkgs.catppuccin-cursors."${theme.variant}Teal";
       size = 24;
     };
