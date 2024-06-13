@@ -52,7 +52,7 @@ in {
           gstc = "git stash clear";
 
           # Docker
-          docker = "sudo $(sudo which docker)";
+          docker = "sudo docker";
 
           # .NET
           db = "dotnet build";
