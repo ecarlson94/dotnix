@@ -32,6 +32,7 @@ in {
           gb = "git branch";
           gbD = "git branch -D";
           gco = "git checkout";
+          gcb = "git checkout -b";
           gcm = "git checkout $(git branch -l main master --format '%(refname:short)')";
           gcmsg = "git commit -m";
           "gcn!" = "git commit --verbose --amend --no-edit";
@@ -41,6 +42,7 @@ in {
           gf = "git fetch";
           gp = "git push";
           ggp = "git push origin $(git branch --show-current)";
+          ggf = "git push origin $(git branch --show-current) -f";
           gl = "git pull";
           ggl = "git pull origin $(git branch --show-current)";
           gr = "git reset";
@@ -137,6 +139,15 @@ in {
           {
             name = "autopair";
             inherit (fishPlugins.autopair) src;
+          }
+          {
+            name = "fish-completion-sync";
+            src = pkgs.fetchFromGitHub {
+              owner = "pfgray";
+              repo = "fish-completion-sync";
+              rev = "ba70b6457228af520751eab48430b1b995e3e0e2";
+              sha256 = "sha256-JdOLsZZ1VFRv7zA2i/QEZ1eovOym/Wccn0SJyhiP9hI=";
+            };
           }
         ];
       };
