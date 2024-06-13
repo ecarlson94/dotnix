@@ -25,7 +25,10 @@ in {
           # Git
           ga = "git add";
           gaa = "git add --all";
+          gb = "git branch";
+          gbD = "git branch -D";
           gco = "git checkout";
+          gcm = "git checkout $(git branch -l main master --format '%(refname:short)')";
           gcmsg = "git commit -m";
           "gcn!" = "git commit --verbose --amend --no-edit";
           "gcan!" = "git commit --verbose --all --amend --no-edit";
