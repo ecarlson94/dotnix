@@ -110,7 +110,7 @@ Contains toggleable modules for the following:
 - [git](https://git-scm.com/) - Version control
 - [neovim](https://neovim.io/) - Neovim terminal text editor using [nixvim](https://github.com/nix-community/nixvim)
 - [Zellij](https://zellij.dev/) - Terminal multiplexer
-- [zsh](https://www.zsh.org/) - Shell
+- [fish](https://fishshell.com) - Shell
 
 The [cli module](./modules/home/cli) will enable all of the above.
 
@@ -126,7 +126,7 @@ Each module can be individually enabled as well.
 imports = [ ./modules/home ];
 
 modules.cli.git.enable = true;
-modules.cli.zsh.enable = true;
+modules.cli.fish.enable = true;
 ...
 ```
 

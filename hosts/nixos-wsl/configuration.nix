@@ -28,7 +28,5 @@
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
-  environment.pathsToLink = ["/share/zsh"];
-
   programs.dconf.enable = true; # Required for Home Manager
 }

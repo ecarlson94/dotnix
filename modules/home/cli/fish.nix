@@ -9,6 +9,7 @@ in {
   options.modules.cli.fish = {enable = mkEnableOption "fish";};
   config = mkIf cfg.enable {
     programs = {
+      zellij.enableFishIntegration = true;
       dircolors.enableFishIntegration = true;
       fzf.enableFishIntegration = true;
       kitty.shellIntegration.enableFishIntegration = true;
@@ -112,6 +113,10 @@ in {
           loc = "scc";
           rmf = "rm -rf";
           gcsmg = "git commit -m";
+
+          # Zellij
+          zd = "zellij da -y";
+          zn = "zellij";
         };
       };
     };

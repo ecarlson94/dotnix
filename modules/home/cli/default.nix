@@ -15,7 +15,6 @@ in {
     ./git.nix
     ./nixvim
     ./zellij.nix
-    ./zsh
   ];
 
   options.modules.cli = {enable = mkEnableOption "cli";};
@@ -33,7 +32,6 @@ in {
       git.enable = true;
       nixvim.enable = true;
       zellij.enable = true;
-      zsh.enable = true;
     };
   };
 }
