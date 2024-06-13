@@ -45,6 +45,7 @@ in {
           ggl = "git pull origin $(git branch --show-current)";
           gr = "git reset";
           "gr!" = "git reset --hard HEAD~";
+          "gro!" = "git reset --hard origin/$(git branch --show-current)";
           grs = "git reset --soft HEAD~";
           gst = "git status";
           gsta = "git stash push";
@@ -132,6 +133,10 @@ in {
           {
             name = "hydro";
             inherit (fishPlugins.hydro) src;
+          }
+          {
+            name = "autopair";
+            inherit (fishPlugins.autopair) src;
           }
         ];
       };
