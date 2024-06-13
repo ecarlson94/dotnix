@@ -1,4 +1,5 @@
 {
+  pkgs,
   lib,
   config,
   ...
@@ -19,6 +20,9 @@ in {
 
         interactiveShellInit = ''
           set fish_greeting # Disable greeting
+          set hydro_color_pwd $fish_color_cwd
+          set hydro_color_git $fish_color_host
+          set hydro_color_prompt $fish_color_host_remote
         '';
 
         shellAbbrs = {
@@ -39,6 +43,10 @@ in {
           ggp = "git push origin $(git branch --show-current)";
           gl = "git pull";
           ggl = "git pull origin $(git branch --show-current)";
+          gr = "git reset";
+          gra = "git reset .";
+          grhh = "git reset --hard HEAD~";
+          grsh = "git reset --soft HEAD~";
           gst = "git status";
           gsta = "git stash push";
           gstp = "git stash pop";
@@ -120,6 +128,13 @@ in {
           zd = "zellij da -y";
           zn = "zellij";
         };
+
+        plugins = with pkgs; [
+          {
+            name = "hydro";
+            inherit (fishPlugins.hydro) src;
+          }
+        ];
       };
     };
   };
