@@ -11,10 +11,15 @@ in {
     programs = {
       dircolors.enableFishIntegration = true;
       fzf.enableFishIntegration = true;
+      kitty.shellIntegration.enableFishIntegration = true;
 
       fish = {
         enable = true;
         catppuccin.enable = true;
+
+        interactiveShellInit = ''
+          set fish_greeting # Disable greeting
+        '';
 
         shellAbbrs = {
           # Git
