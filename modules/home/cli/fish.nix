@@ -9,7 +9,6 @@ in {
   options.modules.cli.fish = {enable = mkEnableOption "fish";};
   config = mkIf cfg.enable {
     programs = {
-      zellij.enableFishIntegration = true;
       dircolors.enableFishIntegration = true;
       fzf.enableFishIntegration = true;
       kitty.shellIntegration.enableFishIntegration = true;
@@ -34,9 +33,9 @@ in {
           gdca = "git diff --cached";
           gf = "git fetch";
           gp = "git push";
-          ggp = "git push origin $(git branch 2>/dev/null | sed -n '/\* /s///p')";
+          ggp = "git push origin $(git branch --show-current)";
           gl = "git pull";
-          ggl = "git pull origin $(git branch 2>/dev/null | sed -n '/\* /s///p')";
+          ggl = "git pull origin $(git branch --show-current)";
           gst = "git status";
           gsta = "git stash push";
           gstp = "git stash pop";
