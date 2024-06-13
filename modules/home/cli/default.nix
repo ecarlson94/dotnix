@@ -1,4 +1,5 @@
 {
+  pkgs,
   lib,
   config,
   ...
@@ -10,6 +11,7 @@ in {
     ./btop.nix
     ./dircolors.nix
     ./direnv.nix
+    ./fish.nix
     ./git.nix
     ./nixvim
     ./zellij.nix
@@ -19,10 +21,15 @@ in {
   options.modules.cli = {enable = mkEnableOption "cli";};
 
   config = mkIf cfg.enable {
+    home.packages = [
+      pkgs.scc
+    ];
+
     modules.cli = {
       btop.enable = true;
       dircolors.enable = true;
       direnv.enable = true;
+      fish.enable = true;
       git.enable = true;
       nixvim.enable = true;
       zellij.enable = true;

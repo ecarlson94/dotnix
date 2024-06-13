@@ -9,10 +9,6 @@ in {
   options.modules.cli.dircolors = {enable = mkEnableOption "dircolors";};
 
   config = mkIf cfg.enable {
-    programs = {
-      dircolors = {
-        enable = true;
-      };
-    };
+    programs.dircolors.enable = true;
   };
 }

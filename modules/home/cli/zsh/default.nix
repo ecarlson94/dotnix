@@ -11,11 +11,6 @@ in {
   options.modules.cli.zsh = {enable = mkEnableOption "zsh";};
 
   config = mkIf cfg.enable {
-    home.packages = [
-      pkgs.zsh
-      pkgs.scc
-    ];
-
     programs = {
       dircolors.enableZshIntegration = true;
       direnv.enableZshIntegration = true;
@@ -24,8 +19,10 @@ in {
 
       zsh = {
         enable = true;
-        enableCompletion = true;
         autosuggestion.enable = true;
+
+        enableCompletion = true;
+        completionInit = "autoload -U compinit && compinit && autoload -U bashcompinit && bashcompinit";
 
         history = {
           expireDuplicatesFirst = true;
