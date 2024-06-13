@@ -10,6 +10,8 @@
     inputs.home-manager.nixosModules.home-manager
   ];
 
+  nixpkgs.config.allowUnfreePredicate = _: true;
+
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
