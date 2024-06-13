@@ -10,6 +10,7 @@
 
       settings = {
         sources = [
+          {name = "codeium";}
           {name = "nvim_lsp";}
           {name = "path";}
           {name = "buffer";}
