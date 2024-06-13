@@ -10,6 +10,9 @@ with lib; let
   meh = "CONTROLSHIFTALT";
   hyper = "SUPERCONTROLSHIFTALT";
 
+  pamixer = "${pkgs.pamixer}/bin/pamixer";
+  playerctl = "${pkgs.playerctl}/bin/playerctl";
+
   rgba = color: "rgba(${color}ee)";
   primaryAccent = rgba theme.colors.primaryAccent;
   secondaryAccent = rgba theme.colors.secondaryAccent;
@@ -114,8 +117,16 @@ in {
         ];
 
         binde = [
-          ",XF86AudioRaiseVolume,exec,pactl set-sink-volume @DEFAULT_SINK@ +5%"
-          ",XF86AudioLowerVolume,exec,pactl set-sink-volume @DEFAULT_SINK@ -5%"
+          ",XF86AudioRaiseVolume,exec,${pamixer} -i 5"
+          ",XF86AudioLowerVolume,exec,${pamixer} -d 5"
+          ",XF86AudioMute,exec,${pamixer} -t"
+          ",XF86AudioMicMute,exec,micmute"
+        ];
+
+        bindl = [
+          ",XF86AudioPlay,exec,${playerctl} play-pause"
+          ",XF86AudioPrev,exec,${playerctl} previous"
+          ",XF86AudioNext,exec,${playerctl} next"
         ];
       };
     };

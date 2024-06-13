@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   sound = {
     enable = true;
-    mediaKeys.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
@@ -13,7 +12,6 @@
   hardware.pulseaudio.support32Bit = true;
 
   security.rtkit.enable = true;
-
   services.pipewire = {
     enable = true;
 
