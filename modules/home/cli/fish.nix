@@ -126,9 +126,9 @@ in {
           rmf = "rm -rf";
           gcsmg = "git commit -m";
 
-          # Zellij
-          zd = "zellij da -y";
-          zn = "zellij";
+          # Tmux
+          tmk = "tmux kill-session";
+          tmkk = "tmux kill-server";
         };
 
         plugins = with pkgs; [

@@ -14,7 +14,7 @@ in {
     ./fish.nix
     ./git.nix
     ./nixvim
-    ./zellij.nix
+    ./tmux.nix
   ];
 
   options.modules.cli = {enable = mkEnableOption "cli";};
@@ -31,7 +31,7 @@ in {
       fish.enable = true;
       git.enable = true;
       nixvim.enable = true;
-      zellij.enable = true;
+      tmux.enable = true;
     };
   };
 }

@@ -109,7 +109,7 @@ Contains toggleable modules for the following:
 - [direnv](https://direnv.net/) - Auto change dev environment on changing directory
 - [git](https://git-scm.com/) - Version control
 - [neovim](https://neovim.io/) - Neovim terminal text editor using [nixvim](https://github.com/nix-community/nixvim)
-- [Zellij](https://zellij.dev/) - Terminal multiplexer
+- [tmux](https://github.com/tmux/tmux/wiki) - Terminal multiplexer
 - [fish](https://fishshell.com) - Shell
 
 The [cli module](./modules/home/cli) will enable all of the above.
