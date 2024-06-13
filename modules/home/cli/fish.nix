@@ -44,9 +44,8 @@ in {
           gl = "git pull";
           ggl = "git pull origin $(git branch --show-current)";
           gr = "git reset";
-          gra = "git reset .";
-          grhh = "git reset --hard HEAD~";
-          grsh = "git reset --soft HEAD~";
+          "gr!" = "git reset --hard HEAD~";
+          grs = "git reset --soft HEAD~";
           gst = "git status";
           gsta = "git stash push";
           gstp = "git stash pop";
