@@ -30,7 +30,8 @@ in {
           ga = "git add";
           gaa = "git add --all";
           gb = "git branch";
-          gbD = "git branch -D";
+          gbd = "git branch -D";
+          gbda = "git remote prune origin";
           gco = "git checkout";
           gcb = "git checkout -b";
           gcm = "git checkout $(git branch -l main master --format '%(refname:short)')";

@@ -42,7 +42,7 @@ jobs:
             To run GitHub Actions workflows on this PR, run:
 
             ```sh
-            gbD update_flake_lock_action && \
+            gbd update_flake_lock_action && \
             gf origin && \
             gco update_flake_lock_action && \
             gcn! && \
