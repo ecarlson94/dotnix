@@ -123,7 +123,7 @@ in {
           grep = "grep --color=auto";
           fgrep = "fgrep --color=auto";
           egrep = "egrep --color=auto";
-          loc = "scc";
+          loc = "tokei";
           rmf = "rm -rf";
           gcsmg = "git commit -m";
 
