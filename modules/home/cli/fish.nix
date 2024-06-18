@@ -130,6 +130,11 @@ in {
           # Tmux
           tmk = "tmux kill-session";
           tmkk = "tmux kill-server";
+
+          # Direnv
+          duf = "echo 'use flake' >> .envrc && direnv allow";
+          da = "direnv allow";
+          dd = "direnv disallow";
         };
 
         plugins = with pkgs; [
