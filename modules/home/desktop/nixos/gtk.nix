@@ -1,12 +1,19 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  theme,
+  ...
+}: {
   xdg.enable = true;
   gtk = {
     enable = true;
-    catppuccin = {
-      enable = true;
-      accent = "pink";
-      size = "standard";
-      tweaks = ["rimless"];
+    theme = {
+      name = "Catppuccin-Mocha-Compact-Pink-Dark";
+      package = pkgs.catppuccin-gtk.override {
+        inherit (theme) variant;
+        accents = ["pink"];
+        size = "standard";
+        tweaks = ["rimless"];
+      };
     };
 
     iconTheme = {

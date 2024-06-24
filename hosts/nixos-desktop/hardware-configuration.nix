@@ -39,12 +39,5 @@
   services.xserver.videoDrivers = ["amdgpu"];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware = {
-    cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-
-    opengl = {
-      driSupport = true;
-      driSupport32Bit = true;
-    };
-  };
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
