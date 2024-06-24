@@ -11,7 +11,7 @@
     NIXOS_OZONE_WL = "1";
   };
 
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
 
   xdg = {
     autostart.enable = true;
