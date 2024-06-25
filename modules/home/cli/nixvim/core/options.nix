@@ -44,7 +44,7 @@
       number = true; # Print line number
       pumblend = 10; # Popup blend
       pumheight = 10; # Maximum number of entries in a popup
-      relativenumber = true; # Relative line numbers
+      relativenumber = false; # Relative line numbers
       scrolloff = 6; # Lines of context
       sessionoptions = ["buffers" "curdir" "tabpages" "winsize" "help" "globals" "skiprtp" "folds"];
       shiftround = true; # Round indent
