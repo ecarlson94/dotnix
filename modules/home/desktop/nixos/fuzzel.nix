@@ -29,7 +29,7 @@ in {
         };
 
         colors = with theme.colors; {
-          background = "${base}dd";
+          background = "${base}ff";
           text = "${text}ff";
           match = "${primaryAccent}ff";
           selection = "${surface2}ff";
