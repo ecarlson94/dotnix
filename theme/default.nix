@@ -27,9 +27,9 @@ rec {
     mantle = "181825";
     crust = "11111b";
 
-    primaryAccent = pink;
-    secondaryAccent = teal;
-    tertiaryAccent = mauve;
+    primaryAccent = teal;
+    secondaryAccent = mauve;
+    tertiaryAccent = pink;
   };
 
   radius = 10;
