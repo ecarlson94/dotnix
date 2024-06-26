@@ -19,11 +19,7 @@ in {
   config = mkIf cfg.enable {
     modules.gui.nixos = {
       fuzzel.enable = true; # Application launcher
-      grimblast.enable = true; # Screenshot utility
-      hypridle.enable = true; # Idle daemon
       hyprland.enable = true; # Tiling Wayland Compositor
-      hyprlock.enable = true; # Lock screen
-      hyprpaper.enable = true; # Configures wallpaper
       waybar.enable = true; # Desktop Bar
     };
   };

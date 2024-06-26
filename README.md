@@ -178,11 +178,11 @@ Requires [Hyprland](#hyprland) configuration first.
 
 The following are also installed and configured:
 
-- [Grimblast](https://github.com/hyprwm/contrib/tree/main/grimblast) Screenshot utility
+- [Grimblast](https://github.com/hyprwm/contrib/tree/main/grimblast) screenshot utility
 - [Hyprlock](https://github.com/hyprwm/hyprlock) lock screen
 - [Hypridle](https://github.com/hyprwm/hypridle) idle daemon
-- [Hyprpaper](https://github.com/hyprwm/hyprpaper) Wallpaper utility and selector
-- [wofi](https://hg.sr.ht/~scoopta/wofi) app launcher
+- [Hyprpaper](https://github.com/hyprwm/hyprpaper) wallpaper utility and selector
+- [fuzzel](https://codeberg.org/dnkl/fuzzel) app launcher
 
 ```nix
 imports = [ ./modules/home ];
@@ -196,7 +196,7 @@ Each module can be individually enabled as well.
 imports = [ ./modules/home ];
 
 modules.gui.nixos.hyprland.enable = true;
-modules.gui.nixos.wofi.enable = true;
+modules.gui.nixos.fuzzel.enable = true;
 ...
 ```
 

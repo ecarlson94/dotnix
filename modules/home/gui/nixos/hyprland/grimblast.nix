@@ -6,9 +6,9 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.gui.nixos.grimblast;
+  cfg = config.modules.gui.nixos.hyprland.grimblast;
 in {
-  options.modules.gui.nixos.grimblast = {enable = mkEnableOption "grimblast";};
+  options.modules.gui.nixos.hyprland.grimblast = {enable = mkEnableOption "grimblast";};
 
   config = mkIf cfg.enable {
     home.packages = [
