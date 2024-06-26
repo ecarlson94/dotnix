@@ -16,7 +16,7 @@ in {
       terminal = "xterm-256color";
       baseIndex = 1;
       keyMode = "vi"; # VI Mode
-      customPaneNavigationAndResize = false; # Override hjkl and HJKL bindings for pane navigation and resizing VI Mode
+      customPaneNavigationAndResize = true; # Override hjkl and HJKL bindings for pane navigation and resizing VI Mode
       historyLimit = 10000;
       mouse = true;
 

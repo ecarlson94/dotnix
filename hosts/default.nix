@@ -24,14 +24,14 @@ in {
     modules = [
       ./nixos-desktop/configuration.nix
       ../modules/nixos/system
-      ../modules/nixos/desktop
+      ../modules/nixos/gui
       ../modules/user
       ../modules/nixos/home.nix
     ];
     specialArgs = {
       inherit inputs system packages;
       theme = import ../theme;
-      homeOptions.modules.desktop = {
+      homeOptions.modules.gui = {
         enable = true;
         nixos.enable = true;
       };

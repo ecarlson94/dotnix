@@ -6,12 +6,12 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.desktop.nixos.waybar;
+  cfg = config.modules.gui.nixos.waybar;
 in {
-  options.modules.desktop.nixos.waybar = {enable = mkEnableOption "waybar";};
+  options.modules.gui.nixos.waybar = {enable = mkEnableOption "waybar";};
 
   config = mkIf cfg.enable {
-    modules.desktop.fonts.enable = true;
+    modules.gui.fonts.enable = true;
 
     programs.waybar = {
       enable = true;

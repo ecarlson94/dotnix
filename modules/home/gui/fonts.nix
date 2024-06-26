@@ -5,9 +5,9 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.desktop.fonts;
+  cfg = config.modules.gui.fonts;
 in {
-  options.modules.desktop.fonts = {enable = mkEnableOption "fonts";};
+  options.modules.gui.fonts = {enable = mkEnableOption "fonts";};
 
   config = mkIf cfg.enable {
     fonts.fontconfig.enable = true;

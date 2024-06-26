@@ -5,9 +5,9 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.desktop.apps.vencord;
+  cfg = config.modules.gui.apps.vencord;
 in {
-  options.modules.desktop.apps.vencord = {enable = mkEnableOption "vencord";};
+  options.modules.gui.apps.vencord = {enable = mkEnableOption "vencord";};
 
   config = mkIf cfg.enable {
     home.packages = [

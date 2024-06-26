@@ -6,7 +6,7 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.desktop.apps.firefox;
+  cfg = config.modules.gui.apps.firefox;
 
   lockFalse = {
     Value = false;
@@ -21,7 +21,7 @@ with lib; let
     Status = "locked";
   };
 in {
-  options.modules.desktop.apps.firefox = {enable = mkEnableOption "firefox";};
+  options.modules.gui.apps.firefox = {enable = mkEnableOption "firefox";};
 
   config = mkIf cfg.enable {
     programs.firefox = {

@@ -4,7 +4,7 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.desktop.nixos;
+  cfg = config.modules.gui.nixos;
 in {
   imports = [
     ./hyprland
@@ -14,10 +14,10 @@ in {
     ./gtk.nix
   ];
 
-  options.modules.desktop.nixos = {enable = mkEnableOption "nixos";};
+  options.modules.gui.nixos = {enable = mkEnableOption "nixos";};
 
   config = mkIf cfg.enable {
-    modules.desktop.nixos = {
+    modules.gui.nixos = {
       fuzzel.enable = true; # Application launcher
       grimblast.enable = true; # Screenshot utility
       hypridle.enable = true; # Idle daemon

@@ -4,7 +4,7 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.desktop;
+  cfg = config.modules.gui;
 in {
   imports = [
     ../cli
@@ -16,12 +16,12 @@ in {
     ./cursors.nix
   ];
 
-  options.modules.desktop = {enable = mkEnableOption "desktop";};
+  options.modules.gui = {enable = mkEnableOption "gui";};
 
   config = mkIf cfg.enable {
     modules = {
       cli.enable = true;
-      desktop = {
+      gui = {
         cursors.enable = true;
         apps.enable = true;
       };

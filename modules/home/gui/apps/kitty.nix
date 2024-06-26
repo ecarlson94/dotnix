@@ -6,12 +6,12 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.desktop.apps.kitty;
+  cfg = config.modules.gui.apps.kitty;
 in {
-  options.modules.desktop.apps.kitty = {enable = mkEnableOption "kitty";};
+  options.modules.gui.apps.kitty = {enable = mkEnableOption "kitty";};
 
   config = mkIf cfg.enable {
-    modules.desktop.fonts.enable = true;
+    modules.gui.fonts.enable = true;
 
     home.packages = with pkgs; [
       wl-clipboard
