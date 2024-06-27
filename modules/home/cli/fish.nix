@@ -116,8 +116,8 @@ in {
           nhc = "nh clean all --keep 10 --keep-since 10d";
 
           # Basic
-          ls = "ls -h --color=auto";
-          la = "ls -lah";
+          ls = "ls -h --color=auto --group-directories-first";
+          la = "ls -lah --group-directories-first";
           md = "mkdir -vp";
           dir = "dir --color=auto";
           grep = "grep --color=auto";
