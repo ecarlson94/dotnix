@@ -31,7 +31,7 @@ in {
         copy_on_select = "clipboard";
         term = "xterm-256color";
 
-        background_opacity = ".75";
+        background_opacity = ".85";
       };
     };
 
