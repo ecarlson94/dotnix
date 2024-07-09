@@ -18,11 +18,12 @@ in {
         enable = true;
         catppuccin.enable = true;
 
-        interactiveShellInit = ''
+        shellInit = ''
           set fish_greeting # Disable greeting
           set hydro_color_pwd $fish_color_cwd
           set hydro_color_git $fish_color_host
           set hydro_color_prompt $fish_color_host_remote
+          fish_vi_key_bindings
         '';
 
         shellAbbrs = {
