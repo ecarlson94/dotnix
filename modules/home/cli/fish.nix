@@ -26,7 +26,7 @@ in {
           fish_vi_key_bindings
         '';
 
-        shellAbbrs = {
+        shellAbbrs = rec {
           # Git
           ga = "git add";
           gaa = "git add --all";
@@ -36,9 +36,10 @@ in {
           gco = "git checkout";
           gcb = "git checkout -b";
           gcm = "git checkout $(git branch -l main master --format '%(refname:short)')";
+          gcml = "${gcm} && ${ggl}";
           gcmsg = "git commit -m";
           "gcn!" = "git commit --verbose --amend --no-edit";
-          "gcan!" = "git commit --verbose --all --amend --no-edit";
+          "gcan!" = "git commit --verbose --amend --no-edit --all";
           gd = "git diff";
           gdca = "git diff --cached";
           gf = "git fetch";
