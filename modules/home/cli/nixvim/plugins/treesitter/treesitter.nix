@@ -1,15 +1,9 @@
 {
   programs.nixvim.plugins.treesitter = {
     enable = true;
-    indent = true;
 
-    incrementalSelection = {
-      enable = true;
-      keymaps = {
-        initSelection = "<C-space>";
-        nodeDecremental = "<C-space>";
-        nodeIncremental = "<bs>";
-      };
+    settings = {
+      indent.enable = true;
     };
   };
 }
