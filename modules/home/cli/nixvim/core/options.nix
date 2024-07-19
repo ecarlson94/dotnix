@@ -23,6 +23,7 @@
       cursorline = true; # Enable highlighting of the current line
       expandtab = true; # Use spaces instead of tabs
       formatoptions = "jcroqlnt"; # tcqj
+      foldenable = false;
       grepformat = "%f:%l:%c:%m";
       grepprg = "rg --vimgrep";
       hlsearch = false; # Don't keep searches highlighted after hitting enter

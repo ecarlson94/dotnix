@@ -34,11 +34,11 @@ in {
           gbd = "git branch -D";
           gbda = "git remote prune origin";
           gco = "git checkout";
+          gcom = "git checkout $(git branch -l main master --format '%(refname:short)')";
+          gcoml = "${gcom} && ${ggl}";
           gcb = "git checkout -b";
-          gcm = "git checkout $(git branch -l main master --format '%(refname:short)')";
-          gcml = "${gcm} && ${ggl}";
-          gcmsg = "git commit -m";
-          gcamsg = "git commit -am";
+          gcm = "git commit -m";
+          gcma = "git commit -am";
           "gcn!" = "git commit --verbose --amend --no-edit";
           "gcan!" = "git commit --verbose --amend --no-edit --all";
           gd = "git diff";
