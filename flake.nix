@@ -95,6 +95,7 @@
           packages = with pkgs; [
             alejandra
             prettierd
+            cachix
           ];
           nativeBuildInputs = [
             config.pre-commit.settings.package
