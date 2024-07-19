@@ -38,6 +38,7 @@ in {
           gcm = "git checkout $(git branch -l main master --format '%(refname:short)')";
           gcml = "${gcm} && ${ggl}";
           gcmsg = "git commit -m";
+          gcamsg = "git commit -am";
           "gcn!" = "git commit --verbose --amend --no-edit";
           "gcan!" = "git commit --verbose --amend --no-edit --all";
           gd = "git diff";
