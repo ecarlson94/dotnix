@@ -1,8 +1,4 @@
 {pkgs, ...}: {
-  sound = {
-    enable = true;
-  };
-
   environment.systemPackages = with pkgs; [
     pavucontrol # PulseAudio Volume Control
   ];
