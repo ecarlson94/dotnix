@@ -21,7 +21,7 @@ in {
 
   config = mkIf cfg.enable {
     home.packages = [
-      pkgs.tokei
+      pkgs.scc
     ];
 
     modules.cli = {

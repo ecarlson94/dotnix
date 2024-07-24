@@ -126,7 +126,7 @@ in {
           grep = "grep --color=auto";
           fgrep = "fgrep --color=auto";
           egrep = "egrep --color=auto";
-          loc = "tokei";
+          loc = "scc --no-cocomo";
           rmf = "rm -rf";
           gcsmg = "git commit -m";
 
