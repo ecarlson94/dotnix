@@ -11,6 +11,5 @@
     ./telescope.nix
     ./toggleterm.nix
     ./trouble.nix
-    ./which-key.nix
   ];
 }
