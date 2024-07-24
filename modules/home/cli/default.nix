@@ -15,6 +15,7 @@ in {
     ./git.nix
     ./nixvim
     ./tmux.nix
+    ./wsl.nix
   ];
 
   options.modules.cli = {enable = mkEnableOption "cli";};

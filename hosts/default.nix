@@ -15,7 +15,10 @@ in {
     ];
     specialArgs = {
       inherit inputs system packages;
-      homeOptions.modules.cli.enable = true;
+      homeOptions.modules.cli = {
+        enable = true;
+        wsl.enable = true;
+      };
     };
   };
 

@@ -1,7 +1,6 @@
 {
   system,
   inputs,
-  packages,
   config,
   homeOptions ? {},
   ...
@@ -29,7 +28,6 @@
     # Optionally, use home-manager.extraSpecialArgs to pass
     # arguments to home.nix
     extraSpecialArgs = {
-      inherit (packages.${system}) nvim;
       inherit inputs;
       firefox-addons = inputs.firefox-addons.packages.${system};
       theme = import ../../theme;
