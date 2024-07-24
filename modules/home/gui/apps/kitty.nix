@@ -1,7 +1,6 @@
 {
   lib,
   config,
-  pkgs,
   theme,
   ...
 }:
@@ -12,10 +11,6 @@ in {
 
   config = mkIf cfg.enable {
     modules.gui.fonts.enable = true;
-
-    home.packages = with pkgs; [
-      wl-clipboard
-    ];
 
     programs.kitty = {
       enable = true;
