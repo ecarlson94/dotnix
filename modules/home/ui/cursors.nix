@@ -6,9 +6,9 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.gui.cursors;
+  cfg = config.modules.ui.cursors;
 in {
-  options.modules.gui.cursors = {enable = mkEnableOption "cursors";};
+  options.modules.ui.cursors = {enable = mkEnableOption "cursors";};
 
   config = mkIf cfg.enable {
     home.pointerCursor = {

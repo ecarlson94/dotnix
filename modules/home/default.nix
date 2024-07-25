@@ -7,7 +7,7 @@
 
   imports = [
     ./cli
-    ./gui
+    ./ui
 
     inputs.catppuccin.homeManagerModules.catppuccin
   ];

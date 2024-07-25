@@ -6,7 +6,7 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.gui.nixos.hyprland;
+  cfg = config.modules.ui.nixos.hyprland;
 
   meh = "CONTROLSHIFTALT";
   hyper = "SUPERCONTROLSHIFTALT";
@@ -41,10 +41,10 @@ in {
     ./hyprpaper.nix
   ];
 
-  options.modules.gui.nixos.hyprland = {enable = mkEnableOption "hyprland";};
+  options.modules.ui.nixos.hyprland = {enable = mkEnableOption "hyprland";};
 
   config = mkIf cfg.enable {
-    modules.gui.nixos.hyprland = {
+    modules.ui.nixos.hyprland = {
       grimblast.enable = true; # Screenshot utility
       hypridle.enable = true; # Idle daemon
       hyprlock.enable = true; # Lock screen

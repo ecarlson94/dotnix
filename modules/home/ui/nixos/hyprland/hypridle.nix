@@ -4,12 +4,12 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.gui.nixos.hyprland.hypridle;
+  cfg = config.modules.ui.nixos.hyprland.hypridle;
 in {
-  options.modules.gui.nixos.hyprland.hypridle = {enable = mkEnableOption "hypridle";};
+  options.modules.ui.nixos.hyprland.hypridle = {enable = mkEnableOption "hypridle";};
 
   config = mkIf cfg.enable {
-    modules.gui.nixos.hyprland.hyprlock.enable = true;
+    modules.ui.nixos.hyprland.hyprlock.enable = true;
 
     services.hypridle = {
       enable = true;

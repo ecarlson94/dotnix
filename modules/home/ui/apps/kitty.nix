@@ -5,12 +5,12 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.gui.apps.kitty;
+  cfg = config.modules.ui.apps.kitty;
 in {
-  options.modules.gui.apps.kitty = {enable = mkEnableOption "kitty";};
+  options.modules.ui.apps.kitty = {enable = mkEnableOption "kitty";};
 
   config = mkIf cfg.enable {
-    modules.gui.fonts.enable = true;
+    modules.ui.fonts.enable = true;
 
     programs.kitty = {
       enable = true;

@@ -4,7 +4,7 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.gui.apps;
+  cfg = config.modules.ui.apps;
 in {
   imports = [
     ./firefox.nix
@@ -15,10 +15,10 @@ in {
     ./vencord
   ];
 
-  options.modules.gui.apps = {enable = mkEnableOption "apps";};
+  options.modules.ui.apps = {enable = mkEnableOption "apps";};
 
   config = mkIf cfg.enable {
-    modules.gui.apps = {
+    modules.ui.apps = {
       firefox.enable = true;
       kitty.enable = true;
       slack.enable = true;

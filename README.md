@@ -64,27 +64,27 @@ Configures a user for the NixOS using a dynamic user name that can be configured
 
 ## NixOS Modules
 
-### GUI
+### UI
 
-#### [File Explorer](./modules/nixos/gui/file-explorer.nix)
+#### [File Explorer](./modules/nixos/ui/file-explorer.nix)
 
 Configures a file explorer;
 
-#### [Gaming](./modules/nixos/gui/gaming.nix)
+#### [Gaming](./modules/nixos/ui/gaming.nix)
 
 Configures gaming for NixOS. Includes [steam](https://store.steampowered.com/about/), [protonup](https://github.com/AUNaseef/protonup), and [heroic](https://heroicgameslauncher.com/).
 
-#### [Hyprland](./modules/nixos/gui/hyprland)
+#### [Hyprland](./modules/nixos/ui/hyprland)
 
 Bare bones installation of the [Hyprland](https://hyprland.org) dynamic tiling Wayland compositor.
 
 This is the starting point for configuring a UI for NixOS.
 
-#### [Plymouth](./modules/nixos/gui/plymouth.nix)
+#### [Plymouth](./modules/nixos/ui/plymouth.nix)
 
 Configures a customizable boot splash screen called [Plymouth](https://gitlab.freedesktop.org/plymouth/plymouth).
 
-#### [Sound](./modules/nixos/gui/sound.nix)
+#### [Sound](./modules/nixos/ui/sound.nix)
 
 Configures sound for NixOS.
 
@@ -130,19 +130,19 @@ modules.cli.fish.enable = true;
 ...
 ```
 
-### GUI
+### UI
 
 ```nix
 imports = [ ./modules/home ];
 
-modules.gui.enable = true;
+modules.ui.enable = true;
 ```
 
 Enables [CLI](#cli) and [Apps](#apps) by default.
 
 #### Apps
 
-Contains GUI based app installations and configurations.
+Contains UI based app installations and configurations.
 
 The following are also installed and configured:
 
@@ -157,7 +157,7 @@ The following are also installed and configured:
 ```nix
 imports = [ ./modules/home ];
 
-modules.gui.apps.enable = true;
+modules.ui.apps.enable = true;
 ```
 
 Each module can be individually enabled as well.
@@ -165,14 +165,14 @@ Each module can be individually enabled as well.
 ```nix
 imports = [ ./modules/home ];
 
-modules.gui.apps.firefox.enable = true;
-modules.gui.apps.kitty.enable = true;
+modules.ui.apps.firefox.enable = true;
+modules.ui.apps.kitty.enable = true;
 ...
 ```
 
 #### NixOS
 
-Contains NixOS GUI user configurations.
+Contains NixOS UI user configurations.
 
 Requires [Hyprland](#hyprland) configuration first.
 
@@ -187,7 +187,7 @@ The following are also installed and configured:
 ```nix
 imports = [ ./modules/home ];
 
-modules.gui.nixos.enable = true; # Defaults to true
+modules.ui.nixos.enable = true; # Defaults to true
 ```
 
 Each module can be individually enabled as well.
@@ -195,8 +195,8 @@ Each module can be individually enabled as well.
 ```nix
 imports = [ ./modules/home ];
 
-modules.gui.nixos.hyprland.enable = true;
-modules.gui.nixos.fuzzel.enable = true;
+modules.ui.nixos.hyprland.enable = true;
+modules.ui.nixos.fuzzel.enable = true;
 ...
 ```
 
@@ -207,4 +207,4 @@ modules.gui.nixos.fuzzel.enable = true;
 - [sioodmy](https://github.com/sioodmy/dotfiles) for their NixOS and Hyprland configuration and badges
 - [IogaMaster](https://github.com/IogaMaster/dotfiles) for the most beautiful catppuccin nix flake, some Hyprland config, and the badges
 - [This reddit post](https://reddit.com/r/NixOS/comments/137j18j/comment/ju6h25k) for helping me figure out the bare minimum to get Hyprland running
-  - AMD GPU minimum required config [here](./modules/nixos/gui/hyprland.nix)
+  - AMD GPU minimum required config [here](./modules/nixos/ui/hyprland.nix)

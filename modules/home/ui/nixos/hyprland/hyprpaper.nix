@@ -6,7 +6,7 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.gui.nixos.hyprland.hyprpaper;
+  cfg = config.modules.ui.nixos.hyprland.hyprpaper;
 
   wallpapers = filesystem.listFilesRecursive theme.wallpapers;
 
@@ -24,7 +24,7 @@ with lib; let
     done
   '';
 in {
-  options.modules.gui.nixos.hyprland.hyprpaper = {enable = mkEnableOption "hyprpaper";};
+  options.modules.ui.nixos.hyprland.hyprpaper = {enable = mkEnableOption "hyprpaper";};
 
   config = mkIf cfg.enable {
     home.packages = [wallpaperRandomizer];

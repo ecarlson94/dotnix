@@ -7,12 +7,12 @@
 }:
 with lib;
 with builtins; let
-  cfg = config.modules.gui.nixos.fuzzel;
+  cfg = config.modules.ui.nixos.fuzzel;
 in {
-  options.modules.gui.nixos.fuzzel = {enable = mkEnableOption "fuzzel";};
+  options.modules.ui.nixos.fuzzel = {enable = mkEnableOption "fuzzel";};
 
   config = mkIf cfg.enable {
-    modules.gui.fonts.enable = true;
+    modules.ui.fonts.enable = true;
 
     programs.fuzzel = {
       enable = true;

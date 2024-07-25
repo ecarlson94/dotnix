@@ -5,9 +5,9 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.gui.apps.slack;
+  cfg = config.modules.ui.apps.slack;
 in {
-  options.modules.gui.apps.slack = {enable = mkEnableOption "slack";};
+  options.modules.ui.apps.slack = {enable = mkEnableOption "slack";};
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [slack];
