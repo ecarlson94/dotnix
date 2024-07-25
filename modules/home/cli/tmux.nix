@@ -34,8 +34,6 @@ in {
           plugin = tmuxPlugins.catppuccin;
           extraConfig = ''
             set -g @catppuccin-flavor "mocha"
-            set -g @catppuccin_window_status_enable "yes"
-            set -g @catppuccin_window_status_icon_enable "yes"
             set -g @catppuccin_icon_window_last "󰖰 "
             set -g @catppuccin_icon_window_current "󰖯 "
             set -g @catppuccin_icon_window_zoom "󰁌 "
