@@ -1,10 +1,13 @@
 {
+  inputs,
   pkgs,
   name,
   config,
   ...
 }: {
   imports = [
+    inputs.nixos-wsl.nixosModules.wsl
+
     ./cachix.nix
     ./docker.nix
     ./nix-helper.nix
@@ -15,11 +18,14 @@
     wget
   ];
 
+  wsl.defaultUser = config.user.name;
+  programs.dconf.enable = config.wsl.enable; # Configuration System & Setting Management - required for Home Manager
+
   networking = {
     hostName = name;
 
     networkmanager.enable = !config.wsl.enable;
-    firewall.enable = !config.wsl.enable;
+    firewall.enable = true;
   };
 
   # Allow unfree packages
