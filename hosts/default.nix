@@ -4,41 +4,59 @@
   ...
 }: let
   inherit (self) inputs packages;
-in {
-  nixos-wsl = nixpkgs.lib.nixosSystem rec {
-    system = "x86_64-linux";
-    modules = [
-      ./nixos-wsl/configuration.nix
-      ../modules/nixos
-    ];
-    specialArgs = {
-      inherit inputs system packages;
+
+  mkNixosConfiguration = {
+    name,
+    system ? "x86_64-linux",
+    modules,
+    homeOptions ? {},
+  }:
+    nixpkgs.lib.nixosSystem {
+      inherit system modules;
+      specialArgs = {
+        inherit inputs system packages name homeOptions;
+        theme = import ../theme;
+      };
+    };
+
+  mkNixosConfigurations = nixpkgs.lib.foldl (
+    acc: conf:
+      {
+        "${conf.name}" = mkNixosConfiguration conf;
+      }
+      // acc
+  ) {};
+in
+  mkNixosConfigurations [
+    {
+      modules = [
+        ../modules/nixos
+        {
+          wsl.enable = true;
+        }
+      ];
+      name = "nixos-wsl";
       homeOptions.cli = {
         enable = true;
         wsl.enable = true;
       };
-    };
-  };
+    }
 
-  nixos-desktop = nixpkgs.lib.nixosSystem rec {
-    system = "x86_64-linux";
-    modules = [
-      ./nixos-desktop/configuration.nix
-      ../modules/nixos
-      {
-        ui = {
-          enable = true;
-          gaming.enable = true;
-        };
-      }
-    ];
-    specialArgs = {
-      inherit inputs system packages;
-      theme = import ../theme;
+    {
+      modules = [
+        ./hardware/nixos-desktop.nix
+        ../modules/nixos
+        {
+          ui = {
+            enable = true;
+            gaming.enable = true;
+          };
+        }
+      ];
+      name = "nixos-desktop";
       homeOptions.ui = {
         enable = true;
         nixos.enable = true;
       };
-    };
-  };
-}
+    }
+  ]
