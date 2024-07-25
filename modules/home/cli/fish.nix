@@ -113,10 +113,12 @@ in {
 
           # Nix Helper
           nhr = "nh os switch";
+          nhrn = "${nhr} -n";
           nhb = "nh os boot";
           nht = "nh os test";
           nhs = "nh search";
           nhc = "nh clean all --keep 10 --keep-since 10d";
+          nhcn = "${nhc} -n";
 
           # Basic
           ls = "ls -h --color=auto --group-directories-first";

@@ -9,9 +9,7 @@ in {
     system = "x86_64-linux";
     modules = [
       ./nixos-wsl/configuration.nix
-      ../modules/nixos/system
-      ../modules/user
-      ../modules/nixos/home.nix
+      ../modules/nixos
     ];
     specialArgs = {
       inherit inputs system packages;
@@ -26,10 +24,13 @@ in {
     system = "x86_64-linux";
     modules = [
       ./nixos-desktop/configuration.nix
-      ../modules/nixos/system
-      ../modules/nixos/ui
-      ../modules/user
-      ../modules/nixos/home.nix
+      ../modules/nixos
+      {
+        ui = {
+          enable = true;
+          gaming.enable = true;
+        };
+      }
     ];
     specialArgs = {
       inherit inputs system packages;

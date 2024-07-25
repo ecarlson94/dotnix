@@ -1,23 +1,31 @@
 {
   pkgs,
+  lib,
   config,
   ...
-}: {
-  programs.steam = {
-    enable = true;
-    gamescopeSession.enable = true;
-    remotePlay.openFirewall = true;
-  };
+}:
+with lib; let
+  cfg = config.ui.gaming;
+in {
+  options.ui.gaming = {enable = mkEnableOption "gaming";};
 
-  environment.systemPackages = with pkgs; [
-    heroic
-    mangohud
-    protonup
-  ];
+  config = mkIf cfg.enable {
+    programs.steam = {
+      enable = true;
+      gamescopeSession.enable = true;
+      remotePlay.openFirewall = true;
+    };
 
-  programs.gamemode.enable = true;
+    environment.systemPackages = with pkgs; [
+      heroic
+      mangohud
+      protonup
+    ];
 
-  environment.sessionVariables = {
-    STEAM_EXTRA_COMPAT_TOOLS_PATH = "/home/${config.user.name}/.steam/root/compatibilitytools.d";
+    programs.gamemode.enable = true;
+
+    environment.sessionVariables = {
+      STEAM_EXTRA_COMPAT_TOOLS_PATH = "/home/${config.user.name}/.steam/root/compatibilitytools.d";
+    };
   };
 }

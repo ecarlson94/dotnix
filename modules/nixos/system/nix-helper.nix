@@ -1,13 +1,24 @@
-{config, ...}: {
-  programs.nh = {
-    enable = true;
+{
+  lib,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.system.nixHelper;
+in {
+  options.system.nixHelper = {enable = mkEnableOption "nixHelper";};
 
-    clean = {
+  config = mkIf cfg.enable {
+    programs.nh = {
       enable = true;
-      dates = "weekly";
-      extraArgs = "--keep-since 10d --keep 10";
-    };
 
-    flake = "/home/${config.user.name}/gitrepos/dotnix";
+      clean = {
+        enable = true;
+        dates = "weekly";
+        extraArgs = "--keep-since 10d --keep 10";
+      };
+
+      flake = "/home/${config.user.name}/gitrepos/dotnix";
+    };
   };
 }

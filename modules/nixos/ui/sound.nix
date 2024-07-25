@@ -1,22 +1,34 @@
-{pkgs, ...}: {
-  environment.systemPackages = with pkgs; [
-    pavucontrol # PulseAudio Volume Control
-  ];
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.ui.sound;
+in {
+  options.ui.sound = {enable = mkEnableOption "sound";};
 
-  programs.noisetorch.enable = true; # Mic Noise Filter
+  config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      pavucontrol # PulseAudio Volume Control
+    ];
 
-  hardware.pulseaudio.support32Bit = true;
+    programs.noisetorch.enable = true; # Mic Noise Filter
 
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
+    hardware.pulseaudio.support32Bit = true;
 
-    pulse.enable = true;
-    jack.enable = true;
-    wireplumber.enable = true;
-    alsa = {
+    security.rtkit.enable = true;
+    services.pipewire = {
       enable = true;
-      support32Bit = true;
+
+      pulse.enable = true;
+      jack.enable = true;
+      wireplumber.enable = true;
+      alsa = {
+        enable = true;
+        support32Bit = true;
+      };
     };
   };
 }
