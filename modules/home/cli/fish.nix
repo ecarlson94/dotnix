@@ -5,9 +5,9 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.cli.fish;
+  cfg = config.cli.fish;
 in {
-  options.modules.cli.fish = {enable = mkEnableOption "fish";};
+  options.cli.fish = {enable = mkEnableOption "fish";};
   config = mkIf cfg.enable {
     programs = {
       dircolors.enableFishIntegration = true;

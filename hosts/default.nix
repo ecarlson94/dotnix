@@ -15,7 +15,7 @@ in {
     ];
     specialArgs = {
       inherit inputs system packages;
-      homeOptions.modules.cli = {
+      homeOptions.cli = {
         enable = true;
         wsl.enable = true;
       };
@@ -34,7 +34,7 @@ in {
     specialArgs = {
       inherit inputs system packages;
       theme = import ../theme;
-      homeOptions.modules.ui = {
+      homeOptions.ui = {
         enable = true;
         nixos.enable = true;
       };

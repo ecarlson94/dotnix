@@ -5,7 +5,7 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.cli;
+  cfg = config.cli;
 in {
   imports = [
     ./btop.nix
@@ -18,7 +18,7 @@ in {
     ./wsl.nix
   ];
 
-  options.modules.cli = {enable = mkEnableOption "cli";};
+  options.cli = {enable = mkEnableOption "cli";};
 
   config = mkIf cfg.enable {
     home.packages = [
@@ -26,7 +26,7 @@ in {
       pkgs.wl-clipboard
     ];
 
-    modules.cli = {
+    cli = {
       btop.enable = true;
       dircolors.enable = true;
       direnv.enable = true;

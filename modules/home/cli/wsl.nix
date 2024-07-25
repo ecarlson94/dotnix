@@ -5,9 +5,9 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.cli.wsl;
+  cfg = config.cli.wsl;
 in {
-  options.modules.cli.wsl = {enable = mkEnableOption "wsl";};
+  options.cli.wsl = {enable = mkEnableOption "wsl";};
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [

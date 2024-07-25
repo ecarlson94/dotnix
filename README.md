@@ -117,7 +117,7 @@ The [cli module](./modules/home/cli) will enable all of the above.
 ```nix
 imports = [ ./modules/home ];
 
-modules.cli.enable = true;
+cli.enable = true;
 ```
 
 Each module can be individually enabled as well.
@@ -125,8 +125,8 @@ Each module can be individually enabled as well.
 ```nix
 imports = [ ./modules/home ];
 
-modules.cli.git.enable = true;
-modules.cli.fish.enable = true;
+cli.git.enable = true;
+cli.fish.enable = true;
 ...
 ```
 
@@ -135,7 +135,7 @@ modules.cli.fish.enable = true;
 ```nix
 imports = [ ./modules/home ];
 
-modules.ui.enable = true;
+ui.enable = true;
 ```
 
 Enables [CLI](#cli) and [Apps](#apps) by default.
@@ -157,7 +157,7 @@ The following are also installed and configured:
 ```nix
 imports = [ ./modules/home ];
 
-modules.ui.apps.enable = true;
+ui.apps.enable = true;
 ```
 
 Each module can be individually enabled as well.
@@ -165,8 +165,8 @@ Each module can be individually enabled as well.
 ```nix
 imports = [ ./modules/home ];
 
-modules.ui.apps.firefox.enable = true;
-modules.ui.apps.kitty.enable = true;
+ui.apps.firefox.enable = true;
+ui.apps.kitty.enable = true;
 ...
 ```
 
@@ -187,7 +187,7 @@ The following are also installed and configured:
 ```nix
 imports = [ ./modules/home ];
 
-modules.ui.nixos.enable = true; # Defaults to true
+ui.nixos.enable = true; # Defaults to true
 ```
 
 Each module can be individually enabled as well.
@@ -195,8 +195,8 @@ Each module can be individually enabled as well.
 ```nix
 imports = [ ./modules/home ];
 
-modules.ui.nixos.hyprland.enable = true;
-modules.ui.nixos.fuzzel.enable = true;
+ui.nixos.hyprland.enable = true;
+ui.nixos.fuzzel.enable = true;
 ...
 ```
 

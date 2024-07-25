@@ -6,9 +6,9 @@
 }:
 with theme.colors;
 with lib; let
-  cfg = config.modules.ui.nixos.hyprland.hyprlock;
+  cfg = config.ui.nixos.hyprland.hyprlock;
 in {
-  options.modules.ui.nixos.hyprland.hyprlock = {enable = mkEnableOption "hyprlock";};
+  options.ui.nixos.hyprland.hyprlock = {enable = mkEnableOption "hyprlock";};
 
   config = mkIf cfg.enable {
     programs.hyprlock = {

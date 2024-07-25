@@ -5,7 +5,7 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.cli.nixvim;
+  cfg = config.cli.nixvim;
 in {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
@@ -13,7 +13,7 @@ in {
     ./plugins
   ];
 
-  options.modules.cli.nixvim = {enable = mkEnableOption "nixvim";};
+  options.cli.nixvim = {enable = mkEnableOption "nixvim";};
 
   config = mkIf cfg.enable {
     programs = {

@@ -4,9 +4,9 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.cli.git;
+  cfg = config.cli.git;
 in {
-  options.modules.cli.git = {enable = mkEnableOption "git";};
+  options.cli.git = {enable = mkEnableOption "git";};
 
   config = mkIf cfg.enable {
     programs = {

@@ -6,9 +6,9 @@
 }:
 with lib;
 with builtins; let
-  cfg = config.modules.ui.nixos.mako;
+  cfg = config.ui.nixos.mako;
 in {
-  options.modules.ui.nixos.mako = {enable = mkEnableOption "mako";};
+  options.ui.nixos.mako = {enable = mkEnableOption "mako";};
 
   config = mkIf cfg.enable {
     services.mako = {

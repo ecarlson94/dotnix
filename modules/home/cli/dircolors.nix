@@ -4,9 +4,9 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.cli.dircolors;
+  cfg = config.cli.dircolors;
 in {
-  options.modules.cli.dircolors = {enable = mkEnableOption "dircolors";};
+  options.cli.dircolors = {enable = mkEnableOption "dircolors";};
 
   config = mkIf cfg.enable {
     programs.dircolors.enable = true;

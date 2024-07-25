@@ -4,9 +4,9 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.cli.direnv;
+  cfg = config.cli.direnv;
 in {
-  options.modules.cli.direnv = {enable = mkEnableOption "direnv";};
+  options.cli.direnv = {enable = mkEnableOption "direnv";};
 
   config = mkIf cfg.enable {
     programs.direnv = {

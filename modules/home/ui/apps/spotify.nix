@@ -7,14 +7,14 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.ui.apps.spotify;
+  cfg = config.ui.apps.spotify;
   spicePkgs = inputs.spicetify-nix.packages.${pkgs.system}.default;
 in {
   imports = [
     inputs.spicetify-nix.homeManagerModules.spicetify
   ];
 
-  options.modules.ui.apps.spotify = {enable = mkEnableOption "spotify";};
+  options.ui.apps.spotify = {enable = mkEnableOption "spotify";};
 
   config = mkIf cfg.enable {
     programs.spicetify = {
