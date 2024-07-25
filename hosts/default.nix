@@ -29,13 +29,13 @@
 in
   mkNixosConfigurations [
     {
+      name = "nixos-wsl";
       modules = [
         ../modules/nixos
         {
           wsl.enable = true;
         }
       ];
-      name = "nixos-wsl";
       homeOptions.cli = {
         enable = true;
         wsl.enable = true;
@@ -43,6 +43,7 @@ in
     }
 
     {
+      name = "nixos-desktop";
       modules = [
         ./hardware/nixos-desktop.nix
         ../modules/nixos
@@ -53,7 +54,6 @@ in
           };
         }
       ];
-      name = "nixos-desktop";
       homeOptions.ui = {
         enable = true;
         nixos.enable = true;
