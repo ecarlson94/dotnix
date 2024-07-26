@@ -3,6 +3,5 @@
     ./home.nix
     ./system
     ./ui
-    ../user
   ];
 }

@@ -1,11 +1,13 @@
 {
+  inputs,
   lib,
   config,
   pkgs,
-  firefox-addons,
+  system,
   ...
 }:
 with lib; let
+  firefox-addons = inputs.firefox-addons.packages.${system};
   cfg = config.ui.apps.firefox;
 
   lockFalse = {

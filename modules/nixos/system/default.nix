@@ -11,6 +11,7 @@
     ./cachix.nix
     ./docker.nix
     ./nix-helper.nix
+    ./user.nix
   ];
 
   environment.systemPackages = with pkgs; [
