@@ -5,14 +5,6 @@
     # Repo configuration dependencies
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    flake-parts.url = "github:hercules-ci/flake-parts";
-
-    git-hooks = {
-      # Automatically runs check on commit
-      url = "github:cachix/git-hooks.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -50,60 +42,57 @@
   };
 
   outputs = {
-    flake-parts,
     nixpkgs,
     home-manager,
+    firefox-addons,
     self,
     ...
-  } @ inputs:
-    flake-parts.lib.mkFlake {inherit inputs;} {
-      imports = [
-        inputs.git-hooks.flakeModule
-      ];
+  } @ inputs: let
+    lib = nixpkgs.lib // home-manager.lib;
+    systems = [
+      "x86_64-linux"
+      "aarch64-linux"
+      "x86_64-darwin"
+      "aarch64-darwin"
+    ];
 
-      systems = [
-        "x86_64-linux"
-        "aarch64-linux"
-        "x86_64-darwin"
-        "aarch64-darwin"
-      ];
+    forEachSystem = f:
+      lib.genAttrs systems (system:
+        f {
+          inherit system;
+          pkgs = pkgsFor.${system};
+        });
 
-      flake = {
-        nixosConfigurations = import ./hosts inputs;
+    pkgsFor = lib.genAttrs systems (
+      system:
+        import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        }
+    );
+  in {
+    inherit lib;
+
+    formatter = forEachSystem ({pkgs, ...}: pkgs.alejandra);
+
+    checks = forEachSystem ({pkgs, ...}: {
+      format = pkgs.callPackage ./checks/format.nix {inherit inputs;};
+      statix = pkgs.callPackage ./checks/statix.nix {inherit inputs;};
+    });
+
+    nixosModules = import ./modules/nixos;
+    homeManagerModules = import ./modules/home;
+
+    nixosConfigurations = import ./hosts inputs;
+
+    devShells = forEachSystem ({pkgs, ...}: {
+      default = pkgs.mkShell {
+        packages = with pkgs; [
+          alejandra
+          prettierd
+          cachix
+        ];
       };
-
-      perSystem = {
-        config,
-        pkgs,
-        system,
-        ...
-      }: {
-        formatter = pkgs.alejandra;
-
-        checks = {
-          format = pkgs.callPackage ./checks/format.nix {inherit inputs;};
-          statix = pkgs.callPackage ./checks/statix.nix {inherit inputs;};
-        };
-
-        pre-commit.settings.hooks = {
-          alejandra.enable = true;
-          prettier.enable = true;
-          statix.enable = true;
-        };
-
-        devShells.default = pkgs.mkShell {
-          packages = with pkgs; [
-            alejandra
-            prettierd
-            cachix
-          ];
-          nativeBuildInputs = [
-            config.pre-commit.settings.package
-          ];
-          shellHook = ''
-            ${config.pre-commit.installationScript}
-          '';
-        };
-      };
-    };
+    });
+  };
 }
