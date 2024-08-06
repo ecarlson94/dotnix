@@ -107,10 +107,10 @@ Contains toggleable modules for the following:
 - [btop](https://github.com/aristocratos/btop) - Resource monitor
 - [dircolors](https://www.gnu.org/software/coreutils/manual/html_node/dircolors-invocation.html#dircolors-invocation) - Folder colors for ls (and dir, etc.)
 - [direnv](https://direnv.net/) - Auto change dev environment on changing directory
+- [fish](https://fishshell.com) - Shell
 - [git](https://git-scm.com/) - Version control
 - [neovim](https://neovim.io/) - Neovim terminal text editor using [nixvim](https://github.com/nix-community/nixvim)
 - [tmux](https://github.com/tmux/tmux/wiki) - Terminal multiplexer
-- [fish](https://fishshell.com) - Shell
 
 The [cli module](./modules/home/cli) will enable all of the above.
 

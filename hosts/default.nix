@@ -3,7 +3,7 @@
   self,
   ...
 }: let
-  inherit (self) inputs packages;
+  inherit (self) inputs;
 
   mkNixosConfiguration = {
     name,
@@ -14,7 +14,7 @@
     nixpkgs.lib.nixosSystem {
       inherit system modules;
       specialArgs = {
-        inherit inputs system packages name homeOptions;
+        inherit inputs system name homeOptions;
         theme = import ../theme;
       };
     };

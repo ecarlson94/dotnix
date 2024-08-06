@@ -38,7 +38,7 @@ in {
           gcoml = "${gcom} && ${ggl}";
           gcb = "git checkout -b";
           gcm = "git commit -m";
-          gcma = "git commit -am";
+          gcma = "${gaa} && git commit -m";
           "gcn!" = "git commit --verbose --amend --no-edit";
           "gcan!" = "git commit --verbose --amend --no-edit --all";
           gd = "git diff";
