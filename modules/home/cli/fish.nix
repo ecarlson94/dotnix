@@ -110,6 +110,7 @@ in {
           # Pulumi
           pl = "pulumi login";
           pu = "pulumi up";
+          puy = "pulumi up -y";
 
           # Nix Helper
           nhr = "nh os switch";
