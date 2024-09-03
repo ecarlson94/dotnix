@@ -51,6 +51,7 @@ in {
           ggl = "git pull origin $(git branch --show-current)";
           gr = "git reset";
           "gr!" = "git reset --hard HEAD~";
+          "goops" = "git reset --hard HEAD~";
           "gro!" = "git reset --hard origin/$(git branch --show-current)";
           grs = "git reset --soft HEAD~";
           gst = "git status";
