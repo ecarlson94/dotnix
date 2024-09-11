@@ -2,27 +2,31 @@
   programs.nixvim.plugins.lualine = {
     enable = true;
 
-    componentSeparators = {
-      left = "";
-      right = "";
-    };
+    settings = {
+      options = {
+        component_separators = {
+          left = "";
+          right = "";
+        };
 
-    sectionSeparators = {
-      left = "";
-      right = "";
-    };
+        section_separators = {
+          left = "";
+          right = "";
+        };
+      };
 
-    sections = {
-      lualine_a = [
-        {
-          separator.left = "";
-        }
-      ];
-      lualine_z = [
-        {
-          separator.right = "";
-        }
-      ];
+      sections = {
+        lualine_a = [
+          {
+            separator.left = "";
+          }
+        ];
+        lualine_z = [
+          {
+            separator.right = "";
+          }
+        ];
+      };
     };
   };
 }

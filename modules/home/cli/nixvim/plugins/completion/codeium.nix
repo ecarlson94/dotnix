@@ -2,7 +2,7 @@
   programs.nixvim.plugins = {
     codeium-nvim = {
       enable = true;
-      tools = {
+      settings.tools = {
         curl = "${pkgs.curl}/bin/curl";
         gzip = "${pkgs.gzip}/bin/gzip";
       };
