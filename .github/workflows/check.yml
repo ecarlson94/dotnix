@@ -18,7 +18,7 @@ jobs:
           nix_path: nixpkgs=channel:nixos-unstable
 
       - name: Nix Flake Checker
-        uses: DeterminateSystems/flake-checker-action@v8
+        uses: DeterminateSystems/flake-checker-action@v9
         with:
           fail-mode: true
 
