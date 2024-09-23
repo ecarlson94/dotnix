@@ -18,7 +18,7 @@ in {
         };
 
         userName = "Eric Carlson";
-        userEmail = "e.carlson94@gmail.com";
+        userEmail = "ecarlson@walawren.com";
 
         ignores = ["Session.vim" "secrets.sh" "secrets.tfvars" "local.tfvars"];
 
