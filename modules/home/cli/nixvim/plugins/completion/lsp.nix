@@ -11,7 +11,7 @@
         jsonls.enable = true;
         marksman.enable = true;
         nil-ls.enable = true; # Nix
-        tsserver.enable = true;
+        ts_ls.enable = true;
         omnisharp.enable = true;
       };
       keymaps = {
