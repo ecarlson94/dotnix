@@ -154,6 +154,14 @@
       options.desc = "Move up";
     }
 
+    # Sorting
+    {
+      mode = ["v"];
+      key = "<leader>o";
+      action = ":sort<cr>";
+      options.desc = "Sort Selected";
+    }
+
     # Buffers
     {
       mode = ["n" "v"];
