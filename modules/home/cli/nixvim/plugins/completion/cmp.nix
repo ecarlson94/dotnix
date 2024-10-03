@@ -11,7 +11,6 @@
       settings = {
         sources = [
           {name = "nvim_lsp";}
-          {name = "codeium";}
           {name = "path";}
           {name = "buffer";}
         ];
