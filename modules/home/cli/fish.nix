@@ -58,6 +58,8 @@ in {
           gsta = "git stash push";
           gstp = "git stash pop";
           gstc = "git stash clear";
+          gm = "git merge";
+          gmc = "git merge --continue";
 
           # Docker
           docker = "sudo docker";
