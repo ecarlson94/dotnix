@@ -14,7 +14,7 @@ in {
 
     programs.kitty = {
       enable = true;
-      theme = "Catppuccin-${theme.variantUpper}";
+      themeFile = "Catppuccin-${theme.variantUpper}";
 
       font = {
         name = theme.font;

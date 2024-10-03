@@ -1,9 +1,13 @@
 {
-  programs.nixvim.plugins.mini = {
-    enable = true;
+  programs.nixvim.plugins = {
+    web-devicons.enable = true;
 
-    modules = {
-      comment = {};
+    mini = {
+      enable = true;
+
+      modules = {
+        comment = {};
+      };
     };
   };
 }
