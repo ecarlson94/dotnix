@@ -10,8 +10,8 @@
         gopls.enable = true;
         jsonls.enable = true;
         marksman.enable = true;
-        nil-ls.enable = true; # Nix
-        ts-ls.enable = true;
+        nil_ls.enable = true; # Nix
+        ts_ls.enable = true;
         omnisharp.enable = true;
       };
       keymaps = {
