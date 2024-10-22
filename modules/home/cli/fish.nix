@@ -59,6 +59,7 @@ in {
           gstp = "git stash pop";
           gstc = "git stash clear";
           gm = "git merge";
+          gmm = "git merge $(git branch -l main master --format '%(refname:short)')";
           gmc = "git merge --continue";
 
           # Docker
