@@ -8,10 +8,10 @@
 }:
 with lib; let
   cfg = config.ui.apps.spotify;
-  spicePkgs = inputs.spicetify-nix.packages.${pkgs.system}.default;
+  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
 in {
   imports = [
-    inputs.spicetify-nix.homeManagerModules.spicetify
+    inputs.spicetify-nix.homeManagerModules.default
   ];
 
   options.ui.apps.spotify = {enable = mkEnableOption "spotify";};
