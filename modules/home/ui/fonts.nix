@@ -13,7 +13,8 @@ in {
     fonts.fontconfig.enable = true;
 
     home.packages = [
-      (pkgs.nerdfonts.override {fonts = ["FiraMono" "DroidSansMono"];})
+      pkgs.nerd-fonts.fira_mono
+      pkgs.nerd-fonts.droid_sans_mono
     ];
   };
 }
