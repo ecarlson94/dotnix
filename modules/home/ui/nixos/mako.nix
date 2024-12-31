@@ -11,9 +11,10 @@ in {
   options.ui.nixos.mako = {enable = mkEnableOption "mako";};
 
   config = mkIf cfg.enable {
+    catppuccin.mako.enable = true;
+
     services.mako = {
       enable = true;
-      catppuccin.enable = true;
       anchor = "bottom-right";
       width = 400;
       height = 300;

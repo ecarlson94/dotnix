@@ -9,6 +9,8 @@ with lib; let
 in {
   options.cli.fish = {enable = mkEnableOption "fish";};
   config = mkIf cfg.enable {
+    catppuccin.fish.enable = true;
+
     programs = {
       dircolors.enableFishIntegration = true;
       fzf.enableFishIntegration = true;
@@ -16,7 +18,6 @@ in {
 
       fish = {
         enable = true;
-        catppuccin.enable = true;
 
         shellInit = ''
           set fish_greeting # Disable greeting

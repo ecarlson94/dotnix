@@ -1,4 +1,6 @@
 {
+  catppuccin.grub.enable = true;
+
   boot.loader = {
     efi = {
       canTouchEfiVariables = true;
@@ -7,7 +9,6 @@
     grub = {
       efiSupport = true;
       device = "nodev";
-      catppuccin.enable = true;
     };
   };
 }
