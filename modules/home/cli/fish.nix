@@ -125,6 +125,8 @@ in {
           nhs = "nh search";
           nhc = "nh clean all --keep 10 --keep-since 10d";
           nhcn = "${nhc} -n";
+          nhrc = "${nhr} && ${nhc}";
+          nhrcn = "${nhrn} && ${nhcn}";
 
           # Basic
           ls = "ls -h --color=auto --group-directories-first";
