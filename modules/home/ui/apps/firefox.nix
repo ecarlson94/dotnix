@@ -54,7 +54,7 @@ in {
           "signon.rememberSignons" = lockFalse;
         };
 
-        extensions = with firefox-addons; [
+        extensions.packages = with firefox-addons; [
           bitwarden
           darkreader
           firefox-color
