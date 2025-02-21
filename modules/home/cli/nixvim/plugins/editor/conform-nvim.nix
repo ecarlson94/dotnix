@@ -45,7 +45,7 @@ in {
 
       format_on_save = {
         lsp_fallback = "fallback";
-        timeout_ms = 500;
+        timeout_ms = 1000;
       };
     };
   };
