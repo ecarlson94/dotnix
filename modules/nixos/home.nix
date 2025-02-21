@@ -12,7 +12,7 @@
   ];
 
   home-manager = {
-    useGlobalPkgs = true;
+    useGlobalPkgs = false;
     useUserPackages = true;
     users.${config.user.name} =
       {
