@@ -22,7 +22,7 @@ in {
     hashedPasswordFile =
       if config.wsl.enable
       then null
-      else config.sops.secrets."${config.user.name}-password".path;
+      else config.sops.secrets."passwords/${config.user.name}".path;
 
     openssh.authorizedKeys.keys = lib.lists.forEach pubKeys (key: builtins.readFile key);
 
