@@ -25,6 +25,7 @@ in {
 
     ui.nixos = {
       fuzzel.enable = true; # Application launcher
+      gtk.enable = true;
       hyprland.enable = true; # Wayland Compositor (Tiling)
       mako.enable = true; # Notification daemon
       waybar.enable = true; # Desktop Bar

@@ -64,8 +64,6 @@ in
             };
           };
 
-          programs.dconf.enable = true;
-
           ui = {
             enable = true;
             gaming.enable = true;
