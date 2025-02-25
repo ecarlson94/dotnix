@@ -12,6 +12,7 @@
   ];
 
   home-manager = {
+    backupFileExtension = "backup";
     useGlobalPkgs = false;
     useUserPackages = true;
     users.${config.user.name} =
