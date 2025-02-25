@@ -2,6 +2,7 @@
   <img src="./.github/assets/flake.webp" width="250px"/>
   <br>
   Kiri's NixOS Flake
+  <br>
   <a href='#'><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/macchiato.png" width="600px"/></a>
   <br>
   <div>
