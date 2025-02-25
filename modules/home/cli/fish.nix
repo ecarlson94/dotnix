@@ -63,9 +63,6 @@ in {
           gmm = "git merge $(git branch -l main master --format '%(refname:short)')";
           gmc = "git merge --continue";
 
-          # Docker
-          docker = "sudo docker";
-
           # .NET
           db = "dotnet build";
           dr = "dotnet run";
