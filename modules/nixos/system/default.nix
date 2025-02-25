@@ -11,7 +11,9 @@
     ./cachix.nix
     ./docker.nix
     ./nix-helper.nix
-    ./user.nix
+    ./sops.nix
+    ./ssh.nix
+    ./user
   ];
 
   environment.systemPackages = with pkgs; [
@@ -68,7 +70,7 @@
       persistent = true;
     };
 
-    cachix.enable = true;
+    cachix.enable = true; # Binary Cache
     docker.enable = true;
     nixHelper.enable = true;
   };

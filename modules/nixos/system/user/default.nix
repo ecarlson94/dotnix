@@ -1,17 +1,30 @@
 {
   config,
+  lib,
   pkgs,
   ...
-}: {
+}: let
+  pubKeys = lib.filesystem.listFilesRecursive ./keys;
+in {
   imports = [
-    ../../user
+    ../../../user
   ];
+
+  sops.secrets."passwords/${config.user.name}".neededForUsers = !config.wsl.enable;
+  users.mutableUsers = config.wsl.enable;
 
   users.users.${config.user.name} = {
     inherit (config.user) name;
     home = "/home/${config.user.name}";
     isNormalUser = true;
     group = "users";
+
+    hashedPasswordFile =
+      if config.wsl.enable
+      then null
+      else config.sops.secrets."${config.user.name}-password".path;
+
+    openssh.authorizedKeys.keys = lib.lists.forEach pubKeys (key: builtins.readFile key);
 
     extraGroups = ["wheel" "networkmanager" "audio" "sound" "video" "input" "tty"];
   };

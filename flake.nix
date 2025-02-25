@@ -10,6 +10,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    sops-nix = {
+      url = "github:mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # User configuration dependencies
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -89,9 +94,11 @@
     devShells = forEachSystem ({pkgs, ...}: {
       default = pkgs.mkShell {
         packages = with pkgs; [
+          age
           alejandra
-          prettierd
           cachix
+          prettierd
+          sops
         ];
       };
     });

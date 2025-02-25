@@ -9,6 +9,7 @@
 
   imports = [
     ./cli
+    ./sops.nix
     ./ui
     ../user
 
