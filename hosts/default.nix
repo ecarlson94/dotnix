@@ -67,7 +67,7 @@ in
     {
       name = "nixos-virtualbox";
       modules = [
-        ../hardware/nixos-virtualbox.nix
+        ./hardware/nixos-virtualbox.nix
         ../modules/nixos
         {
           system.stateVersion = "24.11"; # Update when reinstalling
