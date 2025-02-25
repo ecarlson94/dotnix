@@ -33,7 +33,15 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnfreePredicate = _: true;
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix = {
+    settings.experimental-features = ["nix-command" "flakes"];
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 10d";
+      persistent = true;
+    };
+  };
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -54,6 +62,12 @@
   };
 
   system = {
+    autoUpgrade = {
+      enable = true;
+      flake = "github:ecarlson94/dotnix";
+      persistent = true;
+    };
+
     cachix.enable = true;
     docker.enable = true;
     nixHelper.enable = true;
