@@ -15,7 +15,7 @@
   };
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/5a5b338b-1c65-4e3b-81a9-ffcf0486bb10";
+    device = "/dev/disk/by-path/pci-0000:00:0d.0-ata-1-part1";
     fsType = "ext4";
   };
 
