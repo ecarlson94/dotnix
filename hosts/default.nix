@@ -33,6 +33,8 @@ in
       modules = [
         ../modules/nixos
         {
+          system.stateVersion = "23.11"; # Update when reinstalling
+
           wsl.enable = true;
         }
       ];
@@ -48,6 +50,8 @@ in
         ./hardware/nixos-desktop.nix
         ../modules/nixos
         {
+          system.stateVersion = "23.11"; # Update when reinstalling
+
           ui = {
             enable = true;
             gaming.enable = true;
@@ -58,5 +62,20 @@ in
         enable = true;
         nixos.enable = true;
       };
+    }
+
+    {
+      name = "nixos-virtualbox";
+      modules = [
+        ../hardware/nixos-virtualbox.nix
+        ../modules/nixos
+        {
+          system.stateVersion = "24.11"; # Update when reinstalling
+          boot.loader.grub.enable = true;
+          boot.loader.grub.device = "/dev/sda";
+          boot.loader.grub.useOSProber = true;
+        }
+      ];
+      homeOptions.cli.enable = true;
     }
   ]
