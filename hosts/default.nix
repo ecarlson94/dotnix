@@ -52,6 +52,18 @@ in
         {
           system.stateVersion = "23.11"; # Update when reinstalling
 
+          catppuccin.grub.enable = true;
+          boot.loader = {
+            efi = {
+              canTouchEfiVariables = true;
+              efiSysMountPoint = "/boot/efi";
+            };
+            grub = {
+              efiSupport = true;
+              device = "nodev";
+            };
+          };
+
           ui = {
             enable = true;
             gaming.enable = true;
@@ -71,6 +83,7 @@ in
         ../modules/nixos
         {
           system.stateVersion = "24.11"; # Update when reinstalling
+
           boot.loader.grub.enable = true;
           boot.loader.grub.device = "/dev/sda";
           boot.loader.grub.useOSProber = true;
