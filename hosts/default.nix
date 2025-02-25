@@ -84,9 +84,11 @@ in
         {
           system.stateVersion = "24.11"; # Update when reinstalling
 
-          boot.loader.grub.enable = true;
-          boot.loader.grub.device = "/dev/sda";
-          boot.loader.grub.useOSProber = true;
+          boot.loader.grub = {
+            enable = true;
+            device = "/dev/sda";
+            useOSProber = true;
+          };
         }
       ];
       homeOptions.cli.enable = true;
