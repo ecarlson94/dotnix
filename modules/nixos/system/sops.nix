@@ -1,8 +1,4 @@
-{
-  config,
-  inputs,
-  ...
-}: {
+{inputs, ...}: {
   imports = [inputs.sops-nix.nixosModules.sops];
 
   sops = {
@@ -13,7 +9,6 @@
       # automatcally import host SSH keys as age keys
       sshKeyPaths = [
         "/etc/ssh/ssh_host_ed25519_key"
-        "/home/${config.user.name}/.ssh/id_ed25519"
       ];
 
       keyFile = "/var/lib/sops-nix/key.txt";

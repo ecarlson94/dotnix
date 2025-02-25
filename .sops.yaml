@@ -1,6 +1,7 @@
 keys:
   - &users:
     - &walawren age17rp6yw32we7y7q7qjwdqdm2jt9jnv5thqultnuwrmt6w6c8mrfrss3etq4
+    - &kiri age1qssz2tujsv8v9shlt7zgxxy7j0k6jawfwhgnzyvfvmckrlpwnqeqwz9lgs
   - &hosts:
     - &work-wsl age1h63syxkrvy75452dh2s0e6qe70argnaln9v77htst8lnk3632v9q59ur5d
 creation_rules:
@@ -8,4 +9,5 @@ creation_rules:
     key_groups:
     - age:
       - *walawren
+      - *kiri
       - *work-wsl
