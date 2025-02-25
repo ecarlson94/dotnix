@@ -27,7 +27,10 @@ in {
       formatters_by_ft = {
         cs = ["csharpier"];
         css = prettierd_with_fallback;
-        elixir = ["mix"];
+        elixir = {
+          __unkeyed-1 = "mix";
+          timeout_ms = 2000;
+        };
         html = prettierd_with_fallback;
         javascript = prettierd_with_fallback;
         javascriptreact = prettierd_with_fallback;
