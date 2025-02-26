@@ -36,16 +36,7 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnfreePredicate = _: true;
 
-  nix = {
-    settings.experimental-features = ["nix-command" "flakes"];
-
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 10d";
-      persistent = true;
-    };
-  };
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -74,6 +65,6 @@
 
     cachix.enable = true; # Binary Cache
     docker.enable = true;
-    nixHelper.enable = true;
+    nix-helper.enable = true;
   };
 }
