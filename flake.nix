@@ -86,7 +86,7 @@
     });
 
     nixosModules = import ./modules/nixos;
-    homeManagerModules = import ./modules/home;
+    homeManagerModules.dotnix = import ./modules/home;
 
     nixosConfigurations = import ./hosts inputs;
 
