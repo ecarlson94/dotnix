@@ -14,6 +14,21 @@ in {
       cachix
     ];
 
-    nix.settings.trusted-users = ["root" config.user.name];
+    nix = {
+      settings = {
+        trusted-users = ["root" config.user.name];
+
+        substituters = [
+          "https://cache.nixos.org"
+          "https://freewavetechnologies.cachix.org"
+          "https://ecarlson94.cachix.org"
+        ];
+        trusted-public-keys = [
+          "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+          "freewavetechnologies.cachix.org-1:wwgyGJwjLPZStMivX9BPgVj6qYn24kGh88U4Mnrur98="
+          "ecarlson94.cachix.org-1:o8CIAZqOFdOpBOMdjJ05UVSb9GBWaPNK2ZEEfbXJn3I="
+        ];
+      };
+    };
   };
 }
