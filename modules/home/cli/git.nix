@@ -1,6 +1,7 @@
 {
-  lib,
   config,
+  hostSpec,
+  lib,
   ...
 }:
 with lib; let
@@ -48,6 +49,16 @@ in {
 
       ssh = {
         enable = true;
+
+        matchBlocks = {
+          "git" = {
+            host = "github.com gitlab.com";
+            identitiesOnly = true;
+            identityFile = [
+              "/home/${hostSpec.user.name}/.ssh/${hostSpec.user.name}_ssh_key"
+            ];
+          };
+        };
       };
     };
   };
