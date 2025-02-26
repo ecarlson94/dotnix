@@ -1,5 +1,5 @@
 {
-  config,
+  hostSpec,
   inputs,
   theme,
   ...
@@ -11,14 +11,13 @@
     ./cli
     ./sops.nix
     ./ui
-    ../user
 
     inputs.catppuccin.homeManagerModules.catppuccin
   ];
 
   home = {
-    username = config.user.name;
-    homeDirectory = "/home/${config.user.name}";
+    username = hostSpec.user.name;
+    homeDirectory = "/home/${hostSpec.user.name}";
     stateVersion = "23.11"; # Don't change this!!!
   };
 

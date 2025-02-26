@@ -8,7 +8,6 @@
 }: {
   imports = [
     inputs.home-manager.nixosModules.home-manager
-    ../user
   ];
 
   home-manager = {
@@ -27,6 +26,7 @@
     # arguments to home.nix
     extraSpecialArgs = {
       inherit inputs system theme;
+      hostSpec = config;
     };
   };
 }

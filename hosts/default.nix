@@ -89,6 +89,8 @@ in
             device = "/dev/sda";
             useOSProber = true;
           };
+
+          user.name = "kiri";
         }
       ];
       homeOptions.cli.enable = true;

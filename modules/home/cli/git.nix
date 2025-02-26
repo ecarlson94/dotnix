@@ -17,8 +17,8 @@ in {
           pagerOpts = ["--tabs=4" "-RFX"];
         };
 
-        userName = "Eric Carlson";
-        userEmail = "ecarlson@walawren.com";
+        userName = "Kiri Carlson";
+        userEmail = "kiri@walawren.com";
 
         ignores = ["Session.vim" "secrets.sh" "secrets.tfvars" "local.tfvars"];
 
