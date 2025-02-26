@@ -16,8 +16,8 @@ in {
   };
 
   config = {
-    # sops.secrets."passwords/${config.user.name}".neededForUsers = !config.wsl.enable;
-    # users.mutableUsers = config.wsl.enable;
+    sops.secrets."passwords/${config.user.name}".neededForUsers = !config.wsl.enable;
+    users.mutableUsers = config.wsl.enable;
 
     users.users.${config.user.name} = {
       inherit (config.user) name;
@@ -25,10 +25,10 @@ in {
       isNormalUser = true;
       group = "users";
 
-      # hashedPasswordFile =
-      #   if config.wsl.enable
-      #   then null
-      #   else config.sops.secrets."passwords/${config.user.name}".path;
+      hashedPasswordFile =
+        if config.wsl.enable
+        then null
+        else config.sops.secrets."passwords/${config.user.name}".path;
 
       openssh.authorizedKeys.keys = lib.lists.forEach pubKeys (key: builtins.readFile key);
 

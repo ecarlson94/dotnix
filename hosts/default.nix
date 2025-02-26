@@ -123,7 +123,7 @@ in
 
           networking.firewall.allowedTCPPorts = [22];
 
-          user.name = "kiri";
+          # user.name = "kiri";
         }
       ];
       homeOptions.cli.enable = true;
