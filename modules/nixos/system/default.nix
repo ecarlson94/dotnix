@@ -41,7 +41,6 @@
 
       substituters = [
         "https://cache.nixos.org"
-        "https://cache.nixos.org/"
         "https://freewavetechnologies.cachix.org"
         "https://ecarlson94.cachix.org"
       ];
