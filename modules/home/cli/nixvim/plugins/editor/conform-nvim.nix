@@ -27,10 +27,7 @@ in {
       formatters_by_ft = {
         cs = ["csharpier"];
         css = prettierd_with_fallback;
-        elixir = {
-          __unkeyed-1 = "mix";
-          timeout_ms = 2000;
-        };
+        elixir = ["mix"];
         html = prettierd_with_fallback;
         javascript = prettierd_with_fallback;
         javascriptreact = prettierd_with_fallback;
@@ -48,7 +45,7 @@ in {
 
       format_on_save = {
         lsp_fallback = "fallback";
-        timeout_ms = 1000;
+        timeout_ms = 2000;
       };
     };
   };
