@@ -90,16 +90,23 @@ in
             useOSProber = true;
           };
 
+          # Enable SSH
           services.openssh = {
             enable = true;
             ports = [22];
             settings = {
-              PasswordAuthentication = true;
-              AllowUsers = null; # Allows all users by default. Can be [ "user1" "user2" ]
-              UseDns = true;
-              X11Forwarding = false;
+              PasswordAuthentication = false;
+              StreamLocalBindUnlink = "yes";
               PermitRootLogin = "no"; # "yes", "without-password", "prohibit-password", "forced-commands-only", "no"
+              GatewayPorts = "clientspecified";
             };
+
+            hostKeys = [
+              {
+                path = "/etc/ssh/ssh_host_ed25519_key";
+                type = "ed25519";
+              }
+            ];
           };
 
           services.fail2ban = {
@@ -113,6 +120,8 @@ in
               "nixos.wiki" # resolve the IP via DNS
             ];
           };
+
+          networking.firewall.allowedTCPPorts = [22];
 
           user.name = "kiri";
         }
