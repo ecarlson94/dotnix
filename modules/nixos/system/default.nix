@@ -1,7 +1,6 @@
 {
   config,
   inputs,
-  name,
   pkgs,
   ...
 }: {
@@ -10,6 +9,7 @@
 
     ./cachix.nix
     ./docker.nix
+    ./network.nix
     ./nix-helper.nix
     ./openssh.nix
     ./sops.nix
@@ -24,13 +24,6 @@
 
   wsl.defaultUser = config.user.name;
   programs.dconf.enable = config.wsl.enable; # Configuration System & Setting Management - required for Home Manager
-
-  networking = {
-    hostName = name;
-
-    networkmanager.enable = !config.wsl.enable;
-    firewall.enable = true;
-  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
