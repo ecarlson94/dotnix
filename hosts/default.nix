@@ -89,8 +89,8 @@ in
 
           isIsoInstaller = true;
 
-          users.extraUsers.root = {
-            inherit (config.users.users.${config.user.name}) hashedPassword;
+          users.users.root = {
+            initialHashedPassword = lib.mkForce "$y$j9T$xSz5Lw5OWMZ39pHrpPGdz.$jrnf14I1OzVUJZLy2Dq8D6/D.vYQ28fT4kfRVvoT8/0";
             openssh.authorizedKeys.keys =
               config.users.users.${config.user.name}.openssh.authorizedKeys.keys;
           };
@@ -120,11 +120,6 @@ in
           };
         })
       ];
-
-      homeOptions.cli = {
-        git.enable = true;
-        fish.enable = true;
-      };
     }
 
     {
