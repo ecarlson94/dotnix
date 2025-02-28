@@ -14,13 +14,6 @@
     extraModulePackages = [];
   };
 
-  fileSystems."/" = {
-    device = "/dev/disk/by-path/pci-0000:00:0d.0-ata-1-part1";
-    fsType = "ext4";
-  };
-
-  swapDevices = [];
-
   networking.useDHCP = lib.mkDefault true;
   virtualisation.virtualbox.guest.enable = true;
 }
