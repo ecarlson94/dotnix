@@ -2,18 +2,18 @@
   lib,
   disk ? "/dev/sda",
   withSwap ? false,
-  swapSize ? 1,
+  swapSize ? 2,
   ...
 }: {
   disko.devices = {
     disk = {
-      disk0 = {
+      main = {
         type = "disk";
         device = disk;
         content = {
           type = "gpt";
           partitions = {
-            ESP = {
+            esp = {
               priority = 1;
               name = "ESP";
               start = "1M";
