@@ -20,29 +20,6 @@
     username = hostConfig.user.name;
     homeDirectory = "/home/${hostConfig.user.name}";
     stateVersion = "23.11"; # Don't change this!!!
-
-    persistence."/persist/home" = {
-      directories = [
-        "Downloads"
-        "Music"
-        "Pictures"
-        "Documents"
-        "Videos"
-        ".gitrepos"
-        ".gnupg"
-        ".ssh"
-        ".local/share/keyrings"
-        ".local/share/direnv"
-        {
-          directory = ".local/share/Steam";
-          method = "symlink";
-        }
-      ];
-      files = [
-        ".screenrc"
-      ];
-      allowOther = true;
-    };
   };
 
   catppuccin.flavor = theme.variant;

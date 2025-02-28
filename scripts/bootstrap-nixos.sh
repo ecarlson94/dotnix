@@ -14,7 +14,7 @@ ssh_key=${BOOTSTRAP_SSH_KEY-}
 persist_dir="/persist"
 nix_src_path="gitrepos" # path relative to /home/${target_user} where nix-config and nix-secrets are written in the users home
 git_root=$(git rev-parse --show-toplevel)
-nix_secrets_dir=${NIX_SECRETS_DIR:-"${git_root}"}
+nix_secrets_dir=${NIX_SECRETS_DIR:-"${git_root}"/../dotnix}
 
 # Create a temp directory for generated host keys
 temp=$(mktemp -d)
@@ -233,10 +233,10 @@ fi
 if yes_or_no "Do you want to copy your full dotnix and nix-secrets to $target_hostname?"; then
   green "Adding ssh host fingerprint at $target_destination to ~/.ssh/known_hosts"
   ssh-keyscan -p "$ssh_port" "$target_destination" 2>/dev/null | grep -v '^#' >>~/.ssh/known_hosts || true
-  green "Copying full dotnix to $target_hostname"
-  sync "$target_user" "${git_root}"/../dotnix
   green "Copying full nix-secrets to $target_hostname"
   sync "$target_user" "${nix_secrets_dir}"
+  green "Copying full dotnix to $target_hostname"
+  sync "$target_user" "${git_root}"/../dotnix
 
   # FIXME(bootstrap): Add some sort of key access from the target to download the config (if it's a cloud system)
   if yes_or_no "Do you want to rebuild immediately?"; then
@@ -247,9 +247,14 @@ else
   echo
   green "NixOS was successfully installed!"
   echo "Post-install config build instructions:"
-  echo "To copy dotnix from this machine to the $target_hostname, run the following command"
+  echo "To copy dotnix from this machine to the $target_hostname, run the following commands:"
+  echo "ssh-keyscan -p "$ssh_port" "$target_destination" 2>/dev/null | grep -v '^#' >>~/.ssh/known_hosts || true"
   echo "just sync $target_user $target_destination"
-  echo "To rebuild, sign into $target_hostname and run the following command"
+  echo "sync \"$target_user\" \"${nix_secrets_dir}\""
+  echo "sync \"$target_user\" \"${git_root}\"/../dotnix"
+  echo
+  echo
+  echo "To rebuild, sign into $target_hostname and run the following commands:"
   echo "cd dotnix"
   echo "sudo nixos-rebuild --show-trace --flake .#$target_hostname switch"
   echo
