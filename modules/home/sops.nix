@@ -22,10 +22,8 @@
       generateKey = true;
     };
 
-    secrets = {
-      "private_keys/${hostConfig.user.name}" = {
-        path = "/home/${hostConfig.user.name}/.ssh/${hostConfig.user.name}_ssh_key";
-      };
+    secrets."private_keys/${hostConfig.user.name}" = {
+      path = "/home/${hostConfig.user.name}/.ssh/${hostConfig.user.name}_ssh_key";
     };
   };
 }
