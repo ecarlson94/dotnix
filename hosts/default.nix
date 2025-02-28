@@ -38,10 +38,6 @@ in
           wsl.enable = true;
         }
       ];
-      homeOptions.cli = {
-        enable = true;
-        wsl.enable = true;
-      };
     }
 
     {
@@ -73,6 +69,61 @@ in
       homeOptions.ui = {
         enable = true;
         nixos.enable = true;
+      };
+    }
+
+    {
+      name = "nixos-installer";
+      modules = [
+        ../modules/nixos
+        ({
+          config,
+          lib,
+          pkgs,
+          ...
+        }: {
+          imports = [
+            "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
+            "${nixpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
+          ];
+
+          isIsoInstaller = true;
+
+          users.extraUsers.root = {
+            inherit (config.users.users.${config.user.name}) hashedPassword;
+            openssh.authorizedKeys.keys =
+              config.users.users.${config.user.name}.openssh.authorizedKeys.keys;
+          };
+
+          # The default compression-level is (6) and takes too long on some machines (>30m). 3 takes <2m
+          isoImage.squashfsCompression = "zstd -Xcompression-level 3";
+
+          nixpkgs = {
+            hostPlatform = lib.mkDefault "x86_64-linux";
+            config.allowUnfree = true;
+          };
+
+          services = {
+            qemuGuest.enable = true;
+            openssh = {
+              ports = [22];
+              settings.PermitRootLogin = lib.mkForce "yes";
+            };
+          };
+
+          boot = {
+            kernelPackages = pkgs.linuxPackages_latest;
+            supportedFilesystems = lib.mkForce [
+              "btrfs"
+              "vfat"
+            ];
+          };
+        })
+      ];
+
+      homeOptions.cli = {
+        git.enable = true;
+        fish.enable = true;
       };
     }
 
