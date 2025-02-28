@@ -113,7 +113,9 @@
           alejandra
           cachix
           prettierd
+          ssh-to-age
           sops
+          yq
         ];
       };
     });

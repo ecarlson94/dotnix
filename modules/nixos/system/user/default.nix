@@ -30,7 +30,7 @@ in {
         then null
         else config.sops.secrets."passwords/${config.user.name}".path;
 
-      openssh.authorizedKeys.keys = lib.lists.forEach pubKeys (key: builtins.readFile key);
+      openssh.authorizedKeys.keys = lists.forEach pubKeys (key: builtins.readFile key);
 
       extraGroups = ["wheel" "networkmanager" "audio" "sound" "video" "input" "tty"];
     };
