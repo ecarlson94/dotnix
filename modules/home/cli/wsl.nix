@@ -1,15 +1,11 @@
 {
-  pkgs,
+  hostConfig,
   lib,
-  config,
+  pkgs,
   ...
 }:
-with lib; let
-  cfg = config.cli.wsl;
-in {
-  options.cli.wsl = {enable = mkEnableOption "wsl";};
-
-  config = mkIf cfg.enable {
+with lib; {
+  config = mkIf hostConfig.wsl.enable {
     home.packages = with pkgs; [
       wslu
       wsl-open
