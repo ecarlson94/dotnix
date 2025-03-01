@@ -38,10 +38,6 @@ in
           wsl.enable = true;
         }
       ];
-      homeOptions.cli = {
-        enable = true;
-        wsl.enable = true;
-      };
     }
 
     {
@@ -77,24 +73,102 @@ in
     }
 
     {
+      name = "nixos-installer";
+      modules = [
+        ({
+          config,
+          lib,
+          pkgs,
+          ...
+        }:
+          with lib; let
+            pubKeys = filesystem.listFilesRecursive ../modules/nixos/system/user/keys;
+          in {
+            imports = [
+              "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
+              "${nixpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
+            ];
+
+            users.users.root = {
+              initialHashedPassword = mkForce "$y$j9T$xSz5Lw5OWMZ39pHrpPGdz.$jrnf14I1OzVUJZLy2Dq8D6/D.vYQ28fT4kfRVvoT8/0";
+              openssh.authorizedKeys.keys = lists.forEach pubKeys (key: builtins.readFile key);
+            };
+
+            nix.settings.experimental-features = ["nix-command" "flakes"];
+
+            # Set fish as default in bash
+            programs.bash = {
+              interactiveShellInit = ''
+                if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
+                then
+                  shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
+                  exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
+                fi
+              '';
+            };
+            programs.fish.enable = true;
+
+            # The default compression-level is (6) and takes too long on some machines (>30m). 3 takes <2m
+            isoImage.squashfsCompression = "zstd -Xcompression-level 3";
+
+            nixpkgs = {
+              hostPlatform = lib.mkDefault "x86_64-linux";
+              config.allowUnfree = true;
+            };
+
+            services = {
+              qemuGuest.enable = true;
+              openssh = {
+                enable = true;
+                ports = [22];
+                settings = {
+                  PermitRootLogin = lib.mkForce "yes";
+                };
+              };
+            };
+
+            boot = {
+              kernelPackages = pkgs.linuxPackages_latest;
+              supportedFilesystems = lib.mkForce [
+                "btrfs"
+                "vfat"
+              ];
+            };
+          })
+      ];
+    }
+
+    {
       name = "nixos-virtualbox";
       modules = [
+        inputs.disko.nixosModules.disko
+        (import ./disko.nix {
+          inherit (nixpkgs) lib;
+          device = "/dev/sda";
+        })
+
         ./hardware/nixos-virtualbox.nix
         ../modules/nixos
         {
           system.stateVersion = "24.11"; # Update when reinstalling
 
-          boot.loader.grub = {
-            enable = true;
-            device = "/dev/sda";
-            useOSProber = true;
+          boot.loader = {
+            efi.canTouchEfiVariables = true;
+            systemd-boot.enable = true;
           };
 
-          system.openssh.enable = true;
+          system = {
+            openssh.enable = true;
+            impermanence.enable = true;
+          };
 
           # user.name = "kiri";
         }
       ];
-      homeOptions.cli.enable = true;
+
+      homeOptions.cli = {
+        fish.enable = true;
+        tmux.enable = true;
+      };
     }
   ]

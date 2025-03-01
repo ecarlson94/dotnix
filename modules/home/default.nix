@@ -1,5 +1,5 @@
 {
-  hostSpec,
+  hostConfig,
   inputs,
   theme,
   ...
@@ -13,11 +13,12 @@
     ./ui
 
     inputs.catppuccin.homeManagerModules.catppuccin
+    inputs.impermanence.homeManagerModules.impermanence
   ];
 
   home = {
-    username = hostSpec.user.name;
-    homeDirectory = "/home/${hostSpec.user.name}";
+    username = hostConfig.user.name;
+    homeDirectory = "/home/${hostConfig.user.name}";
     stateVersion = "23.11"; # Don't change this!!!
   };
 
