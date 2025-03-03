@@ -6,6 +6,7 @@
 }:
 with lib; let
   cfg = config.cli.fish;
+  gitMainOrMaster = "git branch -l main master --format '%(refname:short)'";
 in {
   options.cli.fish = {enable = mkEnableOption "fish";};
   config = mkIf cfg.enable {
@@ -35,7 +36,7 @@ in {
           gbd = "git branch -D";
           gbda = "git remote prune origin";
           gco = "git checkout";
-          gcom = "git checkout $(git branch -l main master --format '%(refname:short)')";
+          gcom = "git checkout $(${gitMainOrMaster})";
           gcoml = "${gcom} && ${ggl}";
           gcb = "git checkout -b";
           gcm = "git commit -m";
@@ -55,12 +56,14 @@ in {
           "goops" = "git reset --hard HEAD~";
           "gro!" = "git reset --hard origin/$(git branch --show-current)";
           grs = "git reset --soft HEAD~";
+          grb = "git rebase";
+          grbm = "git rebase $(${gitMainOrMaster})";
           gst = "git status";
           gsta = "git stash push";
           gstp = "git stash pop";
           gstc = "git stash clear";
           gm = "git merge";
-          gmm = "git merge $(git branch -l main master --format '%(refname:short)')";
+          gmm = "git merge $(${gitMainOrMaster})";
           gmc = "git merge --continue";
 
           # .NET
