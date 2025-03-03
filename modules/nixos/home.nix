@@ -1,7 +1,7 @@
 {
-  system,
-  inputs,
   config,
+  inputs,
+  system,
   theme,
   homeOptions ? {},
   ...
@@ -26,7 +26,7 @@
     # arguments to home.nix
     extraSpecialArgs = {
       inherit inputs system theme;
-      hostSpec = config;
+      hostConfig = config;
     };
   };
 }
