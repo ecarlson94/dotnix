@@ -1,7 +1,8 @@
 {
-  pkgs,
-  lib,
   config,
+  hostConfig,
+  lib,
+  pkgs,
   ...
 }:
 with lib; let
@@ -20,7 +21,8 @@ in {
 
   options.cli = {enable = mkEnableOption "cli";};
 
-  config = mkIf cfg.enable {
+  config = mkIf (cfg.enable
+    || hostConfig.wsl.enable) {
     home.packages = [
       pkgs.scc
       pkgs.wl-clipboard
