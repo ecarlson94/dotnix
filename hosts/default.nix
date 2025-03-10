@@ -38,10 +38,6 @@ in
           wsl.enable = true;
         }
       ];
-      homeOptions.cli = {
-        enable = true;
-        wsl.enable = true;
-      };
     }
 
     {
@@ -77,24 +73,102 @@ in
     }
 
     {
+      name = "nixos-installer";
+      modules = [
+        ({
+          config,
+          lib,
+          pkgs,
+          ...
+        }:
+          with lib; let
+            pubKeys = filesystem.listFilesRecursive ../modules/nixos/system/user/keys;
+          in {
+            imports = [
+              "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
+              "${nixpkgs}/nixos/modules/installer/cd-dvd/channel.nix"
+            ];
+
+            users.users = {
+              root = {
+                initialHashedPassword = mkForce "$y$j9T$VqYNiu.QjWYAhZSwrWJ4i/$OHA.qHe7gzild.lXv2cV/k4olYHakR1NqOJlr4PRlyA";
+                openssh.authorizedKeys.keys = lists.forEach pubKeys (key: builtins.readFile key);
+              };
+              nixos = {
+                initialHashedPassword = mkForce "$y$j9T$VqYNiu.QjWYAhZSwrWJ4i/$OHA.qHe7gzild.lXv2cV/k4olYHakR1NqOJlr4PRlyA";
+                openssh.authorizedKeys.keys = lists.forEach pubKeys (key: builtins.readFile key);
+              };
+            };
+
+            nix.settings.experimental-features = ["nix-command" "flakes"];
+
+            # The default compression-level is (6) and takes too long on some machines (>30m). 3 takes <2m
+            isoImage.squashfsCompression = "zstd -Xcompression-level 3";
+
+            nixpkgs = {
+              hostPlatform = lib.mkDefault "x86_64-linux";
+              config.allowUnfree = true;
+            };
+
+            services = {
+              openssh = {
+                enable = true;
+                ports = [22];
+                settings = {
+                  PermitRootLogin = lib.mkForce "yes";
+                };
+              };
+            };
+
+            boot = {
+              kernelPackages = pkgs.linuxPackages_latest;
+              supportedFilesystems = lib.mkForce [
+                "btrfs"
+                "vfat"
+              ];
+            };
+          })
+      ];
+    }
+
+    {
       name = "nixos-virtualbox";
       modules = [
+        inputs.disko.nixosModules.disko
+        (import ./disko.nix {
+          inherit (nixpkgs) lib;
+          device = "/dev/sda";
+        })
+
         ./hardware/nixos-virtualbox.nix
         ../modules/nixos
-        {
-          system.stateVersion = "24.11"; # Update when reinstalling
 
-          boot.loader.grub = {
-            enable = true;
-            device = "/dev/sda";
-            useOSProber = true;
-          };
+        ({lib, ...}:
+          with lib; let
+            pubKeys = filesystem.listFilesRecursive ../modules/nixos/system/user/keys;
+          in {
+            system.stateVersion = "24.11"; # Update when reinstalling
 
-          system.openssh.enable = true;
+            boot.loader = {
+              efi.canTouchEfiVariables = true;
+              systemd-boot.enable = true;
+            };
 
-          # user.name = "kiri";
-        }
+            system = {
+              openssh.enable = true;
+              impermanence.enable = true;
+            };
+
+            user.name = "kiri";
+
+            # Uncomment for remote installation
+            services.openssh.settings.PermitRootLogin = lib.mkForce "yes";
+            users.users.root = {
+              openssh.authorizedKeys.keys = lists.forEach pubKeys (key: builtins.readFile key);
+            };
+          })
       ];
+
       homeOptions.cli.enable = true;
     }
   ]
