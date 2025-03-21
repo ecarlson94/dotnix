@@ -115,7 +115,7 @@
           prettierd
           ssh-to-age
           sops
-          yq
+          yq-go
         ];
       };
     });
