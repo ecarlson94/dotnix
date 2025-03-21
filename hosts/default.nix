@@ -73,6 +73,38 @@ in
     }
 
     {
+      name = "nixos-virtualbox";
+      modules = [
+        inputs.disko.nixosModules.disko
+        (import ./disko.nix {
+          inherit (nixpkgs) lib;
+          device = "/dev/sda";
+        })
+
+        ./hardware/nixos-virtualbox.nix
+        ../modules/nixos
+
+        {
+          system.stateVersion = "25.05"; # Update when reinstalling
+
+          boot.loader = {
+            efi.canTouchEfiVariables = true;
+            systemd-boot.enable = true;
+          };
+
+          system = {
+            openssh.enable = true;
+            impermanence.enable = true;
+          };
+
+          user.name = "kiri";
+        }
+      ];
+
+      homeOptions.cli.enable = true;
+    }
+
+    {
       name = "nixos-installer";
       modules = [
         ({
@@ -129,46 +161,5 @@ in
             };
           })
       ];
-    }
-
-    {
-      name = "nixos-virtualbox";
-      modules = [
-        inputs.disko.nixosModules.disko
-        (import ./disko.nix {
-          inherit (nixpkgs) lib;
-          device = "/dev/sda";
-        })
-
-        ./hardware/nixos-virtualbox.nix
-        ../modules/nixos
-
-        ({lib, ...}:
-          with lib; let
-            pubKeys = filesystem.listFilesRecursive ../modules/nixos/system/user/keys;
-          in {
-            system.stateVersion = "24.11"; # Update when reinstalling
-
-            boot.loader = {
-              efi.canTouchEfiVariables = true;
-              systemd-boot.enable = true;
-            };
-
-            system = {
-              openssh.enable = true;
-              impermanence.enable = true;
-            };
-
-            user.name = "kiri";
-
-            # Uncomment for remote installation
-            services.openssh.settings.PermitRootLogin = lib.mkForce "yes";
-            users.users.root = {
-              openssh.authorizedKeys.keys = lists.forEach pubKeys (key: builtins.readFile key);
-            };
-          })
-      ];
-
-      homeOptions.cli.enable = true;
     }
   ]

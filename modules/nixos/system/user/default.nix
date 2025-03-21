@@ -6,17 +6,23 @@
 }:
 with lib; let
   pubKeys = filesystem.listFilesRecursive ./keys;
+  sopsHashedPasswordFile = lib.optionalString (!config.isMinimal && !config.wsl.enable) config.sops.secrets."passwords/${config.user.name}".path;
 in {
-  options.user = {
-    name = mkOption {
+  options = {
+    user.name = mkOption {
       type = types.str;
       default = "walawren";
       description = "The name to use for the user account";
     };
+
+    isMinimal = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Used to indicate a minimal host";
+    };
   };
 
   config = {
-    sops.secrets."passwords/${config.user.name}".neededForUsers = !config.wsl.enable;
     users.mutableUsers = config.wsl.enable;
 
     users.users.${config.user.name} = {
@@ -25,10 +31,7 @@ in {
       isNormalUser = true;
       group = "users";
 
-      hashedPasswordFile =
-        if config.wsl.enable
-        then null
-        else config.sops.secrets."passwords/${config.user.name}".path;
+      hashedPasswordFile = sopsHashedPasswordFile;
 
       openssh.authorizedKeys.keys = lists.forEach pubKeys (key: builtins.readFile key);
 
@@ -36,15 +39,13 @@ in {
     };
 
     # Set fish as default in bash
-    programs.bash = {
-      interactiveShellInit = ''
-        if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
-        then
-          shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
-          exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
-        fi
-      '';
-    };
+    programs.bash.interactiveShellInit = ''
+      if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
+      then
+        shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
+        exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
+      fi
+    '';
     programs.fish.enable = true;
   };
 }
