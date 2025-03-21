@@ -139,6 +139,7 @@ function nixos_anywhere() {
   ###
   # nixos-anywhere installation
   ###
+  cd nixos-bootstrapper
   # If you are rebuilding a machine without any hardware changes, this is likely unneeded or even possibly disruptive
   if no_or_yes "Generate a new hardware config for this host? Yes if your dotnix doesn't have an entry for this host."; then
     green "Generating hardware-configuration.nix on $target_hostname and adding it to the local dotnix."
