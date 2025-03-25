@@ -93,6 +93,7 @@
         text = ''
           ${pkgs.alejandra}/bin/alejandra .
           ${pkgs.nodePackages.prettier}/bin/prettier --write .
+          ${pkgs.shfmt}/bin/shfmt -l -w -i 2 -ci .
         '';
       });
 
@@ -112,9 +113,10 @@
           age
           alejandra
           cachix
-          prettierd
-          ssh-to-age
+          nodePackages.prettier
+          shfmt
           sops
+          ssh-to-age
           yq-go
         ];
       };
