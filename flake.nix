@@ -78,7 +78,14 @@
   in {
     inherit lib;
 
-    formatter = forEachSystem ({pkgs, ...}: pkgs.alejandra);
+    formatter = forEachSystem ({pkgs, ...}:
+      pkgs.writeShellApplication {
+        name = "dotnix-format";
+        text = ''
+          ${pkgs.alejandra}/bin/alejandra .
+          ${pkgs.nodePackages.prettier}/bin/prettier --write .
+        '';
+      });
 
     checks = forEachSystem ({pkgs, ...}: {
       format = pkgs.callPackage ./checks/format.nix {inherit inputs;};
