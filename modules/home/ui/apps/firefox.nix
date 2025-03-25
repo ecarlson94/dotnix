@@ -42,7 +42,7 @@ in {
         isDefault = true;
 
         settings = {
-          "browser.search.defaultenginename" = "Google";
+          "browser.search.defaultenginename" = "google";
 
           # Privacy Settings
           "extensions.pocket.enabled" = lockFalse;
@@ -65,8 +65,8 @@ in {
 
         search = {
           force = true;
-          default = "Google";
-          order = ["Google"];
+          default = "ddg";
+          order = ["ddg" "google"];
           engines = {
             "Nix Packages" = {
               urls = [
@@ -112,8 +112,8 @@ in {
               updateInterval = 24 * 60 * 60 * 1000; # every day
               definedAliases = ["@nw" "@nixwiki"];
             };
-            "Bing".metaData.hidden = true;
-            "Google".metaData.alias = "@g"; # builtin engines only support specifying one additional alias
+            "bing".metaData.hidden = true;
+            "google".metaData.alias = "@g"; # builtin engines only support specifying one additional alias
           };
         };
       };
