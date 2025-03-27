@@ -1,10 +1,10 @@
 keys:
-  - &users:
+  users:
     - &walawren age17rp6yw32we7y7q7qjwdqdm2jt9jnv5thqultnuwrmt6w6c8mrfrss3etq4
     - &kiri age1qssz2tujsv8v9shlt7zgxxy7j0k6jawfwhgnzyvfvmckrlpwnqeqwz9lgs
-  - &hosts:
+  hosts:
     - &work-wsl age1h63syxkrvy75452dh2s0e6qe70argnaln9v77htst8lnk3632v9q59ur5d
-    - &nixos-virtualbox age1m0rk5k6cn98metpf5vkp0xa4lcr60daf9kce2y8eyvc07qs9yg6qgadx7j
+    - &nixos-virtualbox age127c9pkssq0x29llt2zdy09ary5mvdxls2u92sssnva6u0ywmp3aql3cra3
 creation_rules:
   - path_regex: secrets.yaml$
     key_groups:
