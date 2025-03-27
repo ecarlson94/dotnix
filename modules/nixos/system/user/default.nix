@@ -6,7 +6,6 @@
 }:
 with lib; let
   pubKeys = filesystem.listFilesRecursive ./keys;
-  sopsHashedPasswordFile = lib.optionalString (!config.isMinimal && !config.wsl.enable) config.sops.secrets."passwords/${config.user.name}".path;
 in {
   options = {
     user.name = mkOption {
@@ -31,7 +30,14 @@ in {
       isNormalUser = true;
       group = "users";
 
-      hashedPasswordFile = sopsHashedPasswordFile;
+      hashedPasswordFile =
+        if !config.isMinimal && !config.wsl.enable
+        then config.sops.secrets."passwords/${config.user.name}".path
+        else null;
+      hashedPassword =
+        if config.isMinimal && !config.wsl.enable
+        then "$y$j9T$M93AAG05U9RRsjhXIamCL/$YT5Eu.P4ci1hx11vb0P/loGWp6Qpz7hcENtUAj2jryC"
+        else null;
 
       openssh.authorizedKeys.keys = lists.forEach pubKeys (key: builtins.readFile key);
 

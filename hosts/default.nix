@@ -123,11 +123,11 @@ in
 
             users.users = {
               root = {
-                initialHashedPassword = mkForce "$y$j9T$VqYNiu.QjWYAhZSwrWJ4i/$OHA.qHe7gzild.lXv2cV/k4olYHakR1NqOJlr4PRlyA";
+                initialHashedPassword = mkForce "$y$j9T$M93AAG05U9RRsjhXIamCL/$YT5Eu.P4ci1hx11vb0P/loGWp6Qpz7hcENtUAj2jryC";
                 openssh.authorizedKeys.keys = lists.forEach pubKeys (key: builtins.readFile key);
               };
               nixos = {
-                initialHashedPassword = mkForce "$y$j9T$VqYNiu.QjWYAhZSwrWJ4i/$OHA.qHe7gzild.lXv2cV/k4olYHakR1NqOJlr4PRlyA";
+                initialHashedPassword = mkForce "$y$j9T$M93AAG05U9RRsjhXIamCL/$YT5Eu.P4ci1hx11vb0P/loGWp6Qpz7hcENtUAj2jryC";
                 openssh.authorizedKeys.keys = lists.forEach pubKeys (key: builtins.readFile key);
               };
             };
