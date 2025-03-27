@@ -15,6 +15,7 @@ persist_dir="/persist"
 nix_src_path="gitrepos" # path relative to /home/${target_user} where nix-config and nix-secrets are written in the users home
 git_root=$(git rev-parse --show-toplevel)
 nix_secrets_dir=${NIX_SECRETS_DIR:-"${git_root}"/../dotnix}
+nix_secrets_yaml="${nix_secrets_dir}/secrets.yaml"
 
 # Create a temp directory for generated host keys
 temp=$(mktemp -d)
@@ -212,24 +213,21 @@ if yes_or_no "Generate host (ssh-based) age key?"; then
   # to some creation rules, namely <host>.yaml and shared.yaml
   sops_add_creation_rule "${target_hostname}"
   # Since we may update the sops.yaml file twice above, only rekey once at the end
-  sops updatekeys -y
+  green "Save new keys in repository"
+  sops updatekeys -y $nix_secrets_yaml
   git add -u && (git commit -nm "chore: rekey" || true) && git push
-  green "Updating flake input to pick up new .sops.yaml"
-  nix flake update nix-secrets
 fi
 
-if yes_or_no "Do you want to copy your full dotnix and nix-secrets to $target_hostname?"; then
+if yes_or_no "Do you want to copy your full dotnix to $target_hostname?"; then
   green "Adding ssh host fingerprint at $target_destination to ~/.ssh/known_hosts"
   ssh-keyscan -p "$ssh_port" "$target_destination" 2>/dev/null | grep -v '^#' >>~/.ssh/known_hosts || true
-  green "Copying full nix-secrets to $target_hostname"
-  sync "$target_user" "${nix_secrets_dir}"
   green "Copying full dotnix to $target_hostname"
-  sync "$target_user" "${git_root}"/../dotnix
+  sync "$target_user" $git_root
 
   # FIXME(bootstrap): Add some sort of key access from the target to download the config (if it's a cloud system)
   if yes_or_no "Do you want to rebuild immediately?"; then
     green "Rebuilding dotnix on $target_hostname"
-    $ssh_cmd "cd ${nix_src_path}/dotnix && sudo nixos-rebuild --impure --show-trace --flake .#$target_hostname switch"
+    $ssh_cmd "cd ${nix_src_path}/dotnix && sudo nixos-rebuild --show-trace --flake .#$target_hostname switch"
   fi
 else
   echo

@@ -91,8 +91,7 @@ function sops_add_creation_rule() {
     cat "${SOPS_FILE}"
     if [[ -z $(yq "$shared_selector.key_groups[].age[] | select(alias == $a)" "${SOPS_FILE}") ]]; then
       green "Adding $a to secrets.yaml rule"
-      # NOTE: Split on purpose to avoid weird file corruption
-      yq -i "($shared_selector).key_groups[].age += [${a}]" "$SOPS_FILE"
+      yq -i "($shared_selector).key_groups[].age += \"\" | ($shared_selector).key_groups[].age[-1] alias |= ${a}" "$SOPS_FILE"
     fi
   else
     red "secrets.yaml rule not found"
