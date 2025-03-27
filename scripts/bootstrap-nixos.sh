@@ -215,6 +215,7 @@ if yes_or_no "Generate host (ssh-based) age key?"; then
   # Since we may update the sops.yaml file twice above, only rekey once at the end
   green "Save new keys in repository"
   sops updatekeys -y $nix_secrets_yaml
+  nix fmt
   git add -u && (git commit -nm "chore: rekey" || true) && git push
 fi
 
