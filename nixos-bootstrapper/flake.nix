@@ -48,7 +48,6 @@
             {user.name = "kiri";}
 
             ({
-              config,
               lib,
               pkgs,
               ...
