@@ -45,9 +45,12 @@
             ../modules/nixos/system/ssh.nix
             ../modules/nixos/system/user
 
+            {user.name = "kiri";}
+
             ({
-              pkgs,
+              config,
               lib,
+              pkgs,
               ...
             }: {
               system.stateVersion = "25.05"; # Update when reinstalling
@@ -65,9 +68,6 @@
               };
 
               system.openssh.enable = true;
-
-              programs.bash.interactiveShellInit = nixpkgs.lib.mkForce "";
-              programs.fish.enable = nixpkgs.lib.mkForce false;
 
               # Allow unfree packages
               nixpkgs.config.allowUnfree = true;
