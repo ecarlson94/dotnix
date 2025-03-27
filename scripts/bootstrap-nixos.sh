@@ -189,7 +189,7 @@ function sops_generate_host_age_key() {
     exit 1
   fi
 
-  green "Updating nix-secrets/.sops.yaml"
+  green "Updating ./.sops.yaml"
   sops_update_age_key "hosts" "$target_hostname" "$host_age_key"
 }
 
@@ -205,28 +205,15 @@ if yes_or_no "Run nixos-anywhere installation?"; then
   nixos_anywhere
 fi
 
-updated_age_keys=0
 if yes_or_no "Generate host (ssh-based) age key?"; then
   sops_generate_host_age_key
-  updated_age_keys=1
-fi
 
-if yes_or_no "Generate user age key?"; then
-  # This may end up creating the host.yaml file, so add creation rules in advance
-  sops_setup_user_age_key "$target_user" "$target_hostname"
-  # We need to add the new file before we rekey later
-  cd "$nix_secrets_dir"
-  git add sops/"${target_hostname}".yaml
-  cd - >/dev/null
-  updated_age_keys=1
-fi
-
-if [[ $updated_age_keys == 1 ]]; then
   # If the age generation commands added previously unseen keys (and associated anchors) we want to add those
   # to some creation rules, namely <host>.yaml and shared.yaml
-  sops_add_creation_rules "${target_user}" "${target_hostname}"
+  sops_add_creation_rule "${target_hostname}"
   # Since we may update the sops.yaml file twice above, only rekey once at the end
-  just rekey
+  sops updatekeys -y
+  git add -u && (git commit -nm "chore: rekey" || true) && git push
   green "Updating flake input to pick up new .sops.yaml"
   nix flake update nix-secrets
 fi
@@ -250,7 +237,6 @@ else
   echo "Post-install config build instructions:"
   echo "To copy dotnix from this machine to the $target_hostname, run the following commands:"
   echo "ssh-keyscan -p "$ssh_port" "$target_destination" 2>/dev/null | grep -v '^#' >>~/.ssh/known_hosts || true"
-  echo "just sync $target_user $target_destination"
   echo "sync \"$target_user\" \"${nix_secrets_dir}\""
   echo "sync \"$target_user\" \"${git_root}\"/../dotnix"
   echo
