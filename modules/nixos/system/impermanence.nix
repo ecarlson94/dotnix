@@ -38,15 +38,17 @@ in {
     '';
 
     fileSystems."/persist".neededForBoot = true;
-    environment.persistence."/persist/system" = {
+    environment.persistence."/persist" = {
       hideMounts = true;
       directories = [
+        "/etc/NetworkManager/system-connections"
         "/etc/nixos"
-        "/var/log"
+        "/var/cache"
+        "/var/db/sudo"
         "/var/lib/bluetooth"
         "/var/lib/nixos"
         "/var/lib/systemd/coredump"
-        "/etc/NetworkManager/system-connections"
+        "/var/log"
         {
           directory = "/var/lib/colord";
           user = "colord";

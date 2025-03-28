@@ -63,9 +63,8 @@ in {
     };
 
     home.persistence."/persist${config.home.homeDirectory}" = mkIf hostConfig.system.impermanence.enable {
-      directories = [
-        ".config/git"
-        ".config/gh"
+      files = [
+        ".config/gh/hosts.yml"
       ];
     };
   };

@@ -16,7 +16,7 @@ in {
     };
 
     home.persistence."/persist${config.home.homeDirectory}" = mkIf hostConfig.system.impermanence.enable {
-      directories = [".local/share/direnv" ".config/direnv"];
+      directories = [".local/share/direnv"];
     };
   };
 }

@@ -174,7 +174,7 @@ in {
     };
 
     home.persistence."/persist${config.home.homeDirectory}" = mkIf hostConfig.system.impermanence.enable {
-      directories = [".local/share/fish" ".config/fish"];
+      files = [".config/fish/fish_variables"];
     };
   };
 }

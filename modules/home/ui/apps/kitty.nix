@@ -39,7 +39,7 @@ in {
 
     home.persistence."/persist${config.home.homeDirectory}" = lib.mkIf hostConfig.system.impermanence.enable {
       directories = [
-        ".config/kitty"
+        ".cache/kitty"
         ".local/share/kitty-ssh-kitten"
       ];
     };
