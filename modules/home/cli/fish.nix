@@ -1,7 +1,8 @@
 {
-  pkgs,
-  lib,
   config,
+  hostConfig,
+  lib,
+  pkgs,
   ...
 }:
 with lib; let
@@ -170,6 +171,10 @@ in {
           }
         ];
       };
+    };
+
+    home.persistence."/persist/home" = mkIf hostConfig.system.impermanence.enable {
+      directories = [".local/share/fish" ".config/fish"];
     };
   };
 }

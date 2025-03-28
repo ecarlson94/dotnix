@@ -1,7 +1,8 @@
 {
+  config,
+  hostConfig,
   lib,
   pkgs,
-  config,
   ...
 }:
 with lib; let
@@ -43,6 +44,12 @@ in {
             set -g @catppuccin_icon_window_bell "󰂞 "
           '';
         }
+      ];
+    };
+
+    home.persistence."/persist/home" = mkIf hostConfig.system.impermanence.enable {
+      directories = [
+        ".config/tmux"
       ];
     };
   };

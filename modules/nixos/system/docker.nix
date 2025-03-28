@@ -18,5 +18,11 @@ in {
     };
 
     users.extraGroups.docker.members = [config.user.name];
+
+    environment.persistence."/persist/home" = mkIf config.system.impermanence.enable {
+      directories = [
+        "/home/${config.user.name}/.local/share/docker"
+      ];
+    };
   };
 }

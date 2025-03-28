@@ -1,6 +1,7 @@
 {
   hostConfig,
   inputs,
+  lib,
   ...
 }: {
   imports = [inputs.sops-nix.homeManagerModules.sops];
@@ -25,5 +26,13 @@
     secrets."private_keys/${hostConfig.user.name}" = {
       path = "/home/${hostConfig.user.name}/.ssh/${hostConfig.user.name}_ssh_key";
     };
+  };
+
+  home.persistence."/persist/home" = lib.mkIf hostConfig.system.impermanence.enable {
+    directories = [
+      ".config/sops"
+      ".config/sops-nix"
+      ".config/systemd"
+    ];
   };
 }

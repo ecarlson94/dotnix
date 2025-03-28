@@ -10,22 +10,29 @@ with lib; {
   config = mkIf hostConfig.system.impermanence.enable {
     home.persistence."/persist/home" = {
       directories = [
+        "Documents"
         "Downloads"
         "Music"
         "Pictures"
-        "Documents"
         "Videos"
-        ".gitrepos"
+        "gitrepos"
+        ".config/dconf"
+        ".config/environment.d"
+        ".config/nix"
+        ".config/systemd"
         ".gnupg"
-        ".ssh"
         ".local/share/keyrings"
-        ".local/share/direnv"
+        ".local/state/home-manager"
+        ".local/state/nix"
+        ".ssh"
         {
           directory = ".local/share/Steam";
           method = "symlink";
         }
       ];
       files = [
+        ".manpath"
+        ".nix-profile"
         ".screenrc"
       ];
       allowOther = true;
