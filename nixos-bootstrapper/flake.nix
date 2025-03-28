@@ -45,14 +45,17 @@
             ../modules/nixos/system/ssh.nix
             ../modules/nixos/system/user
 
-            {user.name = "kiri";}
-
             ({
               lib,
               pkgs,
               ...
             }: {
-              system.stateVersion = "25.05"; # Update when reinstalling
+              system = {
+                stateVersion = "25.05"; # Update when reinstalling
+
+                cachix.enable = true;
+                openssh.enable = true;
+              };
 
               environment.systemPackages = with pkgs; [
                 curl
@@ -65,8 +68,6 @@
                 efi.canTouchEfiVariables = true;
                 systemd-boot.enable = true;
               };
-
-              system.openssh.enable = true;
 
               # Allow unfree packages
               nixpkgs.config.allowUnfree = true;
