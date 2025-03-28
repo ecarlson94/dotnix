@@ -47,7 +47,7 @@ in {
       ];
     };
 
-    home.persistence."/persist/home" = mkIf hostConfig.system.impermanence.enable {
+    home.persistence."/persist${config.home.homeDirectory}" = mkIf hostConfig.system.impermanence.enable {
       directories = [
         ".config/tmux"
       ];

@@ -1,4 +1,5 @@
 {
+  config,
   hostConfig,
   lib,
   pkgs,
@@ -17,7 +18,7 @@ with lib; {
         BROWSER = "wsl-open";
       };
 
-      persistence."/persist/home" = lib.mkIf hostConfig.system.impermanence.enable {
+      persistence."/persist${config.home.homeDirectory}" = lib.mkIf hostConfig.system.impermanence.enable {
         directories = [
           ".config/wslu"
         ];

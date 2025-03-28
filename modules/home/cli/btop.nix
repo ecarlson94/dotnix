@@ -1,7 +1,7 @@
 {
   config,
-  lib,
   hostConfig,
+  lib,
   ...
 }:
 with lib; let
@@ -15,7 +15,7 @@ in {
       enable = true;
     };
 
-    home.persistence."/persist/home" = mkIf hostConfig.system.impermanence.enable {
+    home.persistence."/persist${config.home.homeDirectory}" = mkIf hostConfig.system.impermanence.enable {
       directories = [".config/btop"];
     };
   };
