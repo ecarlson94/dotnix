@@ -61,5 +61,12 @@ in {
         };
       };
     };
+
+    home.persistence."/persist/home" = mkIf hostConfig.system.impermanence.enable {
+      directories = [
+        ".config/git"
+        ".config/gh"
+      ];
+    };
   };
 }

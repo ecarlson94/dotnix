@@ -1,6 +1,7 @@
 {
-  lib,
   config,
+  lib,
+  hostConfig,
   ...
 }:
 with lib; let
@@ -12,6 +13,10 @@ in {
     catppuccin.btop.enable = true;
     programs.btop = {
       enable = true;
+    };
+
+    home.persistence."/persist/home" = mkIf hostConfig.system.impermanence.enable {
+      directories = [".config/btop"];
     };
   };
 }
