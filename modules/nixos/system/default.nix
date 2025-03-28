@@ -58,7 +58,6 @@
     };
 
     cachix.enable = true; # Binary Cache
-    docker.enable = true;
     nix-helper.enable = true;
   };
 }

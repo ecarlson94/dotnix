@@ -33,7 +33,10 @@ in
       modules = [
         ../modules/nixos
         {
-          system.stateVersion = "23.11"; # Update when reinstalling
+          system = {
+            stateVersion = "23.11"; # Update when reinstalling
+            docker.enable = true;
+          };
 
           wsl.enable = true;
         }
@@ -46,7 +49,10 @@ in
         ./hardware/nixos-desktop.nix
         ../modules/nixos
         {
-          system.stateVersion = "23.11"; # Update when reinstalling
+          system = {
+            stateVersion = "23.11"; # Update when reinstalling
+            docker.enable = true;
+          };
 
           catppuccin.grub.enable = true;
           boot.loader = {
