@@ -1,4 +1,5 @@
 {
+  config,
   hostConfig,
   inputs,
   lib,
@@ -28,11 +29,10 @@
     };
   };
 
-  home.persistence."/persist/home" = lib.mkIf hostConfig.system.impermanence.enable {
+  home.persistence."/persist${config.home.homeDirectory}" = lib.mkIf hostConfig.system.impermanence.enable {
     directories = [
       ".config/sops"
       ".config/sops-nix"
-      ".config/systemd"
     ];
   };
 }

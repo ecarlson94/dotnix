@@ -15,7 +15,7 @@ in {
       nix-direnv.enable = true;
     };
 
-    home.persistence."/persist/home" = mkIf hostConfig.system.impermanence.enable {
+    home.persistence."/persist${config.home.homeDirectory}" = mkIf hostConfig.system.impermanence.enable {
       directories = [".local/share/direnv" ".config/direnv"];
     };
   };

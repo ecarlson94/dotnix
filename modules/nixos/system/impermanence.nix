@@ -55,11 +55,18 @@ in {
         }
       ];
       files = [
-        "/etc/machine-id"
         {
           file = "/var/keys/secret_file";
           parentDirectory = {mode = "u=rwx,g=,o=";};
         }
+
+        # Essential. If you don't have these for basic setup, you will have a bad time
+        "/etc/machine-id"
+        "/etc/ssh/ssh_host_ed25519_key"
+        "/etc/ssh/ssh_host_ed25519_key.pub"
+
+        # Non-essential
+        "/root/.ssh/known_hosts"
       ];
     };
 

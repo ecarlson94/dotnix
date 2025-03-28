@@ -1,4 +1,5 @@
 {
+  config,
   hostConfig,
   inputs,
   lib,
@@ -8,7 +9,7 @@ with lib; {
   imports = [inputs.impermanence.homeManagerModules.impermanence];
 
   config = mkIf hostConfig.system.impermanence.enable {
-    home.persistence."/persist/home" = {
+    home.persistence."/persist${config.home.homeDirectory}" = {
       directories = [
         "Documents"
         "Downloads"
