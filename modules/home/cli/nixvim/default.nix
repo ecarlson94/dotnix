@@ -46,8 +46,6 @@ in {
 
     home.persistence."/persist${config.home.homeDirectory}" = mkIf hostConfig.system.impermanence.enable {
       directories = [
-        ".config/nvim"
-        ".config/fd"
         ".local/share/nvim"
       ];
     };
