@@ -22,7 +22,6 @@ with lib; {
         ".gnupg"
         ".local/share/keyrings"
         ".local/state/home-manager"
-        ".local/state/nix"
         ".ssh"
         {
           directory = ".local/share/Steam";
