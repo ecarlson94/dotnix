@@ -1,7 +1,8 @@
 {
-  pkgs,
-  lib,
   config,
+  hostConfig,
+  lib,
+  pkgs,
   ...
 }:
 with lib; let
@@ -170,6 +171,10 @@ in {
           }
         ];
       };
+    };
+
+    home.persistence."/persist${config.home.homeDirectory}" = mkIf hostConfig.system.impermanence.enable {
+      files = [".config/fish/fish_variables"];
     };
   };
 }
