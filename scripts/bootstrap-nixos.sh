@@ -225,6 +225,12 @@ if yes_or_no "Do you want to copy your full dotnix to $target_hostname?"; then
   green "Copying full dotnix to $target_hostname"
   sync "$target_user" $git_root
 
+  if [ -n "$persist_dir" ]; then
+    $ssh_root_cmd "rm /etc/machine-id || true"
+    $ssh_root_cmd "rm /etc/ssh/ssh_host_ed25519_key || true"
+    $ssh_root_cmd "rm /etc/ssh/ssh_host_ed25519_key.pub || true"
+  fi
+
   # FIXME(bootstrap): Add some sort of key access from the target to download the config (if it's a cloud system)
   if yes_or_no "Do you want to rebuild immediately?"; then
     green "Rebuilding dotnix on $target_hostname"
