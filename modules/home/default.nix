@@ -12,7 +12,7 @@
     ./sops.nix
     ./ui
 
-    inputs.catppuccin.homeManagerModules.catppuccin
+    inputs.catppuccin.homeModules.catppuccin
   ];
 
   home = {
