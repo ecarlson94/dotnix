@@ -1,6 +1,6 @@
 {
   config,
-  hostSpec,
+  hostConfig,
   lib,
   ...
 }:
@@ -55,11 +55,17 @@ in {
             host = "github.com gitlab.com";
             identitiesOnly = true;
             identityFile = [
-              "/home/${hostSpec.user.name}/.ssh/${hostSpec.user.name}_ssh_key"
+              "/home/${hostConfig.user.name}/.ssh/${hostConfig.user.name}_ssh_key"
             ];
           };
         };
       };
+    };
+
+    home.persistence."/persist${config.home.homeDirectory}" = mkIf hostConfig.system.impermanence.enable {
+      files = [
+        ".config/gh/hosts.yml"
+      ];
     };
   };
 }

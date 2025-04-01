@@ -15,6 +15,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    impermanence = {
+      url = "github:nix-community/impermanence";
+    };
+
     # User configuration dependencies
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -84,6 +93,7 @@
         text = ''
           ${pkgs.alejandra}/bin/alejandra .
           ${pkgs.nodePackages.prettier}/bin/prettier --write .
+          ${pkgs.shfmt}/bin/shfmt -l -w -i 2 -ci .
         '';
       });
 
@@ -103,8 +113,11 @@
           age
           alejandra
           cachix
-          prettierd
+          nodePackages.prettier
+          shfmt
           sops
+          ssh-to-age
+          yq-go
         ];
       };
     });

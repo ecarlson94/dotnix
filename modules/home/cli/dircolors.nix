@@ -1,6 +1,7 @@
 {
-  lib,
   config,
+  lib,
+  hostConfig,
   ...
 }:
 with lib; let
@@ -10,5 +11,9 @@ in {
 
   config = mkIf cfg.enable {
     programs.dircolors.enable = true;
+
+    home.persistence."/persist${config.home.homeDirectory}" = mkIf hostConfig.system.impermanence.enable {
+      files = [".dir_colors"];
+    };
   };
 }
