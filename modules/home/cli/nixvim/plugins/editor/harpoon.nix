@@ -4,7 +4,7 @@
       enable = true;
       enableTelescope = true;
 
-      settings = {
+      settings.settings = {
         save_on_toggle = true;
         sync_on_ui_close = true;
       };
