@@ -9,7 +9,6 @@
 
   imports = [
     ./cli
-    ./impermanence.nix
     ./sops.nix
     ./ui
 

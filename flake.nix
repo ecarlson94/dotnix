@@ -20,10 +20,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    impermanence = {
-      url = "github:nix-community/impermanence";
-    };
-
     # User configuration dependencies
     home-manager = {
       url = "github:nix-community/home-manager";

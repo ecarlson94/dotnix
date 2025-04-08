@@ -11,7 +11,6 @@ target_destination=""
 target_user=${BOOTSTRAP_USER-$(whoami)} # Set BOOTSTRAP_ defaults in your shell.nix
 ssh_port=${BOOTSTRAP_SSH_PORT-22}
 ssh_key=${BOOTSTRAP_SSH_KEY-}
-persist_dir="/persist"
 nix_src_path="gitrepos" # path relative to /home/${target_user} where nix-config and nix-secrets are written in the users home
 git_root=$(git rev-parse --show-toplevel)
 nix_secrets_dir=${NIX_SECRETS_DIR:-"${git_root}"/../dotnix}
@@ -125,13 +124,13 @@ function nixos_anywhere() {
   ###
   green "Preparing a new ssh_host_ed25519_key pair for $target_hostname."
   # Create the directory where sshd expects to find the host keys
-  install -d -m755 "$temp/$persist_dir/etc/ssh"
+  install -d -m755 "$temp/etc/ssh"
 
   # Generate host ssh key pair without a passphrase
-  ssh-keygen -t ed25519 -f "$temp/$persist_dir/etc/ssh/ssh_host_ed25519_key" -C "$target_user"@"$target_hostname" -N ""
+  ssh-keygen -t ed25519 -f "$temp/etc/ssh/ssh_host_ed25519_key" -C "$target_user"@"$target_hostname" -N ""
 
   # Set the correct permissions so sshd will accept the key
-  chmod 600 "$temp/$persist_dir/etc/ssh/ssh_host_ed25519_key"
+  chmod 600 "$temp/etc/ssh/ssh_host_ed25519_key"
 
   green "Adding ssh host fingerprint at $target_destination to ~/.ssh/known_hosts"
   # This will fail if we already know the host, but that's fine
@@ -165,10 +164,6 @@ function nixos_anywhere() {
   green "Adding $target_destination's ssh host fingerprint to ~/.ssh/known_hosts"
   ssh-keyscan -p "$ssh_port" "$target_destination" | grep -v '^#' >>~/.ssh/known_hosts || true
 
-  if [ -n "$persist_dir" ]; then
-    $ssh_root_cmd "cp /etc/machine-id $persist_dir/etc/machine-id || true"
-    $ssh_root_cmd "cp -R /etc/ssh/ $persist_dir/etc/ssh/ || true"
-  fi
   cd - >/dev/null
 }
 

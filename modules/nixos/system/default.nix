@@ -9,7 +9,6 @@
 
     ./cachix.nix
     ./docker.nix
-    ./impermanence.nix
     ./network.nix
     ./nix-helper.nix
     ./openssh.nix

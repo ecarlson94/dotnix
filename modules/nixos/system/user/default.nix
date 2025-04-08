@@ -7,8 +7,6 @@
 with lib; let
   pubKeys = filesystem.listFilesRecursive ./keys;
 in {
-  imports = [./ensure-home-exists.nix];
-
   options = {
     user.name = mkOption {
       type = types.str;

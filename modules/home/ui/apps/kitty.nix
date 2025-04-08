@@ -1,6 +1,5 @@
 {
   config,
-  hostConfig,
   lib,
   theme,
   ...
@@ -34,13 +33,6 @@ in {
     wayland.windowManager.hyprland.settings = {
       bind = [
         "CONTROLSHIFTALT,T,exec,kitty"
-      ];
-    };
-
-    home.persistence."/persist${config.home.homeDirectory}" = lib.mkIf hostConfig.system.impermanence.enable {
-      directories = [
-        ".cache/kitty"
-        ".local/share/kitty-ssh-kitten"
       ];
     };
   };

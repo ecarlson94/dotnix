@@ -1,6 +1,5 @@
 {
   config,
-  hostConfig,
   inputs,
   lib,
   ...
@@ -42,12 +41,6 @@ in {
         viAlias = true;
         vimAlias = true;
       };
-    };
-
-    home.persistence."/persist${config.home.homeDirectory}" = mkIf hostConfig.system.impermanence.enable {
-      directories = [
-        ".local/share/nvim"
-      ];
     };
   };
 }
