@@ -105,7 +105,6 @@ in
           };
 
           user.name = "kiri";
-          isMinimal = true;
         })
       ];
 
