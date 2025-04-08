@@ -1,7 +1,8 @@
 {
+  config,
+  hostConfig,
   lib,
   pkgs,
-  config,
   ...
 }:
 with lib; let

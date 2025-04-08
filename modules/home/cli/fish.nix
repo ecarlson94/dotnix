@@ -1,7 +1,8 @@
 {
-  pkgs,
-  lib,
   config,
+  hostConfig,
+  lib,
+  pkgs,
   ...
 }:
 with lib; let
@@ -16,6 +17,7 @@ in {
       dircolors.enableFishIntegration = true;
       fzf.enableFishIntegration = true;
       kitty.shellIntegration.enableFishIntegration = true;
+      git.enable = true; # required for hydro plugin
 
       fish = {
         enable = true;

@@ -1,5 +1,5 @@
 {
-  hostSpec,
+  hostConfig,
   inputs,
   theme,
   ...
@@ -16,9 +16,9 @@
   ];
 
   home = {
-    username = hostSpec.user.name;
-    homeDirectory = "/home/${hostSpec.user.name}";
-    stateVersion = "23.11"; # Don't change this!!!
+    inherit (hostConfig.system) stateVersion; # Don't change this!!!
+    username = hostConfig.user.name;
+    homeDirectory = hostConfig.users.users.${hostConfig.user.name}.home;
   };
 
   catppuccin.flavor = theme.variant;

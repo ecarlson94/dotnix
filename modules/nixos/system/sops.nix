@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  config,
+  inputs,
+  ...
+}: {
   imports = [inputs.sops-nix.nixosModules.sops];
 
   sops = {
@@ -22,6 +26,7 @@
     # secrets required for user creation are handled in the ./user.nix file
     # because they will be output to /run/secrets-for-users and only when the user is assigned to a host
     secrets = {
+      "passwords/${config.user.name}".neededForUsers = !config.wsl.enable;
       cloudflare-api-key = {};
     };
   };
