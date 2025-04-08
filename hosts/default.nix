@@ -90,7 +90,7 @@ in
         ./hardware/nixos-virtualbox.nix
         ../modules/nixos
 
-        {
+        ({lib, ...}: {
           system.stateVersion = "25.05"; # Update when reinstalling
 
           boot.loader = {
@@ -98,13 +98,15 @@ in
             systemd-boot.enable = true;
           };
 
+          services.openssh.settings.PermitRootLogin = lib.mkForce "yes";
           system = {
             openssh.enable = true;
             impermanence.enable = true;
           };
 
           user.name = "kiri";
-        }
+          isMinimal = true;
+        })
       ];
 
       homeOptions.cli = {
