@@ -20,6 +20,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    cachix-deploy-flake = {
+      url = "github:cachix/cachix-deploy-flake";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        disko.follows = "disko";
+        home-manager.follows = "home-manager";
+      };
+    };
+
     # User configuration dependencies
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -51,9 +60,10 @@
   };
 
   outputs = {
-    nixpkgs,
-    home-manager,
     firefox-addons,
+    cachix-deploy-flake,
+    home-manager,
+    nixpkgs,
     self,
     ...
   } @ inputs: let
@@ -67,9 +77,10 @@
 
     forEachSystem = f:
       lib.genAttrs systems (system:
-        f {
+        f rec {
           inherit system;
           pkgs = pkgsFor.${system};
+          cachix-deploy-lib = cachix-deploy-flake.lib pkgs;
         });
 
     pkgsFor = lib.genAttrs systems (
@@ -102,6 +113,16 @@
     homeManagerModules.dotnix = import ./modules/home;
 
     nixosConfigurations = import ./hosts inputs;
+
+    packages = forEachSystem ({
+      cachix-deploy-lib,
+      pkgs,
+      ...
+    }: {
+      cachix-deploy-spec = cachix-deploy-lib.spec {
+        nixos-virtualbox = self.nixosConfigurations.nixos-virtualbox.config.system.build.toplevel;
+      };
+    });
 
     devShells = forEachSystem ({pkgs, ...}: {
       default = pkgs.mkShell {
