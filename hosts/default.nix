@@ -107,7 +107,12 @@ in
         }
       ];
 
-      homeOptions.cli.enable = true;
+      homeOptions.cli = {
+        btop.enable = true;
+        dircolors.enable = true;
+        fish.enable = true;
+        tmux.enable = true;
+      };
     }
 
     {
