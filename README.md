@@ -68,9 +68,7 @@ nh os switch
 Configures a user for the NixOS system using a dynamic user name that can be configured in `nixosConfiguration`.
 
 ```nix
-{
-  user.name = "kiri"; # Defaults to "walawren"
-}
+user.name = "kiri"; # Defaults to "walawren"
 ```
 
 Each unique value used for `user.name` needs to have a corresponding SSH key added to the `private_keys` object of `secrets.yaml`.
