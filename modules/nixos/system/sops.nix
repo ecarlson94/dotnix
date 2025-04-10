@@ -30,6 +30,8 @@
       "private_keys/${config.user.name}" = {
         path = "/home/${config.user.name}/.ssh/${config.user.name}_ssh_key";
         neededForUsers = true;
+        owner = config.user.name;
+        group = config.users.users.${config.user.name}.group;
       };
     };
   };
