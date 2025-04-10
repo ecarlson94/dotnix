@@ -8,6 +8,7 @@
     inputs.nixos-wsl.nixosModules.wsl
 
     ./cachix.nix
+    ./cachix-agent.nix
     ./docker.nix
     ./network.nix
     ./nix-helper.nix
