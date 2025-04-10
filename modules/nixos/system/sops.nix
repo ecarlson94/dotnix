@@ -28,6 +28,10 @@
     secrets = {
       "passwords/${config.user.name}".neededForUsers = !config.wsl.enable;
       cloudflare-api-key = {};
+      "private_keys/${config.user.name}" = {
+        path = "/home/${config.user.name}/.ssh/${config.user.name}_ssh_key";
+        neededForUsers = true;
+      };
     };
   };
 }
