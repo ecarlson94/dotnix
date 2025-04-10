@@ -92,7 +92,7 @@ jobs:
 
   deploy:
     name: Deploy NixOS Configuration 🚀
-    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/main'
     needs: [check-flake-lock, nix-flake-check, builds]
     runs-on: ubuntu-latest
     steps:
