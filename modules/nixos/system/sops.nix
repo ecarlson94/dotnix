@@ -28,10 +28,10 @@
     secrets = {
       "passwords/${config.user.name}".neededForUsers = !config.wsl.enable;
       "private_keys/${config.user.name}" = {
+        inherit (config.users.users.${config.user.name}) group;
         path = "/home/${config.user.name}/.ssh/${config.user.name}_ssh_key";
         neededForUsers = true;
         owner = config.user.name;
-        group = config.users.users.${config.user.name}.group;
       };
     };
   };
