@@ -9,10 +9,11 @@ in {
   options.system.cachix-agent = {enable = mkEnableOption "cachix-agent";};
 
   config = mkIf cfg.enable {
-    services.cachix-agent.enable = true;
+    sops.secrets.cachix-agent-token = {};
 
-    sops.secrets.cachix-agent-token = {
-      path = "/etc/cachix-agent.token";
+    services.cachix-agent = {
+      enable = true;
+      credentialsFile = config.sops.secrets.cachix-agent-token.path;
     };
   };
 }
