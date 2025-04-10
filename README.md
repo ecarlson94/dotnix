@@ -59,15 +59,23 @@ If you have the repo cloned locally at `~/gitrepos/dotnix`, you can rebuild with
 nh os switch
 ```
 
-## [User Module](./modules/user/default.nix)
-
-Configures a user for the NixOS using a dynamic user name that can be configured in `nixosConfiguration`.
-
 ## NixOS Modules
+
+### System
+
+#### [User](./modules/nixos/system/user/default.nix)
+
+Configures a user for the NixOS system using a dynamic user name that can be configured in `nixosConfiguration`.
+
+```nix
+user.name = "kiri"; # Defaults to "walawren"
+```
+
+Each unique value used for `user.name` needs to have a corresponding SSH key added to the `private_keys` object of `secrets.yaml`.
 
 ### UI
 
-#### [File Explorer](./modules/nixos/ui/file-explorer.nix)
+#### [File Manager](./modules/nixos/ui/file-manager.nix)
 
 Configures a file explorer;
 
@@ -113,7 +121,7 @@ Contains toggleable modules for the following:
 - [neovim](https://neovim.io/) - Neovim terminal text editor using [nixvim](https://github.com/nix-community/nixvim)
 - [tmux](https://github.com/tmux/tmux/wiki) - Terminal multiplexer
 
-The [cli module](./modules/home/cli) will enable all of the above.
+The [cli module](./modules/home/cli/default.nix) will enable all of the above.
 
 ```nix
 imports = [ ./modules/home ];

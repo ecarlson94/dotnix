@@ -27,6 +27,10 @@
     # because they will be output to /run/secrets-for-users and only when the user is assigned to a host
     secrets = {
       "passwords/${config.user.name}".neededForUsers = !config.wsl.enable;
+      "private_keys/${config.user.name}" = {
+        path = "/home/${config.user.name}/.ssh/${config.user.name}_ssh_key";
+        neededForUsers = true;
+      };
     };
   };
 }
