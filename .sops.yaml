@@ -4,7 +4,7 @@ keys:
     - &kiri age1qssz2tujsv8v9shlt7zgxxy7j0k6jawfwhgnzyvfvmckrlpwnqeqwz9lgs
   hosts:
     - &work-wsl age1h63syxkrvy75452dh2s0e6qe70argnaln9v77htst8lnk3632v9q59ur5d
-    - &nixos-virtualbox age1a6ljf8wdp3nxhf5c7mmzxhdhq28gw3pckpvfep0m5p6e8r7v6d3q589k7t
+    - &nixos-virtualbox age14uvhrejjlxgfapyx5d3lyy2vjy4q6yf22rp0c6nuwr25gechgvdsvacjap
 creation_rules:
   - path_regex: secrets.yaml$
     key_groups:

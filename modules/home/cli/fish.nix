@@ -1,6 +1,5 @@
 {
   config,
-  hostConfig,
   lib,
   pkgs,
   ...
@@ -43,6 +42,7 @@ in {
           gcb = "git checkout -b";
           gcm = "git commit -m";
           gcma = "${gaa} && git commit -m";
+          gcsmg = "git commit -m";
           "gcn!" = "git commit --verbose --amend --no-edit";
           "gcan!" = "git commit --verbose --amend --no-edit --all";
           gd = "git diff";
@@ -140,7 +140,6 @@ in {
           egrep = "egrep --color=auto";
           loc = "scc --no-cocomo";
           rmf = "rm -rf";
-          gcsmg = "git commit -m";
 
           # Tmux
           tmk = "tmux kill-session";

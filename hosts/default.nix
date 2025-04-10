@@ -99,6 +99,7 @@ in
           };
 
           system = {
+            cachix-agent.enable = true;
             openssh.enable = true;
           };
 
