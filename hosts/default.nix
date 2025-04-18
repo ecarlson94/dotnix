@@ -92,6 +92,7 @@ in
 
         {
           system.stateVersion = "25.05"; # Update when reinstalling
+          networking.domain = "walawren.com";
 
           boot.loader = {
             efi.canTouchEfiVariables = true;
@@ -103,9 +104,10 @@ in
             openssh.enable = true;
             ddns = {
               enable = true;
-              domains = ["walawren.com"];
             };
           };
+
+          media.enable = true;
 
           user.name = "kiri";
         }
