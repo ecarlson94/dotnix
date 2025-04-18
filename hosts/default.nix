@@ -101,6 +101,10 @@ in
           system = {
             cachix-agent.enable = true;
             openssh.enable = true;
+            ddns = {
+              enable = true;
+              domains = ["walawren.com"];
+            };
           };
 
           user.name = "kiri";
