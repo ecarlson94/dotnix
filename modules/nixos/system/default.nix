@@ -9,6 +9,7 @@
 
     ./cachix.nix
     ./cachix-agent.nix
+    ./ddns.nix
     ./docker.nix
     ./network.nix
     ./nix-helper.nix
