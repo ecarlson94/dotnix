@@ -54,7 +54,7 @@
     catppuccin.url = "github:catppuccin/nix";
 
     spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix";
+      url = "github:Gerg-L/spicetify-nix?rev=4d19e41d38d92242bdf898840d3108983f03a640";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
