@@ -11,7 +11,7 @@ with lib; let
   spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
 in {
   imports = [
-    inputs.spicetify-nix.homeManagerModules.default
+    inputs.spicetify-nix.homeManagerModules.spicetify
   ];
 
   options.ui.apps.spotify = {enable = mkEnableOption "spotify";};
