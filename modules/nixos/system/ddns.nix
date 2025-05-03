@@ -10,7 +10,7 @@ in {
     enable = mkEnableOption "ddns";
 
     domains = lib.mkOption {
-      default = [""];
+      default = [config.networking.domain];
       type = listOf str;
     };
   };

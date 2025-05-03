@@ -7,10 +7,11 @@
   imports = [
     inputs.nixos-wsl.nixosModules.wsl
 
-    ./cachix.nix
     ./cachix-agent.nix
+    ./cachix.nix
     ./ddns.nix
     ./docker.nix
+    ./hetzner
     ./network.nix
     ./nix-helper.nix
     ./openssh.nix

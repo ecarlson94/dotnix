@@ -29,15 +29,12 @@
     }:
       nixpkgs.lib.nixosSystem {
         inherit system;
+        specialArgs.hostName = name;
 
         modules =
           [
             inputs.nixos-wsl.nixosModules.wsl
             inputs.disko.nixosModules.disko
-            (import ../hosts/disko.nix {
-              inherit (nixpkgs) lib;
-              device = "/dev/sda";
-            })
 
             ../modules/nixos/system/cachix.nix
             ../modules/nixos/system/network.nix
@@ -100,9 +97,13 @@
   in {
     nixosConfigurations = mkNixosConfigurations [
       {
-        name = "nixos-virtualbox";
+        name = "nixos-mediaserver";
         modules = [
-          ../hosts/hardware/nixos-virtualbox.nix
+          ../hosts/hardware/nixos-mediaserver.nix
+          (import ../hosts/disko.nix {
+            inherit (nixpkgs) lib;
+            device = "/dev/nvme0n1";
+          })
           {user.name = "kiri";}
         ];
       }

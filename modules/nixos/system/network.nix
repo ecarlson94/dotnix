@@ -1,11 +1,11 @@
 {
   config,
-  name,
+  hostName,
   ...
 }: {
   config = {
     networking = {
-      hostName = name;
+      inherit hostName;
 
       networkmanager.enable = !config.wsl.enable;
       firewall.enable = true;

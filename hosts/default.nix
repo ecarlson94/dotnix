@@ -14,7 +14,8 @@
     nixpkgs.lib.nixosSystem {
       inherit system modules;
       specialArgs = {
-        inherit inputs system name homeOptions;
+        inherit inputs system homeOptions;
+        hostName = name;
         theme = import ../theme;
       };
     };
@@ -79,19 +80,20 @@ in
     }
 
     {
-      name = "nixos-virtualbox";
+      name = "nixos-mediaserver";
       modules = [
         inputs.disko.nixosModules.disko
         (import ./disko.nix {
           inherit (nixpkgs) lib;
-          device = "/dev/sda";
+          device = "/dev/nvme0n1";
         })
 
-        ./hardware/nixos-virtualbox.nix
+        ./hardware/nixos-mediaserver.nix
         ../modules/nixos
 
         {
           system.stateVersion = "25.05"; # Update when reinstalling
+          networking.domain = "walawren.com";
 
           boot.loader = {
             efi.canTouchEfiVariables = true;
@@ -103,9 +105,10 @@ in
             openssh.enable = true;
             ddns = {
               enable = true;
-              domains = ["walawren.com"];
             };
           };
+
+          media.enable = true;
 
           user.name = "kiri";
         }
