@@ -91,12 +91,6 @@ in
         ./hardware/nixos-mediaserver.nix
         ../modules/nixos
 
-        ({pkgs, ...}: {
-          build.Script = pkgs.writeShellScript "disko-apply" ''
-            ${pkgs.disko}/bin/disko --mode disko /etc/disko-config.nix
-          '';
-        })
-
         {
           system.stateVersion = "25.05"; # Update when reinstalling
           networking.domain = "walawren.com";

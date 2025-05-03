@@ -150,14 +150,12 @@ function nixos_anywhere() {
     generated_hardware_config=1
   fi
 
-  # Copy disko layout into /etc so the Script can find it
-  cp "${git_root}/hosts/disko.nix" "${temp}/etc/disko-config.nix"
-
   # --extra-files here picks up the ssh host key we generated earlier and puts it onto the target machine
   SHELL=/bin/sh nix run github:nix-community/nixos-anywhere -- \
     --ssh-port "$ssh_port" \
     --post-kexec-ssh-port "$ssh_port" \
     --extra-files "$temp" \
+    --disko-mode disko \
     --flake .#"$target_hostname" \
     root@"$target_destination"
 

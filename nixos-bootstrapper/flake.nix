@@ -35,10 +35,6 @@
           [
             inputs.nixos-wsl.nixosModules.wsl
             inputs.disko.nixosModules.disko
-            (import ../hosts/disko.nix {
-              inherit (nixpkgs) lib;
-              device = "/dev/sda";
-            })
 
             ../modules/nixos/system/cachix.nix
             ../modules/nixos/system/network.nix
@@ -56,10 +52,6 @@
 
                 cachix.enable = true;
                 openssh.enable = true;
-
-                build.Script = pkgs.writeShellScript "disko-apply" ''
-                  ${pkgs.disko}/bin/disko --mode disko /etc/disko-config.nix
-                '';
               };
 
               environment.systemPackages = with pkgs; [
@@ -108,9 +100,11 @@
         name = "nixos-mediaserver";
         modules = [
           ../hosts/hardware/nixos-mediaserver.nix
-          {
-            user.name = "kiri";
-          }
+          (import ../hosts/disko.nix {
+            inherit (nixpkgs) lib;
+            device = "/dev/nvme0n1";
+          })
+          {user.name = "kiri";}
         ];
       }
     ];
