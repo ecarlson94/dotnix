@@ -15,6 +15,7 @@ nix_src_path="gitrepos" # path relative to /home/${target_user} where nix-config
 git_root=$(git rev-parse --show-toplevel)
 nix_secrets_dir=${NIX_SECRETS_DIR:-"${git_root}"/../dotnix}
 nix_secrets_yaml="${nix_secrets_dir}/secrets.yaml"
+nix_env_prefix='. /root/.nix-profile/etc/profile.d/nix.sh >/dev/null 2>&1 || true'
 
 # Create a temp directory for generated host keys
 temp=$(mktemp -d)
@@ -143,11 +144,14 @@ function nixos_anywhere() {
   # If you are rebuilding a machine without any hardware changes, this is likely unneeded or even possibly disruptive
   if no_or_yes "Generate a new hardware config for this host? Yes if your dotnix doesn't have an entry for this host."; then
     green "Generating hardware-configuration.nix on $target_hostname and adding it to the local dotnix."
-    $ssh_root_cmd "nixos-generate-config --no-filesystems --root /mnt"
+    $ssh_root_cmd "$nix_env_prefix && nix-shell -p nixos-install-tools --run \"nixos-generate-config --no-filesystems --root /mnt\""
     $scp_cmd root@"$target_destination":/mnt/etc/nixos/hardware-configuration.nix \
       "${git_root}"/hosts/hardware/"$target_hostname".nix
     generated_hardware_config=1
   fi
+
+  # Copy disko layout into /etc so the Script can find it
+  cp "${git_root}/hosts/disko.nix" "${temp}/etc/disko-config.nix"
 
   # --extra-files here picks up the ssh host key we generated earlier and puts it onto the target machine
   SHELL=/bin/sh nix run github:nix-community/nixos-anywhere -- \

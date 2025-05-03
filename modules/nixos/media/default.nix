@@ -18,9 +18,9 @@ in {
   config = mkIf cfg.enable {
     media = {
       cloudflareCNAMEs.enable = true;
-      nginx.enable = true;
+      nginx.enable = false;
 
-      radarr.enable = true;
+      radarr.enable = false;
     };
   };
 }

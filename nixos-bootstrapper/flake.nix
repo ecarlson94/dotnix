@@ -29,6 +29,7 @@
     }:
       nixpkgs.lib.nixosSystem {
         inherit system;
+        specialArgs.hostName = name;
 
         modules =
           [
@@ -55,6 +56,10 @@
 
                 cachix.enable = true;
                 openssh.enable = true;
+
+                build.Script = pkgs.writeShellScript "disko-apply" ''
+                  ${pkgs.disko}/bin/disko --mode disko /etc/disko-config.nix
+                '';
               };
 
               environment.systemPackages = with pkgs; [
@@ -100,10 +105,12 @@
   in {
     nixosConfigurations = mkNixosConfigurations [
       {
-        name = "nixos-virtualbox";
+        name = "nixos-mediaserver";
         modules = [
-          ../hosts/hardware/nixos-virtualbox.nix
-          {user.name = "kiri";}
+          ../hosts/hardware/nixos-mediaserver.nix
+          {
+            user.name = "kiri";
+          }
         ];
       }
     ];
