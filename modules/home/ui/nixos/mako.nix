@@ -15,11 +15,13 @@ in {
 
     services.mako = {
       enable = true;
-      anchor = "bottom-right";
-      width = 400;
-      height = 300;
-      borderRadius = theme.radius;
-      defaultTimeout = 10000; # 10s
+      settings = {
+        anchor = "bottom-right";
+        border-radius = theme.radius;
+        default-timeout = 10000; # 10s
+        height = 300;
+        width = 400;
+      };
     };
   };
 }
