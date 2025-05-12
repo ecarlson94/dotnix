@@ -4,7 +4,6 @@
     ./flash.nix
     ./gitsigns.nix
     ./harpoon.nix
-    ./indent-blankline.nix
     ./lualine.nix
     ./mini.nix
     ./oil.nix

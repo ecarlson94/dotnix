@@ -5,14 +5,14 @@
       enable = true;
 
       servers = {
-        dockerls.enable = true;
+        # dockerls.enable = true;
         elixirls.enable = true;
-        gopls.enable = true;
+        # gopls.enable = true;
         jsonls.enable = true;
         marksman.enable = true;
         nil_ls.enable = true; # Nix
         ts_ls.enable = true;
-        omnisharp.enable = true;
+        # omnisharp.enable = true;
       };
       keymaps = {
         lspBuf = {
