@@ -6,7 +6,13 @@
 
       servers = {
         # dockerls.enable = true;
-        elixirls.enable = true;
+        elixirls = {
+          enable = true;
+          settings = {
+            elixirLS.mixEnv = "dev";
+            elixirLS.dialyzerEnabled = true;
+          };
+        };
         # gopls.enable = true;
         jsonls.enable = true;
         marksman.enable = true;
