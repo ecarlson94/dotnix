@@ -115,7 +115,10 @@ in
           system.stateVersion = "25.05"; # Update when reinstalling
 
           boot.loader = {
-            efi.canTouchEfiVariables = true;
+            efi = {
+              canTouchEfiVariables = true;
+              efiSysMountPoint = "/boot/efi";
+            };
             systemd-boot.enable = true;
           };
 
