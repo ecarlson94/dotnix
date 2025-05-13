@@ -76,7 +76,7 @@ in
           device = "/dev/nvme0n1";
         })
 
-        inputs.nixos-hardware.nixosModules.framework-amd-ai-300-series
+        ../hosts/hardware/nixos-framework13.nix
         ../modules/nixos
 
         {
@@ -85,8 +85,6 @@ in
             docker.enable = true;
             bootloader.grub.enable = true;
           };
-
-          services.fwupd.enable = true;
 
           ui = {
             enable = true;

@@ -119,7 +119,7 @@
         name = "nixos-framework13";
         device = "/dev/nvme0n1";
         modules = [
-          inputs.nixos-hardware.nixosModules.framework-amd-ai-300-series
+          ../hosts/hardware/nixos-framework13.nix
 
           {
             user.name = "walawren";
