@@ -11,6 +11,7 @@
     ./cachix-agent.nix
     ./ddns.nix
     ./docker.nix
+    ./grub.nix
     ./network.nix
     ./nix-helper.nix
     ./openssh.nix
