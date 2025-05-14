@@ -26,7 +26,7 @@
   ];
 
   wsl.defaultUser = config.user.name;
-  programs.dconf.enable = config.wsl.enable; # Configuration System & Setting Management - required for Home Manager
+  programs.dconf.enable = true; # Configuration System & Setting Management - required for Home Manager
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
