@@ -30,6 +30,7 @@
       "private_keys/${config.user.name}" = {
         inherit (config.users.users.${config.user.name}) group;
         path = "/home/${config.user.name}/.ssh/${config.user.name}_ssh_key";
+        mode = "0440";
         neededForUsers = true;
         owner = config.user.name;
       };
