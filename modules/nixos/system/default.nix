@@ -11,6 +11,7 @@
     ./cachix-agent.nix
     ./ddns.nix
     ./docker.nix
+    ./dual-function-keys.nix
     ./grub.nix
     ./network.nix
     ./nix-helper.nix
@@ -61,5 +62,11 @@
 
     cachix.enable = true; # Binary Cache
     nix-helper.enable = true;
+    dual-function-keys = {
+      "KEY_CAPSLOCK" = {
+        tap = "KEY_ESC";
+        hold = "KEY_LEFTCTRL";
+      };
+    };
   };
 }
