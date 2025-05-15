@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
 
     disko = {
       url = "github:nix-community/disko";
@@ -24,8 +25,9 @@
 
     mkNixosConfiguration = {
       name,
-      system ? "x86_64-linux",
+      device ? "/dev/sda",
       modules ? [],
+      system ? "x86_64-linux",
     }:
       nixpkgs.lib.nixosSystem {
         inherit system;
@@ -36,7 +38,7 @@
             inputs.disko.nixosModules.disko
             (import ../hosts/disko.nix {
               inherit (nixpkgs) lib;
-              device = "/dev/sda";
+              inherit device;
             })
 
             ../modules/nixos/system/cachix.nix
@@ -63,11 +65,6 @@
                 rsync
                 wget
               ];
-
-              boot.loader = {
-                efi.canTouchEfiVariables = true;
-                systemd-boot.enable = true;
-              };
 
               # Allow unfree packages
               nixpkgs.config.allowUnfree = true;
@@ -101,9 +98,45 @@
     nixosConfigurations = mkNixosConfigurations [
       {
         name = "nixos-virtualbox";
+        device = "/dev/sda";
         modules = [
           ../hosts/hardware/nixos-virtualbox.nix
-          {user.name = "kiri";}
+          {
+            user.name = "kiri";
+
+            boot.loader = {
+              efi = {
+                canTouchEfiVariables = true;
+                efiSysMountPoint = "/boot/efi";
+              };
+              systemd-boot.enable = true;
+            };
+          }
+        ];
+      }
+
+      {
+        name = "nixos-framework13";
+        device = "/dev/nvme0n1";
+        modules = [
+          ../hosts/hardware/nixos-framework13.nix
+
+          {
+            user.name = "walawren";
+
+            boot.loader = {
+              efi = {
+                canTouchEfiVariables = true;
+                efiSysMountPoint = "/boot/efi";
+              };
+              grub = {
+                efiSupport = true;
+                device = "nodev";
+              };
+            };
+
+            services.fwupd.enable = true;
+          }
         ];
       }
     ];

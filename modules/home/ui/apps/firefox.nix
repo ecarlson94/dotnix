@@ -9,19 +9,6 @@
 with lib; let
   firefox-addons = inputs.firefox-addons.packages.${system};
   cfg = config.ui.apps.firefox;
-
-  lockFalse = {
-    Value = false;
-    Status = "locked";
-  };
-  lockTrue = {
-    Value = true;
-    Status = "locked";
-  };
-  lockEmptyString = {
-    Value = "";
-    Status = "locked";
-  };
 in {
   options.ui.apps.firefox = {enable = mkEnableOption "firefox";};
 
@@ -42,20 +29,23 @@ in {
         isDefault = true;
 
         settings = {
-          "browser.search.defaultenginename" = "google";
+          "browser.search.defaultenginename" = "ddg";
+          "browser.startup.page" = 3; # remember tabs
+          "browser.tabs.inTitlebar" = 0; # start with tabs sidebar open
+          "sidebar.verticalTabs" = true; # use vertical tabs
 
           # Privacy Settings
-          "extensions.pocket.enabled" = lockFalse;
-          "browser.topsites.contile.enabled" = lockFalse;
-          "browser.newtabpage.pinned" = lockEmptyString;
-          "browser.newtabpage.activity-stream.showSponsored" = lockFalse;
-          "browser.newtabpage.activity-stream.system.showSponsored" = lockFalse;
-          "browser.newtabpage.activity-stream.showSponsoredTopSites" = lockFalse;
-          "signon.rememberSignons" = lockFalse;
+          "extensions.pocket.enabled" = false;
+          "browser.topsites.contile.enabled" = false;
+          "browser.newtabpage.pinned" = "";
+          "browser.newtabpage.activity-stream.showSponsored" = false;
+          "browser.newtabpage.activity-stream.system.showSponsored" = false;
+          "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+          "signon.rememberSignons" = false;
         };
 
         extensions.packages = with firefox-addons; [
-          bitwarden
+          proton-pass
           darkreader
           firefox-color
           stylus

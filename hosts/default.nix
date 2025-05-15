@@ -52,23 +52,42 @@ in
           system = {
             stateVersion = "23.11"; # Update when reinstalling
             docker.enable = true;
-          };
-
-          catppuccin.grub.enable = true;
-          boot.loader = {
-            efi = {
-              canTouchEfiVariables = true;
-              efiSysMountPoint = "/boot/efi";
-            };
-            grub = {
-              efiSupport = true;
-              device = "nodev";
-            };
+            bootloader.grub.enable = true;
           };
 
           ui = {
             enable = true;
             gaming.enable = true;
+          };
+        }
+      ];
+      homeOptions.ui = {
+        enable = true;
+        nixos.enable = true;
+      };
+    }
+
+    {
+      name = "nixos-framework13";
+      modules = [
+        inputs.disko.nixosModules.disko
+        (import ./disko.nix {
+          inherit (nixpkgs) lib;
+          device = "/dev/nvme0n1";
+        })
+
+        ../hosts/hardware/nixos-framework13.nix
+        ../modules/nixos
+
+        {
+          system = {
+            stateVersion = "25.05"; # Update when reinstalling
+            docker.enable = true;
+            bootloader.grub.enable = true;
+          };
+
+          ui = {
+            enable = true;
           };
         }
       ];
@@ -94,7 +113,10 @@ in
           system.stateVersion = "25.05"; # Update when reinstalling
 
           boot.loader = {
-            efi.canTouchEfiVariables = true;
+            efi = {
+              canTouchEfiVariables = true;
+              efiSysMountPoint = "/boot/efi";
+            };
             systemd-boot.enable = true;
           };
 

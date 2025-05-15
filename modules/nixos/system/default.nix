@@ -11,6 +11,8 @@
     ./cachix-agent.nix
     ./ddns.nix
     ./docker.nix
+    ./dual-function-keys.nix
+    ./grub.nix
     ./network.nix
     ./nix-helper.nix
     ./openssh.nix
@@ -25,7 +27,7 @@
   ];
 
   wsl.defaultUser = config.user.name;
-  programs.dconf.enable = config.wsl.enable; # Configuration System & Setting Management - required for Home Manager
+  programs.dconf.enable = true; # Configuration System & Setting Management - required for Home Manager
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -60,5 +62,11 @@
 
     cachix.enable = true; # Binary Cache
     nix-helper.enable = true;
+    dual-function-keys = {
+      "KEY_CAPSLOCK" = {
+        tap = "KEY_ESC";
+        hold = "KEY_LEFTCTRL";
+      };
+    };
   };
 }

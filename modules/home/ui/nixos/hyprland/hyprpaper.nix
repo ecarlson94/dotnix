@@ -45,7 +45,7 @@ in {
 
         Unit = {
           Description = "Set random desktop background using hyprpaper";
-          After = ["graphical-session-pre.target"];
+          After = ["graphical-session.target"];
           PartOf = ["graphical-session.target"];
         };
 

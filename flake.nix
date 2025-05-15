@@ -4,6 +4,7 @@
   inputs = {
     # Repo configuration dependencies
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
 
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL";

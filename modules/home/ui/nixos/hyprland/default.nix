@@ -61,7 +61,6 @@ in {
           gaps_out = 10;
           border_size = 3;
           layout = "dwindle";
-          apply_sens_to_raw = 1; # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
           "col.active_border" = "${primaryAccent} ${secondaryAccent} ${tertiaryAccent} 45deg";
           "col.inactive_border" = "${crust}";
         };
@@ -74,9 +73,12 @@ in {
 
         decoration = {
           rounding = theme.radius;
-          drop_shadow = "yes";
-          shadow_range = 4;
-          shadow_render_power = 3;
+
+          shadow = {
+            enabled = true;
+            range = 4;
+            render_power = 3;
+          };
         };
 
         animations = {
