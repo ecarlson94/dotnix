@@ -6,6 +6,7 @@
 }:
 with lib; let
   cfg = config.ui.hyprland;
+  fingerprint = config.ui.fingerprint;
 in {
   options.ui.hyprland = {enable = mkEnableOption "hyprland";};
 
@@ -59,7 +60,10 @@ in {
 
     security.pam = {
       services = {
-        hyprlock.text = "auth include login";
+        hyprlock = {
+          text = "auth include login";
+          fprintAuth = fingerprint.enable;
+        };
         login.enableGnomeKeyring = true;
       };
 

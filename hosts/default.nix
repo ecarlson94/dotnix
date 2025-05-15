@@ -88,6 +88,7 @@ in
 
           ui = {
             enable = true;
+            fingerprint.enable = true;
           };
         }
       ];
