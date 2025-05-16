@@ -14,6 +14,17 @@ in {
     security.pam.services = {
       login.fprintAuth = true;
       sudo.fprintAuth = true;
+
+      hyprlock = {
+        fprintAuth = fingerprint.enable;
+        text = mkForce ''
+          auth     sufficient pam_fprintd.so
+          auth     include    login
+          account  include    login
+          password include    login
+          session  include    login
+        '';
+      };
     };
   };
 }
