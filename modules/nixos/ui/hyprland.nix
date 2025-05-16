@@ -59,7 +59,7 @@ in {
 
     security.pam = {
       services = {
-        hyprlock.text = "auth include login";
+        hyprlock.text = " auth include login ";
         login.enableGnomeKeyring = true;
       };
 

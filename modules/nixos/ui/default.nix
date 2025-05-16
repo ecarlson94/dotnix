@@ -14,6 +14,7 @@ in {
 
     ./bluetooth.nix
     ./file-manager.nix
+    ./fingerprint.nix
     ./gaming.nix
     ./hyprland.nix
     ./plymouth.nix
