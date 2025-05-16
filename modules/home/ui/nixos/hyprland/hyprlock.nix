@@ -1,24 +1,31 @@
 {
-  lib,
   config,
+  hostConfig,
+  lib,
+  pkgs,
   theme,
   ...
 }:
 with theme.colors;
 with lib; let
   cfg = config.ui.nixos.hyprland.hyprlock;
+  fingerprint = hostConfig.ui.fingerprint;
 in {
   options.ui.nixos.hyprland.hyprlock = {enable = mkEnableOption "hyprlock";};
 
   config = mkIf cfg.enable {
+    home.packages = mkIf fingerprint.enable [pkgs.polkit_gnome];
+
     programs.hyprlock = {
       enable = true;
 
       settings = {
         general = {
-          disable_loading_bar = true;
           hide_cursor = false;
-          no_fade_in = true;
+        };
+
+        auth = mkIf fingerprint.enable {
+          fingerprint.enabled = true;
         };
 
         background = [
@@ -70,6 +77,9 @@ in {
     wayland.windowManager.hyprland.settings = {
       bind = [
         "SUPERCONTROLSHIFTALT,N,exec,hyprlock"
+      ];
+      exec-once = [
+        (mkIf fingerprint.enable "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1")
       ];
     };
   };

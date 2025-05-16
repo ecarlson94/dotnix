@@ -61,8 +61,14 @@ in {
     security.pam = {
       services = {
         hyprlock = {
-          text = "auth include login";
           fprintAuth = fingerprint.enable;
+          text = ''
+            auth     sufficient pam_fprintd.so
+            auth     include    login
+            account  include    login
+            password include    login
+            session  include    login
+          '';
         };
         login.enableGnomeKeyring = true;
       };
