@@ -8,8 +8,8 @@
 }:
 with theme.colors;
 with lib; let
+  inherit (hostConfig.ui) fingerprint;
   cfg = config.ui.nixos.hyprland.hyprlock;
-  fingerprint = hostConfig.ui.fingerprint;
 in {
   options.ui.nixos.hyprland.hyprlock = {enable = mkEnableOption "hyprlock";};
 

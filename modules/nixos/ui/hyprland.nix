@@ -5,8 +5,8 @@
   ...
 }:
 with lib; let
+  inherit (config.ui) fingerprint;
   cfg = config.ui.hyprland;
-  fingerprint = config.ui.fingerprint;
 in {
   options.ui.hyprland = {enable = mkEnableOption "hyprland";};
 
