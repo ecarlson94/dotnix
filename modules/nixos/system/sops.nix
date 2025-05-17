@@ -3,8 +3,8 @@
   inputs,
   ...
 }: let
+  inherit (config.users.users.${config.user.name}) group;
   user = config.user.name;
-  group = config.users.users.${config.user.name}.group;
 in {
   imports = [inputs.sops-nix.nixosModules.sops];
 
