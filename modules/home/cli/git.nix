@@ -61,5 +61,11 @@ in {
         };
       };
     };
+
+    home.activation.linkUserSshKey = lib.hm.dag.entryAfter ["writeBoundary"] ''
+      mkdir -p ~/.ssh
+      chmod 700 ~/.ssh
+      ln -sf /run/secrets-for-users/${config.home.username}_ssh_key ~/.ssh/${config.home.username}_ssh_key
+    '';
   };
 }

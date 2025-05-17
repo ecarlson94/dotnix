@@ -2,7 +2,10 @@
   config,
   inputs,
   ...
-}: {
+}: let
+  inherit (config.users.users.${config.user.name}) group;
+  user = config.user.name;
+in {
   imports = [inputs.sops-nix.nixosModules.sops];
 
   sops = {
@@ -26,14 +29,20 @@
     # secrets required for user creation are handled in the ./user.nix file
     # because they will be output to /run/secrets-for-users and only when the user is assigned to a host
     secrets = {
-      "passwords/${config.user.name}".neededForUsers = !config.wsl.enable;
-      "private_keys/${config.user.name}" = {
-        inherit (config.users.users.${config.user.name}) group;
-        path = "/home/${config.user.name}/.ssh/${config.user.name}_ssh_key";
+      "passwords/${user}".neededForUsers = !config.wsl.enable;
+      "${config.user.name}_ssh_key" = {
+        inherit group;
         mode = "0440";
         neededForUsers = true;
-        owner = config.user.name;
+        owner = user;
       };
     };
   };
+
+  # This is needed because `sops.secrets.<secret>.owner`
+  # and `sops.secrets.<secret>.group` does not work.
+  system.activationScripts.fixSecretPermissions.text = ''
+    chown ${user}:users /run/secrets-for-users/${user}_ssh_key
+    chmod 0400 /run/secrets-for-users/${user}_ssh_key
+  '';
 }
