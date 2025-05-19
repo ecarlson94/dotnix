@@ -49,23 +49,13 @@ in {
 
       ssh = {
         enable = true;
-
-        matchBlocks = {
-          "git" = {
-            host = "github.com gitlab.com";
-            identitiesOnly = true;
-            identityFile = [
-              "/home/${hostConfig.user.name}/.ssh/${hostConfig.user.name}_ssh_key"
-            ];
-          };
-        };
       };
     };
 
     home.activation.linkUserSshKey = lib.hm.dag.entryAfter ["writeBoundary"] ''
       mkdir -p ~/.ssh
       chmod 700 ~/.ssh
-      ln -sf /run/secrets-for-users/${config.home.username}_ssh_key ~/.ssh/${config.home.username}_ssh_key
+      ln -sf /run/secrets-for-users/${config.home.username}_ssh_key ~/.ssh/id_ed25519
     '';
   };
 }
