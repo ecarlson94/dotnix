@@ -64,6 +64,7 @@
                 git
                 rsync
                 wget
+                bashInteractive # always safe to include even if using fish
               ];
 
               # Allow unfree packages
