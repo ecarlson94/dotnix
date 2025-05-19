@@ -97,10 +97,10 @@
   in {
     nixosConfigurations = mkNixosConfigurations [
       {
-        name = "nixos-virtualbox";
-        device = "/dev/sda";
+        name = "nixos-mediaserver";
+        device = "/dev/nvme0n1";
         modules = [
-          ../hosts/hardware/nixos-virtualbox.nix
+          ../hosts/hardware/nixos-mediaserver.nix
           {
             user.name = "kiri";
 
